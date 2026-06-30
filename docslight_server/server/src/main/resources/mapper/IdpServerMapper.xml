@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.compdf.mapper.IdpServerMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="IdpServerResultMap" type="com.compdf.entity.IdpServer">
+        <result property="createdAt" column="created_at" />
+        <result property="id" column="id" />
+        <result property="ip" column="ip" />
+        <result property="name" column="name" />
+        <result property="port" column="port" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,4 @@
+window.__app_env = {
+  ADMIN_HOST: '__ADMIN_HOST__',
+  LICENSE_KEY: '__LICENSE_KEY__'
+}

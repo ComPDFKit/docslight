@@ -1,0 +1,696 @@
+{
+  "common": {
+    "properties": "Propriétés",
+    "navigation": {
+      "nextPage": "Suivant",
+      "previousPage": "Précédent"
+    },
+    "actions": {
+      "loading": "Chargement",
+      "upload": "Télécharger",
+      "ok": "D'ACCORD",
+      "exit": "Sortie",
+      "cancel": "Annuler",
+      "continue": "Continuer",
+      "delete": "Supprimer",
+      "apply": "Appliquer",
+      "save": "Sauvegarder",
+      "clear": "Clair",
+      "edit": "Modifier",
+      "reply": "Répondre",
+      "confirm": "Confirmer"
+    },
+    "uiElements": {
+      "color": "Couleur",
+      "opacity": "Opacité",
+      "font": "Fonte"
+    },
+    "fontStyles": {
+      "regular": "Régulier",
+      "oblique": "Oblique",
+      "bold": "Audacieux",
+      "boldOblique": "Oblique gras"
+    }
+  },
+
+  "toolbar": {
+    "viewControls": {
+      "leftPanel": "Panneau gauche",
+      "fullScreen": "Plein écran",
+      "viewSetting": "Afficher les paramètres",
+      "pan": "Poêle",
+      "cropPage": "Couper",
+      "zoomIn": "Zoomer",
+      "zoomOut": "Zoom arrière",
+      "search": "Recherche"
+    },
+    "themeSwitcher": {
+      "light": "Lumière",
+      "dark": "Sombre",
+      "lightMode": "Mode lumière",
+      "darkMode": "Mode sombre"
+    },
+    "toolbarGroup": {
+      "viewer": "Visionneuse",
+      "annotations": "Annotations",
+      "forms": "Formulaires",
+      "signatures": "Signature",
+      "security": "Sécurité",
+      "redaction": "Rédaction",
+      "compare": "Comparer des documents",
+      "editor": "Éditeur de contenu",
+      "documentEditor": "Éditeur de documents",
+      "separation": "Séparation des couleurs",
+      "measurement": "Mesures"
+    },
+    "annotationTools": {
+      "note": "Note",
+      "highlight": "Souligner",
+      "underline": "Souligner",
+      "strikeout": "Barré",
+      "squiggly": "Onduleux",
+      "ink": "Encre",
+      "circle": "Cercle",
+      "arc": "Arc",
+      "polygon": "Polygone",
+      "polyline": "Ligne polygonale",
+      "square": "Carré",
+      "arrow": "Flèche",
+      "line": "Doubler",
+      "freetext": "Texte libre",
+      "stamp": "Timbre",
+      "image": "Image",
+      "link": "Lien",
+      "cloudy": "Nuage",
+      "callout": "Zone d’appel"
+    },
+    "formTools": {
+      "textField": "Champ de texte",
+      "checkbox": "Case à cocher",
+      "radioButton": "Bouton radio",
+      "listBox": "Zone de liste",
+      "comboButton": "Bouton combiné",
+      "button": "Bouton poussoir",
+      "signataireField": "Champ de signature",
+      "FillSign": "Remplir et signer"
+    },
+    "fileOperations": {
+      "openFile": "Ouvrir le fichier",
+      "download": "Télécharger",
+      "flatten": "Enregistrer au format PDF aplati",
+      "print": "Imprimer"
+    },
+    "editorTools": {
+      "addText": "Ajouter du texte",
+      "addImage": "Ajouter une image",
+      "undo": "Défaire",
+      "redo": "Refaire"
+    },
+    "signatureTools": {
+      "createSignField": "Créer/Définir un champ de signature",
+      "addDigitalSign": "Ajouter une signature numérique",
+      "addElectronicSign": "Ajouter une signature électronique",
+      "verifyDigitalSign": "Vérifier la signature numérique"
+    },
+    "measurementTools": {
+      "measureLine": "Doubler",
+      "measureMultiline": "Multiligne",
+      "measurePolygon": "Polygone",
+      "measureRectangle": "Rectangle",
+      "measureCircle": "Cercle",
+      "measureCurve": "Courbe",
+      "measureArc": "Arc"
+    },
+    "settings": {
+      "title": "Paramètres",
+      "author": "Auteur",
+      "annotator": "Annotateur",
+      "language": "Langue",
+      "highlightLink": "Mettre en surbrillance le lien",
+      "highlightForm": "Formulaire de surbrillance",
+      "creationInfo": "Informations sur la création",
+      "version": "Version",
+      "signFill": "Remplir/Signer les champs de formulaire consécutivement",
+      "signForm": "Champs de signature et de formulaire",
+      "sign": "Champ de signature uniquement",
+      "form": "Champ de formulaire uniquement",
+      "disableConsecutively": "Désactiver « Remplir consécutivement »",
+      "skip": "Ignorer les champs non obligatoires"
+    },
+    "compareTip": "Cliquez ici pour commencer."
+  },
+
+  "form": {
+    "note1": "Il y a {{formFields}} champs de formulaire ({{unfilledFormFields}} obligatoires et non remplis) et {{signFields}} champs de signature ({{unsignFields}} obligatoires et non signés).",
+    "note2": "Il y a {{signFields}} champs de signature ({{unsignFields}} obligatoires et non signés).",
+    "note3": "Il y a {{formFields}} champs de formulaire ({{unfilledFormFields}} obligatoires et non remplis).",
+    "startFill": "Cliquez sur « Démarrer » pour accéder au premier champ. Cliquez ici pour ",
+    "consecutively": "désactiver rapidement « Remplir consécutivement ».",
+    "formSignFilled": "Tous les champs de formulaire et de signature obligatoires ont été remplis.",
+    "signFilled": "Tous les champs de signature obligatoires ont été remplis.",
+    "formFilled": "Tous les champs de formulaire obligatoires ont été remplis.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "start": "Démarrer"
+  },
+
+  "panels": {
+    "left": {
+      "thumbnails": "Miniatures",
+      "outlines": {
+        "title": "Grandes lignes",
+        "empty": "Aucun contour"
+      },
+      "layers": {
+        "title": "Calques",
+        "empty": "Pas de calques",
+        "menu": "Menu",
+        "showAll": "Afficher tout",
+        "hideAll": "Masquer tout",
+        "restoreSettings": "Restaurer les paramètres par défaut",
+        "exportLayers": "Exporter des calques de fichiers",
+        "layerProperty": "Propriété de calque",
+        "exportLayer": "Exporter ce calque"
+      },
+      "annotations": {
+        "title": "Annotations",
+        "empty": "Aucune annotation",
+        "import": "Importer des annotations",
+        "export": "Exporter les annotations"
+      },
+      "reply": {
+        "marked": "Marqué",
+        "unmarked": "Non marqué",
+        "accepted": "Accepté",
+        "rejected": "Rejeté",
+        "cancelled": "Annulé",
+        "completed": "Complété",
+        "none": "Aucun",
+        "replyPlaceholder": "Répondez ou ajoutez des idées"
+      },
+      "search": {
+        "title": "Recherche",
+        "placeholder": "Rechercher un PDF",
+        "page": "Page",
+        "pageIndicator": "Page {{page}}",
+        "previous": "Trouver l'occurrence précédente de la phrase",
+        "next": "Trouver l'occurrence suivante de la phrase",
+        "noResults": "Aucun résultat"
+      },
+      "signatures": {
+        "title": "Signature",
+        "list": "Liste de signatures numériques",
+        "details": "Détails de la signature",
+        "certification": "Détails des certifications",
+        "empty": "Aucune signature"
+      }
+    },
+    "right": {
+      "general": {
+        "title": "Général",
+        "name": "Nom",
+        "formField": "Champ de formulaire",
+        "visibility": {
+          "visible": "Visible",
+          "hidden": "Caché"
+        },
+        "properties": "Propriétés",
+        "required": "Obligatoire",
+        "nameConflict": "Veuillez choisir un autre nom",
+        "buttonText": "Texte du bouton",
+        "indicator": "Indicateur de champ inclus",
+        "fill": "Remplir",
+        "signHere": "Signer ici"
+      },
+      "appearance": {
+        "title": "Apparence",
+        "backgroundColor": "Couleur d'arrière-plan"
+      },
+      "preferences": {
+        "title": "Préférences",
+        "alignment": {
+          "title": "Alignement",
+          "left": "Gauche",
+          "center": "Centre",
+          "right": "Droite"
+        },
+        "defaultValue": "Valeur par défaut",
+        "multiLine": "Multiligne",
+        "buttonStyle": "Style de bouton",
+        "styles": {
+          "check": "Vérifier",
+          "circle": "Cercle",
+          "cross": "Croix",
+          "diamond": "Diamant",
+          "square": "Carré",
+          "star": "Étoile"
+        },
+        "defaultChecked": "Le bouton est coché par défaut",
+        "item": "Article",
+        "itemList": "Liste d'articles",
+        "selectAction": {
+          "title": "Sélectionnez une action",
+          "none": "Aucun",
+          "goPage": "Aller aux pages",
+          "openLink": "Ouvrir un lien Web"
+        },
+        "addResource": {
+          "url": "Ajouter une URL",
+          "page": "Ajouter une page"
+        },
+        "radioTips": [
+          "1 bouton en groupe. Au moins 2 boutons nécessaires.",
+          "Pour créer un ensemble de boutons radio mutuellement exclusifs (c'est-à-dire où un seul peut être sélectionné à la fois), veuillez donner le même nom aux champs."
+        ],
+        "listBoxTip": "Sélectionnez un élément dans la liste des éléments pour en faire l'option par défaut."
+      }
+    },
+    "pageMode": {
+      "displayMode": {
+        "title": "Mode d'affichage",
+        "singlePage": "Page unique",
+        "twoPages": "Deux pages",
+        "coverMode": "Mode couverture"
+      },
+      "splitView": {
+        "title": "Rouleau",
+        "vertical": "Défilement vertical",
+        "horizontal": "Défilement horizontal"
+      },
+      "themes": "Thèmes"
+    },
+    "stamp": {
+      "standard": "Standard",
+      "dynamic": "Dynamique",
+      "custom": "Coutume",
+      "create": "Créer ici",
+      "createHere": "Créer"
+    },
+    "link": {
+      "title": "Lien vers",
+      "types": {
+        "url": "URL",
+        "pages": "Aller aux pages",
+        "email": "E-mail"
+      },
+      "action": "Aller"
+    },
+    "measurement": {
+      "appearance": "Apparence",
+      "lineWidth": "Largeur de ligne",
+      "lineColor": "Couleur de ligne",
+      "lineStyle": "Style de ligne et de bordure",
+      "lineOpacity": "Opacité des lignes",
+      "lineTextOpacity": "Opacité des lignes et du texte",
+      "lineStart": "Commencer",
+      "lineEnd": "Fin",
+      "fillColor": "Couleur de remplissage",
+      "fillOpacity": "Opacité du remplissage",
+      "fontColor": "Couleur de police",
+      "fontStyle": "Style de police",
+      "note": "Note"
+    },
+    "freeText": {
+      "title": "Texte libre",
+      "fontStyle": "Style de police",
+      "fontColor": "Couleur de police",
+      "borderWidth": "Largeur de la bordure",
+      "borderColor": "Couleur de la bordure",
+      "opacity": "Opacité",
+      "fillColor": "Couleur de remplissage"
+    },
+    "customStamp": {
+      "title": "Timbre personnalisé",
+      "preview": "Aperçu",
+      "properties": "Propriétés",
+      "fontFamily": "Fonte",
+      "fontColor": "Couleur de police",
+      "fontStyle": "Style de police",
+      "fontSize": "Taille de la police",
+      "alignment": "Alignement",
+      "addText": "Ajouter du texte",
+      "addShape": "Ajouter une forme",
+      "addDateTime": "Ajouter la date et l'heure",
+      "shape": "Forme",
+      "borderColor": "Couleur de la bordure",
+      "borderWidth": "Largeur de la bordure",
+      "borderOpacity": "Opacité des bordures",
+      "opacity": "Opacité",
+      "fillColor": "Couleur de remplissage",
+      "fillOpacity": "Opacité de remplissage",
+      "dateTime": "Date et heure",
+      "createHere": "Créer ici"
+    }
+  },
+
+  "passwordDialog": {
+    "enterPwd": "Entrez le mot de passe pour afficher le document",
+    "placeholder": "Veuillez entrer le mot de passe",
+    "wrongPwd": "Mauvais mot de passe",
+    "longPwd": "Le mot de passe est trop long, maximum 20 caractères.",
+    "samePwd": "Le mot de passe du document et le mot de passe d'autorisation ne peuvent pas être identiques",
+    "encryptTitle": "Cryptez votre PDF",
+    "encrypt": "Chiffrer",
+    "support": "Prise en charge: chiffres, lettres, {'@'}, $, !, %, ?, &",
+    "removeSuccess": "Mot de passe supprimé avec succès!",
+    "removeFailure": "Échec de la suppression du mot de passe.",
+    "setSuccess": "Mot de passe défini avec succès ! Téléchargez le fichier pour prendre effet.",
+    "setFailure": "Échec de la définition des mots de passe pour ce document.",
+    "documentPwd": "Mot de passe du document",
+    "permissionPwd": "Mot de passe d'autorisation",
+    "disablePrinting": "Désactiver l'impression",
+    "disableCopying": "Désactiver la copie",
+    "disableEdit": "Désactiver l'annotation, le formulaire, la mesure, la rédaction (ajouter, supprimer et modifier)",
+    "notes": [
+      "Note:",
+      "- Toutes les modifications prendront effet après le téléchargement.",
+      "- Vous pouvez réinitialiser votre mot de passe à tout moment avant de télécharger."
+    ],
+    "enterPermissionPwd": "Entrez le mot de passe d'autorisation"
+  },
+
+  "signatures": {
+    "tip": "Veuillez d'abord créer un champ de signature, puis sélectionner le type de signature.",
+    "danger": "Veuillez sélectionner un champ de signature vide pour signer.",
+    "trackpad": "Pavé tactile",
+    "lineWidth": "Largeur de ligne",
+    "keyboard": "Clavier",
+    "signHere": "Signez ici",
+    "image": "Image",
+    "selectFile": "Sélectionnez un fichier",
+    "none": "Aucun",
+    "uploadError": "Veuillez télécharger des images de moins de 1 Mo",
+    "fullStorage": "Vos modèles de signature sont pleins. Veuillez en supprimer quelques-uns pour en créer de nouveaux.",
+    "title": "Sélectionnez le type de signature",
+    "electronic": {
+      "title": "Signer avec des signatures électroniques",
+      "description": "Dessinez, saisissez ou téléchargez des signatures d'image pour signer des fichiers."
+    },
+    "digital": {
+      "title": "Signer avec des signatures numériques",
+      "description": "Créez ou téléchargez un certificat numérique avec un identifiant numérique unique pour signer des fichiers."
+    },
+    "startSigning": "Commencez à signer",
+    "details": {
+      "title": "Détails de la signature numérique",
+      "signer": "Signature valide, signée par",
+      "signingTime": "Heure de signature",
+      "validitySummary": "Résumé de validité",
+      "validIdentity": "L'identité du signataire est valide.",
+      "invalidIdentity": "L'identité du signataire n'est pas valide.",
+      "unknownIdentity": "La validité de la signature est inconnue car elle n'a pas été incluse dans votre liste de certificats de confiance et aucun de ses certificats parents n'est des certificats de confiance.",
+      "expiredCertificate": "Le fichier a été signé avec un certificat qui a expiré. Si vous avez acquis ce fichier récemment, il se peut qu'il ne soit pas authentique.",
+      "validSignature": "La signature est valide.",
+      "invalidSignature": "La signature n'est pas valide.",
+      "notModified": "Le document n'a pas été modifié depuis l'apposition de cette signature.",
+      "altered": "Le document a été modifié ou corrompu depuis sa signature par l'utilisateur actuel.",
+      "viewCertificate": "Afficher les détails du certificat",
+      "unknownSignature": "La validité de la signature est inconnue.",
+      "invalidSignatures": "Au moins une signature n'est pas valide.",
+      "viewAll": "Afficher toutes les signatures"
+    },
+    "certificateViewer": {
+      "title": "Visionneuse de certificats",
+      "abstracts": "Résumés",
+      "summary": "Résumé",
+      "issuedTo": "Délivré à:",
+      "issuer": "Émetteur:",
+      "validFrom": "Valable à partir de:",
+      "validTo": "Valable jusqu'à:",
+      "intendedUsage": "Utilisation prévue:",
+      "details": {
+        "title": "Détails",
+        "version": "Version",
+        "algorithm": "Algorithme",
+        "subject": "Sujet",
+        "serialNumber": "Numéro de série",
+        "certificatePolicy": "Politique de certification:",
+        "crlDistribution": "Points de distribution des listes de révocation de certificats:",
+        "issuerInfoAccess": "Accès aux informations sur l'émetteur:",
+        "issuerKeyIdentifier": "Identifiant clé de l'émetteur:",
+        "subjectKeyIdentifier": "Identifiant clé du sujet:",
+        "constraints": "Contraintes de base:",
+        "keyUsage": "Utilisation clé:",
+        "publicKey": "Clé publique:",
+        "x509": "Données X.509:",
+        "sha1Digests": "Résumé SHA1:",
+        "md5Digests": "Résumé MD5:"
+      },
+      "trust": {
+        "title": "Confiance",
+        "sign": "Signer un document ou des données",
+        "certify": "Certifier le document",
+        "addToTrust": "Ajouter aux certificats de confiance",
+        "done": "Fait"
+      }
+    },
+    "deleteConfirm": "Êtes-vous sûr de le supprimer?",
+    "digitalDialog": {
+      "title": "Ajouter une identification numérique",
+      "description": "Parcourez un fichier d'identification numérique. Les identifiants numériques sont protégés par mot de passe. Si vous ne connaissez pas le mot de passe, vous ne pouvez pas obtenir d'identification numérique",
+      "certificateFile": "Fichier de certificat",
+      "uploadFile": "Télécharger le fichier de certificat",
+      "password": "Mot de passe",
+      "enterPassword": "Entrez le mot de passe du fichier de certificat",
+      "invalidPassword": "Mot de passe invalide"
+    },
+    "appearance": {
+      "title": "Ajouter une signature numérique",
+      "signHere": "Signez ici !",
+      "includeText": "Inclure du texte",
+      "name": "Nom",
+      "distinguishableName": "Nom distinctif",
+      "date": "Date",
+      "version": "Version ComPDFKit",
+      "logo": "Logo",
+      "location": "Emplacement",
+      "reason": "Raison",
+      "docOwner": "Je suis le propriétaire du document",
+      "approving": "J'approuve le document",
+      "reviewed": "J'ai examiné ce document",
+      "labels": "Étiquettes",
+      "textAlignment": "Alignement du texte"
+    },
+    "electronicSignature": {
+      "title": "Ajouter une signature électronique",
+      "empty": "Commencez à créer votre modèle de signature!",
+      "mySignatures": "Mes signatures",
+      "create": "Créer des signatures",
+      "saveTemplate": "Enregistrer dans Mes modèles de signature.",
+      "dropFile": "Déposez l'image ici ou"
+    }
+  },
+
+  "compare": {
+    "startCompare": "Commencez à comparer",
+    "return": "Retour",
+    "compare": "Comparer",
+    "oldFile": "Ancien fichier",
+    "newFile": "Nouveau fichier",
+    "dropFile": [
+      "Déposez un fichier PDF ici",
+      "ou"
+    ],
+    "chooseOld": "Choisissez votre ancien fichier",
+    "chooseNew": "Choisissez votre nouveau fichier",
+    "status": "Les résultats de la comparaison arrivent bientôt !",
+    "contentDialog": {
+      "title": "Comparaison de contenu",
+      "items": "Comparer les articles",
+      "text": "Texte",
+      "images": "Images",
+      "colorMark": "Couleur pour marquer les différences",
+      "replaced": "Contenu remplacé",
+      "inserted": "Contenu inséré",
+      "deleted": "Contenu supprimé"
+    },
+    "overlayDialog": {
+      "title": "Comparaison de superposition",
+      "blendMode": "Mode de fusion",
+      "normal": "Normale",
+      "multiply": "Multiplier",
+      "screen": "Écran",
+      "overlay": "Recouvrir",
+      "darken": "Assombrir",
+      "lighten": "Alléger",
+      "colorDodge": "CouleurDodge",
+      "colorBurn": "CouleurBurn",
+      "hardLight": "Lumière dure",
+      "softLight": "Lumière douce",
+      "difference": "Différence",
+      "exclusion": "Exclusion",
+      "hue": "Teinte",
+      "saturation": "Saturation",
+      "colour": "Couleur",
+      "luminosity": "Luminosité"
+    },
+    "downloadOptions": "Sélectionnez une option de sortie",
+    "separateFiles": "Enregistrer et télécharger séparément",
+    "mergedFile": "Fusionner en un seul fichier",
+    "printSettings": "Paramètres d'impression",
+    "printOld": "Imprimer le résultat de la comparaison de l'ancien fichier",
+    "printNew": "Imprimer le résultat de la comparaison du nouveau fichier",
+    "credit": "Résultats de comparaison par ComPDFKit"
+  },
+
+  "contentEditor": {
+    "textProperties": {
+      "title": "Propriétés du texte",
+      "fontColor": "Couleur de police",
+      "textStyle": "Style de texte",
+      "spacing": "Espacement",
+      "characterSpacing": "Espacement des caractères",
+      "lineSpacing": "Espacement des lignes",
+      "paragraphSpacing": "Espacement des paragraphes"
+    },
+    "imageProperties": {
+      "title": "Propriétés de l'image",
+      "rotate": "Tourner",
+      "rotateLeft": "Faire pivoter à gauche",
+      "rotateRight": "Faire pivoter à droite",
+      "flip": "Retourner",
+      "flipHorizontal": "Retourner horizontalement",
+      "flipVertical": "Retourner verticalement",
+      "tools": "Outils",
+      "replace": "Remplacer",
+      "export": "Exporter",
+      "crop": "Recadrer",
+      "maxSize": "Taille maximale de l'image de téléchargement: 2 Mo"
+    }
+  },
+
+  "documentEditor": {
+    "saveAs": "Enregistrer sous...",
+    "insert": "Insérer",
+    "rotateRight": "Faire pivoter à droite",
+    "rotateLeft": "Faire pivoter à gauche",
+    "copy": "Copie",
+    "extract": "Extrait",
+    "replace": "Remplacer",
+    "move": "Se déplacer",
+    "selectAll": "Sélectionner tout",
+    "unselectAll": "Désélectionner tout",
+    "dialog": {
+      "insertPages": "Insérer des pages",
+      "blankPage": "Page blanche",
+      "customPage": "Page vierge personnalisée",
+      "fromPdf": "À partir du PDF",
+      "selectFile": "Sélectionnez un fichier",
+      "pageRange": "Plage de pages",
+      "allPages": "Toutes les pages",
+      "oddPage": "Pages impaires uniquement",
+      "evenPage": "Pages paires uniquement",
+      "customRange": "Gamme personnalisée",
+      "insertTo": "Insérer dans",
+      "firstPage": "Première page",
+      "lastPage": "Dernière page",
+      "page": "Page",
+      "tip": "par ex. 3, 5-10",
+      "before": "Avant",
+      "after": "Après"
+    },
+    "deleteConfirmation": "Voulez-vous supprimer la page",
+    "separateFiles": "Chaque page dans un fichier séparé",
+    "deleteAfter": "Supprimer la page après l'extraction",
+    "moveTo": "Déplacer après la page:",
+    "pageInputTip": "Entrez 0 au numéro de page maximum"
+  },
+
+  "security": {
+    "encryption": "Cryptage",
+    "decryption": "Décryptage"
+  },
+
+  "redaction": {
+    "fillBlack": "Remplir en noir",
+    "fillWhite": "Remplir en blanc",
+    "caution": "Prudence",
+    "warning": "Le contenu expurgé sera définitivement supprimé de ce document. Veuillez confirmer votre action.",
+    "understand": "Comprendre et démarrer",
+    "applyWarning": "Après avoir appliqué les expurgations, le contenu expurgé sera définitivement supprimé.",
+    "note": "Note",
+    "exitWarning": "Vos suppressions n'ont pas été appliquées. Etes-vous sûr de sortir ?",
+    "saveWarning": [
+      "Tout le contenu expurgé de ce document sera définitivement supprimé et ne pourra pas être récupéré.",
+      "Êtes-vous sûr de vouloir les expurger et enregistrer le fichier?"
+    ]
+  },
+
+  "layer": {
+    "show": "Montrer",
+    "hide": "Cacher",
+    "lock": "Verrouillage",
+    "unlock": "Ouvrir",
+    "lockedWarning": "Le calque actuel est verrouillé. Pour modifier sa visibilité, veuillez d'abord le déverrouiller dans les propriétés du calque.",
+    "properties": {
+      "title": "Définir la propriété du calque",
+      "layerProperty": "Propriété de calque",
+      "name": "Nom du calque",
+      "namePlaceholder": "Veuillez entrer le nom du calque",
+      "defaultSettings": "Paramètres par défaut",
+      "defaultShow": "Affichage par défaut lors de l'ouverture de fichiers",
+      "defaultHide": "Masquer par défaut lors de l'ouverture de fichiers",
+      "lockLayer": "Calque de verrouillage",
+      "printProperty": "Imprimer la propriété",
+      "always": "Toujours",
+      "never": "Jamais",
+      "printVisible": "Imprimer lorsqu'il est visible",
+      "exportProperty": "Propriété d'exportation",
+      "exportVisible": "Exporter lorsqu'il est visible"
+    }
+  },
+
+  "colorSeparation": {
+    "toggleColor": "Changer les couleurs",
+    "mobileWarning": "Cette fonctionnalité n'est pas disponible pour mobile, veuillez y accéder sur PC pour la meilleure expérience"
+  },
+
+  "measurement": {
+    "scale": "Échelle",
+    "dimensions": {
+      "distance": "Distance",
+      "angle": "Angle",
+      "radius": "Rayon",
+      "perimeter": "Périmètre",
+      "area": "Zone",
+      "arcLength": "Longueur de l'arc",
+      "width": "Largeur",
+      "height": "Hauteur"
+    },
+    "precision": "Précision",
+    "tooltips": {
+      "xAxis": "Distance de l'axe X",
+      "yAxis": "Distance de l'axe Y",
+      "lineAngle": "Saisissez l'angle entre la ligne et l'horizontale pour ajuster sa pente. Tournez à partir du point de départ : dans le sens antihoraire, [0°, 180°], dans le sens horaire, [-180°, 0°].",
+      "multilineAngle": "Non modifiable, affiche uniquement l'angle au point de retournement entre deux lignes pendant la mesure.",
+      "circleRadius": "Rayon pour un cercle ou demi-grand axe pour une ellipse. Après saisie, la forme sélectionnée sera ajustée pour former un cercle parfait avec le rayon spécifié.",
+      "horizontally": "Horizontalement",
+      "vertically": "Verticalement"
+    },
+    "drawingDimensions": "Dimensions du dessin : Taille réelle",
+    "actualSize": "Taille réelle",
+    "units": {
+      "pt": "pt",
+      "in": "dans",
+      "mm": "mm",
+      "cm": "cm",
+      "m": "m",
+      "km": "kilomètres",
+      "ft": "pi",
+      "yd": "yd",
+      "mi": "mi"
+    },
+    "settings": "Paramètres de mesure",
+    "scaleError": "L'échelle doit être supérieure à 0",
+    "showCaption": "Afficher la légende",
+    "done": "Fait",
+    "curveMeasurement": {
+      "title": "Comment mesurer une courbe ?",
+      "steps": [
+        "Étape 1 : Sélectionnez les points de départ et d'arrivée;",
+        "Étape 2 : Faites glisser le point de contrôle bleu pour ajuster la forme."
+      ],
+      "confirmation": "J'ai compris"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}DocSlight Workbench{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=6" />
+  </head>
+  <body data-page="{{ active_page }}">
+    <header class="topbar">
+      <a class="brand" href="{{ url_for('parse_page') }}" aria-label="DocSlight home">
+        <span class="brand-mark">D</span>
+        <span class="brand-text">DocSlight</span>
+      </a>
+      <nav class="topnav" aria-label="Workbench pages">
+        <a class="nav-link{% if active_page == 'parse' %} is-active{% endif %}" href="{{ url_for('parse_page') }}" data-i18n="nav.parse">Parse</a>
+        <a class="nav-link{% if active_page == 'extract' %} is-active{% endif %}" href="{{ url_for('extract_page') }}" data-i18n="nav.extract">Extract</a>
+      </nav>
+      <div class="topbar-actions">
+        <select id="languageSelect" class="language-select" aria-label="Language" data-i18n-aria-label="language.label">
+          <option value="en">English</option>
+          <option value="zh-CN">简体中文</option>
+          <option value="zh-TW">繁體中文</option>
+        </select>
+        <div class="health-badge" aria-live="polite">
+          <span class="health-dot" aria-hidden="true"></span>
+          <span id="healthStatus" data-i18n="health.checking">Checking service...</span>
+        </div>
+      </div>
+    </header>
+    <main class="app-main">
+      {% block content %}{% endblock %}
+    </main>
+    {% block page_scripts %}{% endblock %}
+  </body>
+</html>

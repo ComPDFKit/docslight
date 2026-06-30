@@ -1,0 +1,146 @@
+server:
+  port: ${SERVER_PORT:7000}
+  compression:
+    enabled: true
+    mime-types: text/html,text/plain,text/xml,text/css,text/javascript,application/javascript
+
+spring:
+  thymeleaf:
+    cache: false
+  freemarker:
+    cache: true
+    checkTemplateLocation: false
+  resources:
+    static-locations: classpath:/compdfkit-demo-web/
+  servlet:
+    multipart:
+      max-request-size: 100GB
+      max-file-size: 100GB
+  application:
+    name: compdfkit
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+0
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL:/comidp}?autoReconnect=true&&useSSL=false
+    username: ${DB_USERNAME:deployer}
+    password: ${DB_PASSWORD:}
+    hikari:
+      # 最小空闲连接，默认值10
+      minimum-idle: 10
+      # 最大连接数
+      maximum-pool-size: 20
+      # 空闲连接超时时间
+      idle-timeout: 500000
+      # 连接最大存活时间
+      max-lifetime: 540000
+      # 连接超时时间
+      connection-timeout: 60000
+  redis:
+    host: ${REDIS_HOST:}
+    port: ${REDIS_PORT:33465}
+    password: ${REDIS_PASSWORD:}
+    database: ${REDIS_DATABASE:0}
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 1
+        # 连接池中的最大空闲连接
+        max-idle: 6
+        # 连接池最大连接数（使用负值表示没有限制,不要配置过大，否则可能会影响redis的性能）
+        max-active: 10
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）；单位毫秒
+        max-wait: 1000
+      # 关闭超时时间；单位毫秒
+      shutdown-timeout: 200
+  rabbitmq:
+    host: ${MQ_HOST:}
+    port: ${MQ_PORT:35672}
+    username: ${MQ_USERNAME:admin}
+    password: ${MQ_PASSWORD:}
+    virtualHost: /
+    # 发送端确认
+    publisher-confirm-type: correlated
+    # 消息抵达队列确认
+    publisher-returns: true
+    # 消息抵达队列优先回调returnConfirm
+    template:
+      mandatory: true
+    listener:
+      simple:
+        prefetch: 5
+        # 消费者消息手动应答
+        acknowledge-mode: manual
+        retry:
+          # 最大重试次数 默认为3
+          max-attempts: 1
+          # 监听重试是否可用
+          enabled: false
+          # 传递消息的时间间隔 默认1s
+          initial-interval: 1000
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAML_PORT:465}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    protocol: ${MAIL_PROTOCOL:smtps}
+    default-encoding: UTF-8
+    toEmail: ${MAIL_TO_EMAIL:}
+
+comidp:
+  rustfs:
+    accessKeyId: ${RUSTFS_ACCESS_KEY:}
+    secretAccessKey: ${RUSTFS_SECRET_KEY:}
+    baseUrl: ${RUSTFS_ENDPOINT:}
+  resonac:
+    leaderId: ${RESONAC_LEADER_ID:b0f53c2a055a11f18b7410ffe0d13cd8}
+    templateList: ${RESONAC_TEMPLATE_LIST:318658d6a56a07bfef5e96dc7c6efddd,2f83821d19536ad2020c5f83df1a316a,c2fc6e52394af9498d7e38bab7913e16,d49badcc5d1181473d0748564f9ceb28,8a41d04283d22b3047d4e1caee643f91,d20de6c1be859474ecc2d78587e985d8,0ad18d0bbcbf6a46f3a84796ceb7a745,0a29ac38365d3dc944299ee3ea1aefc2,7e6ed1b3ef0073db6fc18d13ade8179f,b743afd84f98f2708f24090a166ded4c,ab68b4af6d6ab9ff3c70852b6f91be44,7261be3a04f667ad3b52b05a44bd1127,00d2408e5642b238017a62753dded83a,ef1fa83c02f212e42b5698bfa3e3b572,1ebc8ce53850e6b535fb80d31e00a4a6,693dcf0e9108d14d152b35b718a015ac,b35352a4bde6df145398fd84d42f20b4,784cd4d2f7fc1fb40e8b643901f1dde4,a46363c96ef875f5ff0eeaada15838d2,1ae1ac4cb46877c860f049e6e5f49fd1,7dca6d17141583a3a5c89c0fd965a026}
+  config:
+    license: ${LICENSE:}
+    licenseKey: ${LICENSE_KEY:LICENSE_KEY}
+    licenseDeviceId: ${LICENSE_DEVICE_ID:}
+    licenseBoundId: ${LICENSE_BOUND_ID:}
+    executionMode: ${EXECUTION_MODE:}
+    tmpPath: ${TMP_PATH:/tmp/}
+    # en || zh_cn
+    language: ${LANGUAGE:en}
+    # 转换超时时间 分钟单位
+    convertTimeOut: ${CONVERT_TIMEOUT:15}
+    tmpFileIsClear: ${TMP_FILE_IS_CLEAR:false}
+    useGPU: ${USEGPU:false}
+#    gpuID: ${GPU_ID:}
+    modelCount: ${MODEL_COUNT:1}
+#    serviceId: ${SERVICE_ID:}
+#    documentAIHost: ${DOCUMENT_AI_HOST:http://127.0.0.1:7100}
+    qwenAPIKey: ${QWEN_API_KEY:}
+    qwenAPIModel: ${QWEN_API_MODEL:qwen2.5-vl-72b-instruct}
+    lowLevelEngine: ${LOWER_ENGINE::7788}
+    rag_engine: ${RAG_ENGINE:localhost:9222}/v1/user/info
+    docSlightHost: ${DOC_SLIGHT_HOST:http://localhost:8000}
+# 是否是官网用的，留意打包时候修改这里
+isWebsite: false
+
+cors:
+  allow-headers: "X-Requested-With,Content-Type,Cookie,Accept,authorization,Authorization,credential,keyword,x-auth-token,iv,jsonFlag,timeStamp,random,API_KEY,x-api-key"
+  allow-methods: "*"
+  allow-expose: "x-auth-token,Content-Disposition"
+  allow-credentials: "true"
+  allow-origins: "*"
+  allow-max-age: "3600"
+
+
+compdf:
+  file:
+    max-size: ${MAX_FILE_SIZE:104857600}
+  oss:
+    bucketName: ${COMPDF_OSS_FILE_BUCKETNAME:compdf}
+    endpoint: ${COMPDF_OSS_FILE_ENDPOINT:https://oss-us-east-1.aliyuncs.com}
+    accessKeyId: ${COMPDF_OSS_FILE_ACCESSKEYID:}
+    accessKeySecret: ${COMPDF_OSS_FILE_ACCESSKEYSECRET:}
+    file-prefix: ${COMPDF_OSS_FILE_PREFIX:comidp_data}
+#compdf:
+#  download-pre-url: ${COMPDF_DOWNLOAD_PRE_URL:https://pdfreader-dev.oss-cn-shanghai.aliyuncs.com/}
+#  download-localPath: ${COMPDF_DOWNLOAD_LOCALPATH:/tmp/}
+#  download-openUrl: ${COMPDF_DOWNLOAD_OPENURL:http://101.132.103.13:8090/server/v1/pdf/web-viewer/openLocalFile?filePath=}
+#

@@ -1,0 +1,25 @@
+services:
+  comidp-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: compdfkit/comidp-frontend:2.2.2
+    container_name: comidp-frontend
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env
+    ports:
+      - ${COMIDP_PORT}:3022
+      - ${ADMIN_PORT}:3033
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/mime.types:/etc/nginx/mime.types
+    networks:
+      - comidp
+
+networks:
+  comidp:
+    name: comidp
+    driver: bridge

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.compdf.mapper.TemplatePinMapper">
+
+    <!-- 查询用户置顶的分组模板ID列表（按置顶时间倒序） -->
+    <select id="selectPinnedGroupTemplateIds" resultType="java.lang.String">
+        SELECT group_template_id
+        FROM template_pin
+        WHERE user_id = #{userId}
+          AND status = 1
+        ORDER BY pinned_time DESC
+    </select>
+
+</mapper>
