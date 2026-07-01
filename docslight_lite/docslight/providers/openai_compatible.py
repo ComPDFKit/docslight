@@ -7,7 +7,7 @@ from typing import Any
 from docslight.exceptions import DependencyMissingError, LocalProcessingError
 
 INSTALL_LOCAL_LLM_MESSAGE = (
-    "Install local LLM dependencies with: pip install 'docslight[local-llm]'"
+    "Install local dependencies with: pip install 'docslight[local]'"
 )
 NO_TEXT_CONTENT_MESSAGE = "OpenAI-compatible provider returned no text content"
 REQUEST_FAILED_MESSAGE = "OpenAI-compatible provider request failed"

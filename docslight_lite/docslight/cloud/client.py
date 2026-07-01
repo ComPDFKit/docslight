@@ -219,7 +219,7 @@ class CloudClient:
         return compacted
 
     def _headers(self) -> dict[str, str]:
-        headers = {"User-Agent": "docslight/0.1.2"}
+        headers = {"User-Agent": "docslight/0.1.4"}
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
             headers["x-api-key"] = self.api_key

@@ -12,7 +12,7 @@ ExtractSchema = dict[str, Any]
 
 
 def normalize_fields(fields: list[str] | str | StructuredFields | None) -> NormalizedFields:
-    """Normalize extraction fields from SDK, CLI, or Web UI inputs."""
+    """Normalize extraction fields from SDK, CLI, or API inputs."""
     if fields is None:
         return None
     if isinstance(fields, str):

@@ -1,4 +1,4 @@
-"""Preview rendering helpers for the local Web UI."""
+"""Preview rendering helpers for the local API server."""
 
 from __future__ import annotations
 

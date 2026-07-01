@@ -14,7 +14,7 @@ from json import JSONDecodeError
 from pathlib import Path
 from typing import Any, cast
 
-from flask import Flask, Response, jsonify, redirect, render_template, request, send_file, url_for
+from flask import Flask, Response, jsonify, request, send_file
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
@@ -64,15 +64,12 @@ def create_app(docslight_factory: Callable[..., Any] = DocSlight) -> Flask:
 
     @app.get("/")
     def index() -> Any:
-        return redirect(url_for("parse_page"))
-
-    @app.get("/parse")
-    def parse_page() -> str:
-        return render_template("parse.html", active_page="parse")
-
-    @app.get("/extract")
-    def extract_page() -> str:
-        return render_template("extract.html", active_page="extract")
+        return jsonify(
+            {
+                "status": "healthy",
+                "service": "docslight-web",
+            }
+        )
 
     @app.get("/api/health")
     def health() -> Any:
@@ -160,7 +157,11 @@ def create_app(docslight_factory: Callable[..., Any] = DocSlight) -> Flask:
     return app
 
 
-def run_web_app(host: str = "127.0.0.1", port: int = 8000, debug: bool = False) -> None:
+def run_web_app(
+    host: str = "127.0.0.1",
+    port: int = 8000,
+    debug: bool = False,
+) -> None:
     """Run the local DocSlight web application."""
     _configure_web_logging(debug)
     create_app().run(host=host, port=port, debug=debug)

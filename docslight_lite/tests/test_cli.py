@@ -298,7 +298,11 @@ def test_extract_passes_local_llm_options_with_local_mode(
 
 def test_web_command_calls_run_web_app(monkeypatch: Any) -> None:
     calls: list[tuple[str, int, bool]] = []
-    monkeypatch.setattr(cli, "run_web_app", lambda host, port, debug: calls.append((host, port, debug)))
+    monkeypatch.setattr(
+        cli,
+        "run_web_app",
+        lambda host, port, debug: calls.append((host, port, debug)),
+    )
 
     exit_code = cli.main(["web", "--host", "0.0.0.0", "--port", "9000", "--debug"])
 

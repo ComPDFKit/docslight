@@ -1,27 +1,27 @@
-[English]() | [繁體中文]() | [简体中文]()
+[English](README.md) | [繁體中文](README_TW.md) | [简体中文](README_CN.md)
 
 # DocSlight - 开源文档解析与文档数据提取引擎
 
 使用 [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_open_cn&utm_medium=referral&utm_campaign=github_ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn)，精准解析并提取任意文档中的数据——包括 PDF、扫描件、图片和 Office 文件。这是来自 ComPDF（KDAN 生态系统）的开源 AI 项目。
 
 > - 如果你觉得 DocSlight 有帮助，欢迎在 GitHub 上给我们一个 ⭐ **Star**——这能帮助我们成长和改进！
-> - 有问题或想法？欢迎加入我们的 [Discussions](https://github.com/compdfkit/docslight/discussions) 参与讨论。
+> - 有问题或想法？欢迎加入我们的 [Discussions](https://github.com/ComPDFKit/docslight/discussions) 参与讨论。
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/license-GNU--LGPL--v3-green" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/python-3.9%2B-blue" alt="Python"></a>
+  <a href="#"><img src="https://img.shields.io/badge/python-3.10--3.13-blue" alt="Python"></a>
   <a href="#"><img src="https://img.shields.io/github/stars/compdfkit/docslight" alt="GitHub Stars" style="max-width: 100%;"></a>
   <a href="#"><img src="https://img.shields.io/pypi/v/docslight" alt="PyPI"></a>
   <a href="#"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs Welcome"></a>
 </p>
 
 <p align="center">
-  <a href="#-快速开始"><b>快速开始</b></a> •
-  <a href="#-基准测试"><b>效果测试与竞品对比</b></a> •
-  <a href="#-功能特性"><b>功能特性</b></a> •
-  <a href="#%EF%B8%8F-使用方式"><b>使用方式</b></a> •
+  <a href="#快速开始"><b>快速开始</b></a> •
+  <a href="#产品版本对比"><b>产品版本对比</b></a> •
+  <a href="#使用方式"><b>使用方式</b></a> •
+  <a href="#效果测试与竞品对比"><b>效果测试与竞品对比</b></a> •
   <a href="https://compdf.com" target="_blank"><b>Cloud API →</b></a> •
-  <a href="https://www.compdf.com/guides/idp/self-hosted-deployment/overview?utm_source=github_ai_docslight_open_cn&utm_medium=referral&utm_campaign=ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn" target="_blank"><b>文档</b></a>
+  <a href="https://www.compdf.com/zh-cn/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_open_cn&utm_medium=referral&utm_campaign=ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn" target="_blank"><b>文档</b></a>
 </p>
 
 ## 为什么选择 DocSlight？
@@ -54,19 +54,6 @@
 
 ## 快速开始
 
-### 本地模式（免费，无需注册）
-
-```bash
-# 1. 安装
-pip install docslight
-
-# 2. 解析文档
-docslight parse invoice.pdf --mode local --output invoice.md
-
-# 3. 获取结构化结果
-ls invoice.zip
-```
-
 ### 云端模式（更高精度，提供免费额度）
 
 ```bash
@@ -80,20 +67,35 @@ export COMPDF_API_KEY="your_public_key"    # 前往 https://compdf.com 获取
 docslight parse invoice.pdf --mode cloud --output json
 ```
 
-**获取许可证：** [登录 ComPDF 控制台](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit)。在 API 密钥页面创建或复制您的 publicKey。
+### 本地模式（免费，无需注册）
 
-![get-license-cn](D:\ComPDF\个人AI工作间\DocSlight\Images\get-license-cn.png)
+```bash
+# 1. 安装
+pip install docslight
+
+# 2. 解析文档
+docslight parse invoice.pdf --mode local --output invoice.md
+
+# 3. 获取结构化结果
+ls invoice.zip
+```
+
+**获取API Key：** [登录 ComPDF 控制台](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit)。在 API 密钥页面创建或复制您的 publicKey。
+
+![get-license-cn](Images/get-license-cn.png)
 
 ### Web UI（浏览器）
 
 ```bash
 # 启动 Web 界面
 docslight web
-python -m docslight.web_app --host 0.0.0.0 --port 8000 
+
+git clone https://github.com/ComPDFKit/docslight.git
 
 docker compose -f docker/docker-compose.yml up
 # 打开 http://localhost:3022 → 拖拽文件即可
 ```
+以上功能均可在 [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit) 上体验使用，→[体验地址](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit)
 
 ---
 
@@ -144,14 +146,14 @@ docker compose -f docker/docker-compose.yml up
 - **文档数字化** — 批量将扫描档案转换为可搜索文本
 - **AI Agent 集成** — 为 Claude / ChatGPT 提供 MCP 文档读取服务
 
-可运行的示例代码位于 [`examples/`](examples/)：
+可运行的示例代码位于 [`examples/`](docslight_lite/examples/)：
 
-- [`cloud_parse.py`](examples/cloud_parse.py)
-- [`cloud_extract.py`](examples/cloud_extract.py)
-- [`local_parse.py`](examples/local_parse.py)
-- [`local_extract_ollama.py`](examples/local_extract_ollama.py)
-- [`local_extract_openai_compatible.py`](examples/local_extract_openai_compatible.py)
-- [`path_examples.py`](examples/path_examples.py)
+- [`cloud_parse.py`](docslight_lite/examples/cloud_parse.py)
+- [`cloud_extract.py`](docslight_lite/examples/cloud_extract.py)
+- [`local_parse.py`](docslight_lite/examples/local_parse.py)
+- [`local_extract_ollama.py`](docslight_lite/examples/local_extract_ollama.py)
+- [`local_extract_openai_compatible.py`](docslight_lite/examples/local_extract_openai_compatible.py)
+- [`path_examples.py`](docslight_lite/examples/path_examples.py)
 
 ---
 
@@ -216,10 +218,10 @@ docslight extract [options] <input>
 ### Docker
 
 ```bash
-pip install "docslight[web]"
+pip install "docslight"
 docslight web
 
-python -m docslight.web_app --host 0.0.0.0 --port 8000 
+git clone https://github.com/ComPDFKit/docslight.git
 
 docker compose -f docker/docker-compose.yml up
 # 打开 http://127.0.0.1:3022
@@ -401,22 +403,19 @@ LLM / AI Agent
 
 ## 安装包说明
 
-| 包                  | 描述                  |
-| ------------------ | ------------------- |
-| `docslight`        | 核心 CLI + Python SDK |
-| `docslight[web]`   | Web UI（浏览器拖拽操作）     |
-| `docslight[cloud]` | Cloud API 客户端（更高精度） |
-| `docslight[all]`   | 全部功能                |
+| 包                | 描述                  |
+|------------------|---------------------|
+| `docslight`      | 核心 CLI + Python SDK |   
 
 ```bash
-pip install "docslight[all]"
+pip install "docslight"
 ```
 
 ---
 
 ## 支持
 
-有建议？立即[发起讨论](https://github.com/compdfkit/docslight/discussions)。如果你觉得 DocSlight 有帮助，欢迎在 GitHub 上给我们一个 ⭐ **Star**——这能帮助我们成长和改进！
+有建议？立即[发起讨论](https://github.com/ComPDFKit/docslight/discussions)。如果你觉得 DocSlight 有帮助，欢迎在 GitHub 上给我们一个 ⭐ **Star**——这能帮助我们成长和改进！
 
 ---
 
@@ -431,6 +430,6 @@ DocSlight 采用 [LGPL](LICENSE) 开源协议发布。
 <p align="center">
   <b>由 ComPDF 团队打造。</b><br>
   <a href="https://compdf.com?utm_source=github_ai_docslight_open_cn&utm_medium=referral&utm_campaign=ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn">官网</a> ·
-  <a href="https://www.compdf.com/guides/idp/self-hosted-deployment/overview?utm_source=github_ai_docslight_open_cn&utm_medium=referral&utm_campaign=ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn">文档</a> ·
+  <a href="https://www.compdf.com/zh-cn/guides/api-reference/v2/ai/overview?utm_source=ai_docslight_open_cn&utm_medium=referral&utm_campaign=ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn">文档</a> ·
   <a href="https://www.compdf.com/contact-sales?utm_source=ai_docslight_open_cn&utm_medium=referral&utm_campaign=ai_docslight_open_cn&ref_platform_id=github_compdfkit_cn">企业咨询</a>
 </p>

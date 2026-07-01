@@ -169,7 +169,7 @@ def test_local_llm_extractor_wraps_provider_failures() -> None:
 
 
 def test_local_llm_extractor_preserves_docslight_provider_errors() -> None:
-    original_error = DependencyMissingError("Install docslight[local-llm]")
+    original_error = DependencyMissingError("Install docslight[local]")
 
     with pytest.raises(DependencyMissingError) as exc_info:
         LocalLLMExtractor(provider=RaisingProvider(original_error)).extract("# Invoice")
@@ -267,7 +267,7 @@ def test_openai_compatible_provider_imports_openai_lazily(
         return real_import(name, *args, **kwargs)
 
     monkeypatch.setattr(builtins, "__import__", missing_openai)
-    with pytest.raises(DependencyMissingError, match="local-llm"):
+    with pytest.raises(DependencyMissingError, match="local"):
         provider.complete([])
 
 
