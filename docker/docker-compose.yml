@@ -157,6 +157,8 @@ services:
       - "host.docker.internal:host-gateway"
     env_file:
       - .env
+    environment:
+      LICENSE_KEY: 420351305CA748D09BABC5AA5F8034DE
     ports:
       - ${COMIDP_PORT}:3022
       - ${ADMIN_PORT}:3033

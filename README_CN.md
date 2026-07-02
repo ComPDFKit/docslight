@@ -64,8 +64,12 @@ pip install docslight
 export COMPDF_API_KEY="your_public_key"    # 前往 https://compdf.com 获取
 
 # 3. 使用云端引擎解析
-docslight parse invoice.pdf --mode cloud --output json
+docslight parse invoice.pdf --mode cloud --output invoice.md
 ```
+
+**获取API Key：** [登录 ComPDF 控制台](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit)。在 API 密钥页面创建或复制您的 publicKey。
+
+![get-license-cn](Images/get-license-cn.png)
 
 ### 本地模式（免费，无需注册）
 
@@ -80,16 +84,11 @@ docslight parse invoice.pdf --mode local --output invoice.md
 ls invoice.zip
 ```
 
-**获取API Key：** [登录 ComPDF 控制台](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit)。在 API 密钥页面创建或复制您的 publicKey。
-
-![get-license-cn](Images/get-license-cn.png)
 
 ### Web UI（浏览器）
 
 ```bash
 # 启动 Web 界面
-docslight web
-
 git clone https://github.com/ComPDFKit/docslight.git
 
 docker compose -f docker/docker-compose.yml up
@@ -218,9 +217,6 @@ docslight extract [options] <input>
 ### Docker
 
 ```bash
-pip install "docslight"
-docslight web
-
 git clone https://github.com/ComPDFKit/docslight.git
 
 docker compose -f docker/docker-compose.yml up
