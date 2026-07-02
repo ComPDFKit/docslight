@@ -91,6 +91,8 @@ ls invoice.zip
 # 启动 Web 界面
 git clone https://github.com/ComPDFKit/docslight.git
 
+cd docslight
+
 docker compose -f docker/docker-compose.yml up
 # 打开 http://localhost:3022 → 拖拽文件即可
 ```
@@ -218,6 +220,8 @@ docslight extract [options] <input>
 
 ```bash
 git clone https://github.com/ComPDFKit/docslight.git
+
+cd docslight
 
 docker compose -f docker/docker-compose.yml up
 # 打开 http://127.0.0.1:3022

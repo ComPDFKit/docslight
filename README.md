@@ -90,6 +90,8 @@ ls invoice.zip
 ```bash
 git clone https://github.com/ComPDFKit/docslight.git
 
+cd docslight
+
 docker compose -f docker/docker-compose.yml up
 # Open http://localhost:3022 and drag & drop files
 ```
@@ -218,6 +220,8 @@ docslight extract [options] <input>
 
 ```bash
 git clone https://github.com/ComPDFKit/docslight.git
+
+cd docslight
 
 docker compose -f docker/docker-compose.yml up
 # Open http://127.0.0.1:3022

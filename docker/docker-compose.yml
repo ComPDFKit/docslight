@@ -89,10 +89,10 @@ services:
       - comidp
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
-  comidp_server:
+  docslight_server:
     restart: on-failure
     image: ${COMIDP_SERVER_IMAGE}
-    container_name: comidp-server
+    container_name: docslight-server
     depends_on:
       mysql:
         condition: service_healthy
@@ -109,7 +109,7 @@ services:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
       REDIS_DATABASE: ${REDIS_DATABASE}
       TMP_PATH: /comidp/server/out_tmp
-      LOWER_ENGINE: comidp_actuator:8000
+      LOWER_ENGINE: docslight_actuator:8000
       MQ_HOST: ${MQ_HOST}
       MQ_PORT: ${MQ_PORT}
       MQ_USERNAME: ${MQ_USER}
@@ -125,10 +125,10 @@ services:
     networks:
       - comidp
         #- comidp_actuator
-  comidp_actuator:
+  docslight_actuator:
     restart: on-failure
     image: ${COMIDP_ACTUATOR_IMAGE}
-    container_name: comidp-actuator
+    container_name: docslight-actuator
     networks:
       - comidp
     ports:
@@ -149,9 +149,9 @@ services:
     volumes:
       # This needs to be mounted in the same directory as comidp_actuator
       - comidp_data:/comidp
-  comidp-frontend:
+  docslight_frontend:
     image: ${COMIDP_WEB_IMAGE}
-    container_name: comidp-frontend
+    container_name: docslight-frontend
     restart: on-failure
     extra_hosts:
       - "host.docker.internal:host-gateway"
