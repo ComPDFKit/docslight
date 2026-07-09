@@ -12,6 +12,7 @@
     "axios": "^1.10.0",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",
+    "dompurify": "^3.4.5",
     "element-plus": "^2.10.2",
     "eventsource-parser": "^3.0.3",
     "file-saver": "^2.0.5",

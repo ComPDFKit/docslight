@@ -187,7 +187,6 @@ const submit = () => {
       })
       loading.value = false
       if (data.code === 0 && data.message.includes('welcome aboard!')) {
-        sessionStorage.setItem('user', JSON.stringify({ email: ruleForm.value.email, password: ruleForm.value.password }))
         location.href = '/login'
       } else if (data.code === 103 && data.data === false ) {
         ElMessage({

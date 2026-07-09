@@ -82,7 +82,7 @@
                 <img src="../assets/images/login/check_box.svg" class="cursor-pointer" @click="statusArr[index].status = false" />
               </div>
               <span :class="role === 'viewer' && 'cursor-not-allowed opacity-60'" v-else class="privacy-box cursor-pointer" @click="role === 'viewer' ? '' : statusArr[index].status = true"></span>
-              <div @dblclick="handleClick(chunk.chunk_id)" class="cursor-pointer mx-8px w-full break-words" :class="model === 'collapse' && 'collapse'" v-html="chunk.content_with_weight"></div>
+              <div @dblclick="handleClick(chunk.chunk_id)" class="cursor-pointer mx-8px w-full break-words" :class="model === 'collapse' && 'collapse'" v-html="sanitizeHtml(chunk.content_with_weight)"></div>
             </div>
             <el-switch :disabled="role === 'viewer'" v-model="chunk.available_int" @change="changeStatus(chunk.available_int, chunk.chunk_id)"
               style="--el-switch-on-color: #396FFA; --el-switch-off-color: #CED6E1"
@@ -184,6 +184,7 @@ import Filter from '../components/images/Filter.vue'
 import Arrow from '../components/images/Arrow.vue'
 import Delete from '../components/images/Delete.vue'
 import AddChunk from '../components/images/AddChunk.vue'
+import { sanitizeHtml } from '../utils/sanitizeHtml'
 
 const { t } = useI18n()
 const role = ref()

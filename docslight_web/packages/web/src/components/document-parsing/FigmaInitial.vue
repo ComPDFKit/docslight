@@ -244,6 +244,7 @@ import retryRefreshIcon from '../../assets/images/document-parsing-retry-refresh
 import { getEnv } from '../../utils/env'
 import { get, post } from '../../utils/request'
 import IdpClose from '../idp/IdpClose.vue'
+import { sanitizeHtml, sanitizeTableHtml } from '../../utils/sanitizeHtml'
 
 defineEmits<{
   openList: []
@@ -267,7 +268,7 @@ interface ResultImageData {
 
 type StatusTabKey = 'all' | 'confirmed' | 'unconfirmed'
 
-const md = new MarkdownIt({ html: true })
+const md = new MarkdownIt({ html: false })
 md.use(mk)
 
 const files = ref<FileData[]>([])
@@ -368,23 +369,24 @@ const markdownHtml = computed(() => {
 const renderResultBlock = (item: any) => {
   if (item?.type === 'image') {
     const imageSrc = resolveImageSrcByPath(item.image_url || item.text || '')
-    if (imageSrc) return `<div class="api-result-block api-image-block"><img src="${imageSrc}" alt="Image"></div>`
+    if (imageSrc) return sanitizeHtml(`<div class="api-result-block api-image-block"><img src="${imageSrc}" alt="Image"></div>`)
   }
   if (!item?.text) return ''
-  if (item.type === 'table') return `<div class="api-result-block">${renderHtmlWithImages(item.text)}</div>`
+  if (item.type === 'table') return `<div class="api-result-block">${renderHtmlWithImages(item.text, true)}</div>`
   return `<div class="api-result-block">${renderHtmlWithImages(md.render(item.text))}</div>`
 }
 
-const renderHtmlWithImages = (rawHtml: string) => {
+const renderHtmlWithImages = (rawHtml: string, isTable = false) => {
   if (!rawHtml) return ''
+  const sanitize = isTable ? sanitizeTableHtml : sanitizeHtml
   const container = document.createElement('div')
-  container.innerHTML = rawHtml
+  container.innerHTML = sanitize(rawHtml)
   container.querySelectorAll('img').forEach((img) => {
     const originalSrc = img.getAttribute('src') || ''
     const resolvedSrc = resolveImageSrcByPath(originalSrc)
     if (resolvedSrc) img.setAttribute('src', resolvedSrc)
   })
-  return container.innerHTML
+  return sanitize(container.innerHTML)
 }
 
 const resolveImageSrcByPath = (src: string) => {

@@ -316,6 +316,7 @@ import AddChat from '../components/images/AddChat.vue'
 import { createParser, type ParsedEvent, type ReconnectInterval } from 'eventsource-parser'
 import Stop from '../components/images/Stop.vue'
 import CopyChat from '../components/images/CopyChat.vue'
+import { sanitizeHtml } from '../utils/sanitizeHtml'
 
 interface KbList {
   name?: string
@@ -339,7 +340,7 @@ interface ChatList {
   name: string
 }
 const md = markdownit('default', {
-  html: true
+  html: false
 })
 const { t } = useI18n()
 const { cookies } = useCookies()
@@ -418,7 +419,7 @@ onMounted(async () => {
 })
 const renderedContent = (val: string) => {
   const htmlWithImg = replaceRefsWithImages(val)
-  return md.render(htmlWithImg)
+  return sanitizeHtml(md.render(htmlWithImg))
 }
 
 function replaceRefsWithImages(text: string): string {

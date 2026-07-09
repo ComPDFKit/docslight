@@ -183,12 +183,4 @@ public class RSAUtils {
     }
 
 
-    public static void main(String[] args) {
-        RSAUtils rsaUtils = new RSAUtils();
-        String encrypt = rsaUtils.encrypt("9ebf82ba1c2d11f1bf1ef257adb92988");
-        System.out.println(encrypt);
-        System.out.println(rsaUtils.decrypt("SVY/e1uuzYq6JeU9tKGD21Y7Bx+FpQzXTJJ0vPbhojE56/Akw5T6MtSvoQwejGriNN3H+Ic0fFirluSrOzGCSODrYWYWc94x24nAOs+0DZcvBy3YDl3AjNVQ5gIEWkv39FukxIlcWh4sedSEOKeYOkBqIf6avL8ZvO9DKAX95TrtVHfqQZ05c66r9AbkoQ3DUu7B95DeBqv7rxQXgTwxy/8FTBHtorz9tDZ1kygBIeM/thLoOuMCxWFTUOSZy8R2TX5I9MGdUqolF9scB0RuHtkAMWtQaBIFVyomXBtZjTEtreFEdbWwRHUJMhVG4xHzgJwQVOVV2lZuxM55R4JcJg=="));
-    }
-
-
 }

@@ -152,6 +152,9 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
+      dompurify:
+        specifier: ^3.4.5
+        version: 3.4.5
       element-plus:
         specifier: ^2.10.2
         version: 2.14.0(vue@3.5.13)

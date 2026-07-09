@@ -258,6 +258,7 @@ import MarkdownIt from 'markdown-it'
 import mk from 'markdown-it-katex'
 import 'katex/dist/katex.min.css'
 import jsPDF from 'jspdf'
+import { sanitizeHtml, sanitizeTableHtml } from '../../utils/sanitizeHtml'
 
 const { t } = useI18n()
 const init = ref(true)
@@ -347,7 +348,7 @@ const dpiScale = ref(1)
 const annotationDetails = ref<any[]>([])
 const ANNOTATION_NAME_PREFIX = 'parse-anno-'
 const md = new MarkdownIt('default', {
-  html: true
+  html: false
 })
 md.use(mk)
 let extractFiles = <any>null
@@ -1117,8 +1118,9 @@ const resolveImageSrcByPath = (src: string) => {
 
 const renderTableContent = (rawHtml: string) => {
   if (!rawHtml) return ''
+  const safeHtml = sanitizeTableHtml(rawHtml)
   const container = document.createElement('div')
-  container.innerHTML = rawHtml
+  container.innerHTML = safeHtml
   const images = container.querySelectorAll('img')
   images.forEach((img) => {
     const originalSrc = img.getAttribute('src') || ''
@@ -1127,7 +1129,7 @@ const renderTableContent = (rawHtml: string) => {
       img.setAttribute('src', resolvedSrc)
     }
   })
-  return container.innerHTML
+  return sanitizeTableHtml(container.innerHTML)
 }
 
 /** 创建 Blob URL 并做缓存 */
@@ -1171,7 +1173,7 @@ const downloadClick = (blobUrl: string, filename: string) => {
 }
 
 const renderedContent = (val: string) => {
-  return md.render(normalizeMarkdownFormula(val || ''))
+  return sanitizeHtml(md.render(normalizeMarkdownFormula(val || '')))
 }
 
 const normalizeMarkdownFormula = (value: string) => {
@@ -1219,7 +1221,7 @@ const restoreEditableCaretOffset = (root: HTMLElement, offset: number) => {
 
 const htmlToPlainText = (html: string) => {
   const container = document.createElement('div')
-  container.innerHTML = html || ''
+  container.innerHTML = sanitizeTableHtml(html || '')
   return container.innerText.trim()
 }
 
@@ -1429,7 +1431,7 @@ const updateResultText = (index: number, event: Event, mode: 'text' | 'html') =>
   const caretOffset = mode === 'text' ? getEditableCaretOffset(target) : null
   const previousSnapshot = getJsonSnapshot()
   selectEditableTableCell(index, event)
-  detail[index].text = mode === 'html' ? target.innerHTML : target.innerText
+  detail[index].text = mode === 'html' ? sanitizeTableHtml(target.innerHTML) : target.innerText
   commitJsonResultDetail(detail, previousSnapshot)
   if (tableCaretState) {
     nextTick(() => restoreEditableTableCaretState(index, tableCaretState))
@@ -1531,7 +1533,7 @@ const getEditableTableContext = (index: number) => {
   const detail = jsonResult.value?.result?.detail
   if (!Array.isArray(detail) || !detail[index]) return null
   const container = document.createElement('div')
-  container.innerHTML = detail[index].text || '<table><tbody><tr><td><br></td></tr></tbody></table>'
+  container.innerHTML = sanitizeTableHtml(detail[index].text || '<table><tbody><tr><td><br></td></tr></tbody></table>')
   let table = container.querySelector('table')
   if (!table) {
     table = document.createElement('table')
@@ -1610,7 +1612,7 @@ const getSelectedTableCell = (index: number, table: HTMLTableElement) => {
 
 const commitEditableTable = (index: number, context: NonNullable<ReturnType<typeof getEditableTableContext>>) => {
   const previousSnapshot = getJsonSnapshot()
-  context.detail[index].text = context.container.innerHTML
+  context.detail[index].text = sanitizeTableHtml(context.container.innerHTML)
   commitJsonResultDetail(context.detail, previousSnapshot)
 }
 

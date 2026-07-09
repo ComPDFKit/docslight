@@ -24,7 +24,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_URL:/comidp}?autoReconnect=true&&useSSL=false
-    username: ${DB_USERNAME:deployer}
+    username: ${DB_USERNAME:}
     password: ${DB_PASSWORD:}
     hikari:
       # 最小空闲连接，默认值10
@@ -39,7 +39,7 @@ spring:
       connection-timeout: 60000
   redis:
     host: ${REDIS_HOST:}
-    port: ${REDIS_PORT:33465}
+    port: ${REDIS_PORT:}
     password: ${REDIS_PASSWORD:}
     database: ${REDIS_DATABASE:0}
     lettuce:
@@ -56,8 +56,8 @@ spring:
       shutdown-timeout: 200
   rabbitmq:
     host: ${MQ_HOST:}
-    port: ${MQ_PORT:35672}
-    username: ${MQ_USERNAME:admin}
+    port: ${MQ_PORT:}
+    username: ${MQ_USERNAME:}
     password: ${MQ_PASSWORD:}
     virtualHost: /
     # 发送端确认
@@ -94,8 +94,8 @@ comidp:
     secretAccessKey: ${RUSTFS_SECRET_KEY:}
     baseUrl: ${RUSTFS_ENDPOINT:}
   resonac:
-    leaderId: ${RESONAC_LEADER_ID:b0f53c2a055a11f18b7410ffe0d13cd8}
-    templateList: ${RESONAC_TEMPLATE_LIST:318658d6a56a07bfef5e96dc7c6efddd,2f83821d19536ad2020c5f83df1a316a,c2fc6e52394af9498d7e38bab7913e16,d49badcc5d1181473d0748564f9ceb28,8a41d04283d22b3047d4e1caee643f91,d20de6c1be859474ecc2d78587e985d8,0ad18d0bbcbf6a46f3a84796ceb7a745,0a29ac38365d3dc944299ee3ea1aefc2,7e6ed1b3ef0073db6fc18d13ade8179f,b743afd84f98f2708f24090a166ded4c,ab68b4af6d6ab9ff3c70852b6f91be44,7261be3a04f667ad3b52b05a44bd1127,00d2408e5642b238017a62753dded83a,ef1fa83c02f212e42b5698bfa3e3b572,1ebc8ce53850e6b535fb80d31e00a4a6,693dcf0e9108d14d152b35b718a015ac,b35352a4bde6df145398fd84d42f20b4,784cd4d2f7fc1fb40e8b643901f1dde4,a46363c96ef875f5ff0eeaada15838d2,1ae1ac4cb46877c860f049e6e5f49fd1,7dca6d17141583a3a5c89c0fd965a026}
+    leaderId: ${RESONAC_LEADER_ID:}
+    templateList: ${RESONAC_TEMPLATE_LIST:}
   config:
     license: ${LICENSE:}
     licenseKey: ${LICENSE_KEY:LICENSE_KEY}
@@ -139,8 +139,3 @@ compdf:
     accessKeyId: ${COMPDF_OSS_FILE_ACCESSKEYID:}
     accessKeySecret: ${COMPDF_OSS_FILE_ACCESSKEYSECRET:}
     file-prefix: ${COMPDF_OSS_FILE_PREFIX:comidp_data}
-#compdf:
-#  download-pre-url: ${COMPDF_DOWNLOAD_PRE_URL:https://pdfreader-dev.oss-cn-shanghai.aliyuncs.com/}
-#  download-localPath: ${COMPDF_DOWNLOAD_LOCALPATH:/tmp/}
-#  download-openUrl: ${COMPDF_DOWNLOAD_OPENURL:http://101.132.103.13:8090/server/v1/pdf/web-viewer/openLocalFile?filePath=}
-#

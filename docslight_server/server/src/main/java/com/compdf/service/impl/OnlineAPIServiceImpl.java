@@ -153,8 +153,8 @@ public class OnlineAPIServiceImpl implements OnlineAPIService {
 
     //    private static final Logger LOGGER = Logger.getLogger(TextinOcrTest.class.getName());
     private static final String API_URL = "https://api.textin.com/ai/service/v1/pdf_to_markdown?apply_document_tree=1&markdown_details=1&catalog_detail=1&page_details=1&char_details=0&table_flavor=html&get_image=objects&parse_mode=scan&paratext_mode=annotation&apply_merge=1";
-    private static final String APP_ID = "b858f94766fe47d2a94a0e36e00782f6";
-    private static final String APP_SECRET = "db96f98659976a35b0ab5cc15f98eeab";
+    private static final String APP_ID = "";
+    private static final String APP_SECRET = "";
 
     public static String convertPdfToMarkdown(byte[] content, Boolean isBase64) {
         try {

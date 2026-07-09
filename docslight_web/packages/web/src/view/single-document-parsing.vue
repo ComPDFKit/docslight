@@ -52,7 +52,7 @@
                 <div class="grid pr-12px cursor-pointer"
                   @click="handleClick(item.position, item.page_id)"
                   :id="item.position.join('-')"
-                  :class="active.join('-') === [(item.position[0] / dpiScale), (item.position[1] / dpiScale), (item.position[2] / dpiScale), (item.position[5] / dpiScale)].join('-') && 'text-[#396FFA] borderActive'" v-html="item.text">
+                  :class="active.join('-') === [(item.position[0] / dpiScale), (item.position[1] / dpiScale), (item.position[2] / dpiScale), (item.position[5] / dpiScale)].join('-') && 'text-[#396FFA] borderActive'" v-html="renderTableContent(item.text)">
                 </div>
               </template>
               <template v-else-if="item.type === 'image'">
@@ -130,6 +130,7 @@ import { getEnv } from '@/utils/env'
 import MarkdownIt from 'markdown-it'
 import mk from 'markdown-it-katex'
 import jsPDF from 'jspdf'
+import { sanitizeHtml, sanitizeTableHtml } from '@/utils/sanitizeHtml'
 
 const { t } = useI18n()
 const file = ref()
@@ -174,7 +175,7 @@ interface ExtractedFiles {
 const imageData = ref<FileData[]>([])
 const blobUrlCache = new Map<string, string>()
 const dpiScale = ref(1)
-const md = new MarkdownIt()
+const md = new MarkdownIt({ html: false })
 md.use(mk)
 const dialogVisible = ref(false)
 let extractFiles = <any>null
@@ -565,6 +566,9 @@ const getImageSrc = (item: any) => {
   }
   return imageUrl
 }
+const renderTableContent = (rawHtml: string) => {
+  return sanitizeTableHtml(rawHtml || '')
+}
 /** 创建 Blob URL 并做缓存 */
 const getBlobUrl = (fullPath: string = '', blob: Blob) => {
   if (!blobUrlCache.has(fullPath)) {
@@ -603,7 +607,7 @@ const downloadClick = (blobUrl: string, filename: string) => {
   a.remove()
 }
 const renderedContent = (val: string) => {
-  return md.render(val)
+  return sanitizeHtml(md.render(val || ''))
 }
 const imageToPDF = (file: File) => {
   return new Promise<File>((resolve, reject) => {
