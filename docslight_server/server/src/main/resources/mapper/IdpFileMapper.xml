@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.compdf.mapper.IdpFileMapper">
+
+    <resultMap id="UserInfoPojoResultMap" type="com.compdf.pojo.UserInfoPojo">
+        <result property="userId" column="user_id"/>
+        <result property="leaderId" column="leader_id"/>
+        <result property="role" column="role"/>
+    </resultMap>
+
+    <select id="selectLeaderIdByUserId" resultType="java.lang.String">
+        SELECT u.leader_id
+        FROM idp_file f join user u on f.user_id = u.id and u.status = 1
+        WHERE user_id = #{userId}
+        and f.status = 1
+        limit 1
+    </select>
+    <select id="selectLeaderIdAndRoleByUserId" resultMap="UserInfoPojoResultMap">
+        SELECT u.leader_id, u.role, u.id as user_id
+        FROM idp_file f join user u on f.user_id = u.id and u.status = 1
+        WHERE user_id = #{userId}
+        and f.status != 4
+        limit 1
+    </select>
+
+</mapper>

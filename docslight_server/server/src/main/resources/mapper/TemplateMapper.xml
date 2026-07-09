@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.compdf.mapper.TemplateMapper">
+
+    <resultMap id="GroupPojoResultMap" type="com.compdf.pojo.GroupPojo">
+        <result property="groupId" column="id"/>
+        <result property="groupName" column="group_name"/>
+    </resultMap>
+
+    <resultMap id="GroupTemplatePojoResultMap" type="com.compdf.pojo.GroupTemplatePojo">
+        <result property="groupTemplateId" column="id"/>
+        <result property="groupId" column="group_id"/>
+        <result property="templateId" column="template_id"/>
+        <result property="templateName" column="name"/>
+        <result property="order" column="order"/>
+        <result property="status" column="status"/>
+        <result property="leaderId" column="leader_id"/>
+        <result property="pinned" column="pinned"/>
+        <result property="pinnedTime" column="pinned_time"/>
+    </resultMap>
+
+
+    <insert id="insertGroupInfo">
+        INSERT INTO group_info (id, group_name, user_id, status)
+        VALUES (#{id}, #{groupName}, #{userId}, 1)
+    </insert>
+
+    <insert id="insertGroupTemplate">
+        INSERT INTO group_template (id, group_id, template_id, status, `order`)
+        VALUES (#{id}, #{groupId}, #{templateId}, 1, #{order})
+    </insert>
+
+    <update id="restoreGroupTemplate">
+        UPDATE group_template
+        SET status = 1,
+            `order` = #{order}
+        WHERE group_id = #{groupId}
+          AND template_id = #{templateId}
+          AND status = 0
+    </update>
+
+    <delete id="deleteGroupTemplate">
+        UPDATE group_template
+        SET status = 0
+        WHERE id = #{groupTemplateId}
+    </delete>
+
+    <delete id="deleteGroupTemplateByGroupIdAndTemplateId">
+        UPDATE group_template
+        SET status = 0
+        WHERE group_id = #{groupId}
+          AND template_id = #{templateId}
+          AND status = 1
+    </delete>
+
+    <select id="selectGroupInfoByUserId" resultMap="GroupPojoResultMap">
+        SELECT id, group_name, user_id
+        FROM group_info
+        WHERE user_id = #{userId}
+          and status = 1
+    </select>
+
+    <select id="selectGroupTemplatesByGroupId" resultMap="GroupTemplatePojoResultMap">
+        select gt.id, gt.template_id, t.name,
+               CASE WHEN t.leader_id = 'default' THEN 1 ELSE t.status END as status,
+               t.leader_id, gt.`order`,
+               CASE WHEN tp.status = 1 THEN true ELSE false END as pinned,
+               tp.pinned_time
+        from group_template gt
+                 join template t on gt.template_id = t.id
+                    and (t.status = 1 or (t.leader_id = 'default' and t.status != 2))
+                 left join template_pin tp on gt.id = tp.group_template_id and tp.user_id = #{userId}
+        where gt.group_id = #{groupId}
+          and gt.status = 1
+        order by CASE WHEN tp.status = 1 THEN 0 ELSE 1 END, tp.pinned_time DESC, gt.`order`
+    </select>
+
+    <select id="selectAllGroupTemplatesByGroupId" resultMap="GroupTemplatePojoResultMap">
+        select gt.id, gt.template_id, t.name,
+               CASE WHEN t.leader_id = 'default' and t.status != 2 THEN 1 ELSE t.status END as status,
+               t.leader_id, gt.`order`
+        from group_template gt
+                 join template t on gt.template_id = t.id
+        where gt.group_id = #{groupId}
+          and gt.status = 1
+        order by gt.`order`
+    </select>
+
+    <select id="selectGroupTemplatesByGroupIds" resultMap="GroupTemplatePojoResultMap">
+        select gt.id, gt.template_id, gt.group_id, t.name,
+               CASE WHEN t.leader_id = 'default' THEN 1 ELSE t.status END as status,
+               t.leader_id,
+               CASE WHEN tp.status = 1 THEN true ELSE false END as pinned,
+               tp.pinned_time
+        from group_template gt
+        join template t on gt.template_id = t.id
+            and (t.status = 1 or (t.leader_id = 'default' and t.status != 2))
+        left join template_pin tp on gt.id = tp.group_template_id and tp.user_id = #{userId}
+        where gt.group_id in
+        <foreach collection="groupIds" item="groupId" open="(" separator="," close=")">
+            #{groupId}
+        </foreach>
+        and gt.status = 1
+        order by CASE WHEN tp.status = 1 THEN 0 ELSE 1 END, tp.pinned_time DESC, gt.`order`
+    </select>
+    <select id="selectGroupTemplatesByGroupTemplateIds" resultMap="GroupTemplatePojoResultMap">
+        select gt.id, gt.template_id, gt.group_id, t.name,
+               CASE WHEN t.leader_id = 'default' and t.status != 2 THEN 1 ELSE t.status END as status,
+               t.leader_id, gt.`order`
+        from group_template gt
+                 join template t on gt.template_id = t.id
+        where gt.id in
+        <foreach collection="groupTemplateIds" item="groupTemplateId" open="(" separator="," close=")">
+            #{groupTemplateId}
+        </foreach>
+    </select>
+    <select id="selectTemplatesByLeaderId" resultType="java.lang.String">
+        select id
+        from user_template
+        where user_id = #{userId}
+          and leader_id = #{leaderId}
+          and status = 1
+    </select>
+    <select id="selectGroupTemplateByGroupTemplateId" resultMap="GroupTemplatePojoResultMap">
+        select gt.id, gt.group_id, gt.template_id, t.name,
+               CASE WHEN t.leader_id = 'default' THEN 1 ELSE t.status END as status,
+               t.leader_id
+        from group_template gt
+                 join template t on gt.template_id = t.id
+                    and (t.status = 1 or (t.leader_id = 'default' and t.status != 2))
+        where gt.id = #{groupTemplateId}
+          and gt.status = 1
+    </select>
+    <select id="selectTemplateByGroupTemplateId" resultType="com.compdf.entity.Template">
+        select t.*
+        from group_template gt
+                 join template t on gt.template_id = t.id
+                    and (t.status = 1 or (t.leader_id = 'default' and t.status != 2))
+        where gt.id = #{groupTemplateId}
+          and gt.status = 1
+    </select>
+    <select id="selectGroupTemplateByTemplateId" resultMap="GroupTemplatePojoResultMap">
+        select id, group_id, template_id
+        from group_template
+        where template_id = #{templateId}
+          and status = 1
+    </select>
+
+</mapper>

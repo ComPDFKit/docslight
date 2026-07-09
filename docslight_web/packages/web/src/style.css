@@ -1,0 +1,86 @@
+:root {
+  font-family: 'Encode Sans', Helvetica, system-ui, 'Avenir', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: #232748;
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Encode Sans';
+}
+
+.svg {
+  rect.borders {
+    stroke: transparent;
+  }
+  rect.bg {
+    fill: transparent;
+  }
+  &:hover {
+    rect.borders {
+      stroke: #396FFA;
+    }
+    rect.bg {
+      fill: #EBF1FE;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+em {
+  color: red;
+}
+
+strong {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.card {
+  padding: 2em;
+}
+.w-fit {
+  width: fit-content;
+}
+.h-fit {
+  height: fit-content;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #232748;
+    background-color: #ffffff;
+  }
+}
+.shadows {
+  box-shadow: 0px 4px 35px 0px #0029921A;
+}

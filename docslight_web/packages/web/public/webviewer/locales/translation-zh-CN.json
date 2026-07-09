@@ -1,0 +1,696 @@
+{
+  "common": {
+    "properties": "属性",
+    "navigation": {
+      "nextPage": "下一页",
+      "previousPage": "上一页"
+    },
+    "actions": {
+      "loading": "加载中",
+      "upload": "上传",
+      "ok": "确定",
+      "exit": "退出",
+      "cancel": "取消",
+      "continue": "继续",
+      "delete": "删除",
+      "apply": "应用",
+      "save": "确认",
+      "clear": "清除",
+      "edit": "编辑",
+      "reply": "回复",
+      "confirm": "保存"
+    },
+    "uiElements": {
+      "color": "颜色",
+      "opacity": "不透明度",
+      "font": "字体"
+    },
+    "fontStyles": {
+      "regular": "常规",
+      "oblique": "斜体",
+      "bold": "粗体",
+      "boldOblique": "粗斜体"
+    }
+  },
+
+  "toolbar": {
+    "viewControls": {
+      "leftPanel": "左侧面板",
+      "fullScreen": "全屏",
+      "viewSetting": "页面显示",
+      "pan": "滚动工具",
+      "cropPage": "截取",
+      "zoomIn": "放大",
+      "zoomOut": "缩小",
+      "search": "搜索"
+    },
+    "themeSwitcher": {
+      "light": "日间",
+      "dark": "夜间",
+      "lightMode": "日间模式",
+      "darkMode": "夜间模式"
+    },
+    "toolbarGroup": {
+      "viewer": "查看",
+      "annotations": "注释",
+      "forms": "表单",
+      "signatures": "签名",
+      "security": "安全",
+      "redaction": "标记密文",
+      "compare": "文档对比",
+      "editor": "内容编辑器",
+      "documentEditor": "页面编辑",
+      "separation": "分色",
+      "measurement": "测量"
+    },
+    "annotationTools": {
+      "note": "便签",
+      "highlight": "高亮",
+      "underline": "下划线",
+      "strikeout": "删除线",
+      "squiggly": "波浪线",
+      "ink": "手绘",
+      "circle": "圆",
+      "arc": "圆弧",
+      "polygon": "多边形",
+      "polyline": "折线",
+      "square": "矩形",
+      "arrow": "箭头",
+      "line": "线",
+      "freetext": "文本",
+      "stamp": "图章",
+      "image": "图片",
+      "link": "链接",
+      "cloudy": "云朵",
+      "callout": "指示批注"
+    },
+    "formTools": {
+      "textField": "文本域",
+      "checkbox": "复选框",
+      "radioButton": "单选按钮",
+      "listBox": "列表框",
+      "comboButton": "下拉菜单",
+      "button": "按钮",
+      "signataireField": "签名域",
+      "FillSign": "填写和签名"
+    },
+    "fileOperations": {
+      "openFile": "上传文档",
+      "download": "下载",
+      "flatten": "展平后下载",
+      "print": "打印"
+    },
+    "editorTools": {
+      "addText": "添加文字",
+      "addImage": "添加图片",
+      "undo": "撤销",
+      "redo": "重做"
+    },
+    "signatureTools": {
+      "createSignField": "添加/设置签名域",
+      "addDigitalSign": "添加数字签名",
+      "addElectronicSign": "添加电子签名",
+      "verifyDigitalSign": "验证数字签名"
+    },
+    "measurementTools": {
+      "measureLine": "线段",
+      "measureMultiline": "折线",
+      "measurePolygon": "多边形",
+      "measureRectangle": "矩形",
+      "measureCircle": "圆形/ 椭圆",
+      "measureCurve": "曲线",
+      "measureArc": "圆弧"
+    },
+    "settings": {
+      "title": "设置",
+      "author": "文档作者",
+      "annotator": "注释作者",
+      "language": "语言设置",
+      "highlightLink": "高亮链接",
+      "highlightForm": "高亮表单",
+      "creationInfo": "创建信息",
+      "version": "版本",
+      "signFill": "连续签名/填写表单字段",
+      "signForm": "签名/表单字段",
+      "sign": "仅签名字段",
+      "form": "仅表单字段",
+      "disableConsecutively": "关闭连续填写",
+      "skip": "跳过非必填字段"
+    },
+    "compareTip": "单击此处开始"
+  },
+
+  "form": {
+    "note1": "文档中含有{{formFields}}个Form Field（其中{{unfilledFormFields}}个必填项未填写），{{signFields}}个Sign Field（其中{{unsignFields}} 个必填项未填写）；",
+    "note2": "文档中含有{{signFields}}个Sign Field（其中{{unsignFields}}个必填项未填写）",
+    "note3": "文档中含有{{formFields}}个Form Field（其中{{unfilledFormFields}}个必填项未填写）",
+    "startFill": "点击“开始”到第一个字段。点击这里可快速",
+    "consecutively": "关闭“连续填写”。",
+    "formSignFilled": "所有必填Form Field和Sign Field均已完成填写",
+    "signFilled": "所有必填Sign Field均已完成填写",
+    "formFilled": "所有必填Form Field均已完成填写",
+    "previous": "上一个",
+    "next": "下一个",
+    "start": "开始"
+  },
+
+  "panels": {
+    "left": {
+      "thumbnails": "缩略图",
+      "outlines": {
+        "title": "大纲",
+        "empty": "无大纲"
+      },
+      "layers": {
+        "title": "图层",
+        "empty": "无图层",
+        "menu": "菜单",
+        "showAll": "全部显示",
+        "hideAll": "全部隐藏",
+        "restoreSettings": "恢复默认状态",
+        "exportLayers": "导出文件图层",
+        "layerProperty": "图层属性",
+        "exportLayer": "导出此图层"
+      },
+      "annotations": {
+        "title": "注释列表",
+        "empty": "没有注释",
+        "import": "导入注释",
+        "export": "导出注释"
+      },
+      "reply": {
+        "marked": "已标记",
+        "unmarked": "未标记",
+        "accepted": "已接受",
+        "rejected": "已拒绝",
+        "cancelled": "已取消",
+        "completed": "已完成",
+        "none": "无",
+        "replyPlaceholder": "回复"
+      },
+      "search": {
+        "title": "搜索",
+        "placeholder": "搜索PDF",
+        "page": "页码",
+        "pageIndicator": "第{{page}}页",
+        "previous": "查看上一个结果",
+        "next": "查看下一个结果",
+        "noResults": "无搜索结果"
+      },
+      "signatures": {
+        "title": "签名",
+        "list": "数字签名列表",
+        "details": "查看签名详情",
+        "certification": "查看证书详情",
+        "empty": "没有签名"
+      }
+    },
+    "right": {
+      "general": {
+        "title": "通用",
+        "name": "名称",
+        "formField": "表格栏位",
+        "visibility": {
+          "visible": "可见",
+          "hidden": "隐藏"
+        },
+        "properties": "属性",
+        "required": "必填",
+        "nameConflict": "该名称已存在",
+        "buttonText": "按钮文字",
+        "indicator": "显示字段提示",
+        "fill": "填写",
+        "signHere": "请在此签名"
+      },
+      "appearance": {
+        "title": "外观",
+        "backgroundColor": "背景色"
+      },
+      "preferences": {
+        "title": "选项",
+        "alignment": {
+          "title": "文本对齐",
+          "left": "左对齐",
+          "center": "居中",
+          "right": "右对齐"
+        },
+        "defaultValue": "预设值",
+        "multiLine": "多行",
+        "buttonStyle": "按钮样式",
+        "styles": {
+          "check": "勾选",
+          "circle": "圆形",
+          "cross": "分叉",
+          "diamond": "菱形",
+          "square": "方形",
+          "star": "星形"
+        },
+        "defaultChecked": "预设为已选取",
+        "item": "项目",
+        "itemList": "项目清单",
+        "selectAction": {
+          "title": "选择动作",
+          "none": "无",
+          "goPage": "跳转到页面",
+          "openLink": "打开网页链接"
+        },
+        "addResource": {
+          "url": "添加链接",
+          "page": "加入页面"
+        },
+        "radioTips": [
+          "警告：组中只有一个按钮。至少需要2个按钮。",
+          "提示：要创建一组互斥的单选按钮（即一次只能选择一个），请确保各域名相同。"
+        ],
+        "listBoxTip": "从项目清单中选择一个选项，作为默认选项。"
+      }
+    },
+    "pageMode": {
+      "displayMode": {
+        "title": "阅读模式",
+        "singlePage": "单页",
+        "twoPages": "双页",
+        "coverMode": "封面模式"
+      },
+      "splitView": {
+        "title": "分屏视图",
+        "vertical": "垂直滚动",
+        "horizontal": "水平滚动"
+      },
+      "themes": "主题"
+    },
+    "stamp": {
+      "standard": "标准图章",
+      "dynamic": "动态图章",
+      "custom": "自定义图章",
+      "create": "请创建图章",
+      "createHere": "创建图章"
+    },
+    "link": {
+      "title": "链接到",
+      "types": {
+        "url": "超链接",
+        "pages": "跳转到页面",
+        "email": "电子邮箱"
+      },
+      "action": "前往"
+    },
+    "measurement": {
+      "appearance": "标注外观设置",
+      "lineWidth": "线宽",
+      "lineColor": "线条颜色",
+      "lineStyle": "线条 & 边框类型",
+      "lineOpacity": "线条不透明度",
+      "lineTextOpacity": "线段 & 文本不透明度",
+      "lineStart": "线头",
+      "lineEnd": "线尾",
+      "fillColor": "填充颜色",
+      "fillOpacity": "填充不透明度",
+      "fontColor": "字体颜色",
+      "fontStyle": "字体样式",
+      "note": "批注"
+    },
+    "freeText": {
+      "title": "文本",
+      "fontStyle": "字体样式",
+      "fontColor": "字体颜色",
+      "borderWidth": "边框宽度",
+      "borderColor": "边框颜色",
+      "opacity": "不透明度",
+      "fillColor": "填充颜色"
+    },
+    "customStamp": {
+      "title": "自定义图章",
+      "preview": "预览",
+      "properties": "属性",
+      "fontFamily": "字体",
+      "fontColor": "字体颜色",
+      "fontStyle": "字体样式",
+      "fontSize": "字号",
+      "alignment": "文本对齐",
+      "addText": "添加文字",
+      "addShape": "添加形状",
+      "addDateTime": "添加日期和时间",
+      "shape": "形状",
+      "borderColor": "边框颜色",
+      "borderWidth": "边框宽度",
+      "borderOpacity": "边框不透明度",
+      "opacity": "不透明度",
+      "fillColor": "填充颜色",
+      "fillOpacity": "填充不透明度",
+      "dateTime": "日期和时间",
+      "createHere": "在此创建"
+    }
+  },
+
+  "passwordDialog": {
+    "enterPwd": "输入密码查看文档",
+    "placeholder": "请输入密码",
+    "wrongPwd": "密码错误",
+    "longPwd": "密码过长，最多输入20个字符",
+    "samePwd": "文档密码和权限密码不能相同",
+    "encryptTitle": "加密",
+    "encrypt": "加密",
+    "support": "支持字符：数字、字母、{'@'}、$、!、%、?、& ",
+    "removeSuccess": "密码已移除！",
+    "removeFailure": "密码移除失败！",
+    "setSuccess": "密码设置成功！下载文件后生效。",
+    "setFailure": "密码设置失败！",
+    "documentPwd": "文档密码",
+    "permissionPwd": "权限密码",
+    "disablePrinting": "禁止打印",
+    "disableCopying": "禁止复制",
+    "disableEdit": "禁用注释、表单、测量、标记密文（添加、删除和修改）",
+    "notes": [
+      "注意：",
+      "- 所有更改将在下载后生效。",
+      "- 在下载文档前，您可以随时重置密码。"
+    ],
+    "enterPermissionPwd": "请输入文档密码"
+  },
+
+  "signatures": {
+    "tip": "请先创建一个签名域，然后再选择签名类型",
+    "danger": "请选中一个空签名域进行签名。",
+    "trackpad": "触摸板",
+    "lineWidth": "宽度",
+    "keyboard": "键盘",
+    "signHere": "请在此处输入签名",
+    "image": "图片",
+    "selectFile": "选择文件",
+    "none": "无",
+    "uploadError": "请上传1M以内的图片",
+    "fullStorage": "您的签名模板已满，请删除后再新增。",
+    "title": "请选择签名类型",
+    "electronic": {
+      "title": "电子签名",
+      "description": "通过绘制、图片、或输入文字进行文件签署。"
+    },
+    "digital": {
+      "title": "数字签名（数字证书签署）",
+      "description": "通过创建或上传带有唯一数字ID的数字证书签署文件。"
+    },
+    "startSigning": "开始签名",
+    "details": {
+      "title": "数字签名详细信息",
+      "signer": "签名有效，签署者为",
+      "signingTime": "签署时间",
+      "validitySummary": "有效性小结",
+      "validIdentity": "签名者的身份有效。",
+      "invalidIdentity": "签名者的身份无效。",
+      "unknownIdentity": "签名有效性未知，因为它未包含在您的受信任证书列表中，并且它的父证书都不是受信任证书。",
+      "expiredCertificate": "该文件是用已过期的证书签名的。如果您最近获取了此文件，则该文件可能不真实。",
+      "validSignature": "签名有效。",
+      "invalidSignature": "签名无效。",
+      "notModified": "自应用此签名以来，文档未被修改。",
+      "altered": "自当前用户签署文档以来，该文档已被更改或损坏。",
+      "viewCertificate": "查看证书细节",
+      "unknownSignature": "签名有效性未知。",
+      "invalidSignatures": "至少一个签名无效，文档可能被篡改。",
+      "viewAll": "查看所有签名"
+    },
+    "certificateViewer": {
+      "title": "证书查看程序",
+      "abstracts": "摘要",
+      "summary": "小结",
+      "issuedTo": "颁发给",
+      "issuer": "颁发者",
+      "validFrom": "有效起始日期",
+      "validTo": "有效截止日期",
+      "intendedUsage": "预期用途",
+      "details": {
+        "title": "详细信息",
+        "version": "版本",
+        "algorithm": "签名算法",
+        "subject": "主题",
+        "serialNumber": "序列号",
+        "certificatePolicy": "证书策略",
+        "crlDistribution": "CRL分发点",
+        "issuerInfoAccess": "颁发机构信息访问",
+        "issuerKeyIdentifier": "颁发机构密钥标识符",
+        "subjectKeyIdentifier": "主体密钥标识符",
+        "constraints": "基本约束",
+        "keyUsage": "密钥用法",
+        "publicKey": "公钥",
+        "x509": "X.509",
+        "sha1Digests": "SHA1",
+        "md5Digests": "MD5"
+      },
+      "trust": {
+        "title": "信任",
+        "sign": "签名文档或数据",
+        "certify": "验证文档",
+        "addToTrust": "添加到可信任证书",
+        "done": "关闭"
+      }
+    },
+    "deleteConfirm": "确定删除该内容？",
+    "digitalDialog": {
+      "title": "添加数字身份证",
+      "description": "浏览数字身份证文件。数字身份证受密码保护。如果你不知道密码，你就无法获取数字身份证。",
+      "certificateFile": "证书文件",
+      "uploadFile": "上传证书文件",
+      "password": "证书密码",
+      "enterPassword": "请输入证书密码",
+      "invalidPassword": "密码错误，请重试"
+    },
+    "appearance": {
+      "title": "添加数字签名",
+      "signHere": "请在此处输入签名！",
+      "includeText": "包含文本",
+      "name": "名称",
+      "distinguishableName": "辨别名",
+      "date": "日期",
+      "version": "ComPDFKit 版本",
+      "logo": "徽标",
+      "location": "位置",
+      "reason": "原因",
+      "docOwner": "我是该文档的作者",
+      "approving": "我正在批准该文档",
+      "reviewed": "我已审阅该文档",
+      "labels": "标签",
+      "textAlignment": "对齐方式"
+    },
+    "electronicSignature": {
+      "title": "添加电子签名",
+      "empty": "开始创建您的签名模板！",
+      "mySignatures": "我的签名",
+      "create": "创建签名",
+      "saveTemplate": "保存至我的签名模板",
+      "dropFile": "将图片拖至此处，或"
+    }
+  },
+
+  "compare": {
+    "startCompare": "开始对比",
+    "return": "返回",
+    "compare": "开始对比",
+    "oldFile": "旧文件",
+    "newFile": "新文件",
+    "dropFile": [
+      "将文件拖到此处，",
+      "或"
+    ],
+    "chooseOld": "添加旧文件",
+    "chooseNew": "添加新文件",
+    "status": "对比即将完成！",
+    "contentDialog": {
+      "title": "并排对比",
+      "items": "对比内容选择",
+      "text": "文字",
+      "images": "图片",
+      "colorMark": "标记颜色",
+      "replaced": "被替换的内容",
+      "inserted": "被插入的内容",
+      "deleted": "已删除的内容"
+    },
+    "overlayDialog": {
+      "title": "叠加对比",
+      "blendMode": "混合模式",
+      "normal": "普通",
+      "multiply": "正片叠底",
+      "screen": "滤色",
+      "overlay": "叠加",
+      "darken": "变暗",
+      "lighten": "变亮",
+      "colorDodge": "颜色减淡",
+      "colorBurn": "颜色加深",
+      "hardLight": "强光",
+      "softLight": "柔光",
+      "difference": "差值",
+      "exclusion": "排除",
+      "hue": "色相",
+      "saturation": "饱和度",
+      "colour": "颜色",
+      "luminosity": "明度"
+    },
+    "downloadOptions": "结果文件样式",
+    "separateFiles": "对比结果分开保存，结果文件为2份",
+    "mergedFile": "合并对比结果，结果文件为1份文件",
+    "printSettings": "打印文件选择",
+    "printOld": "打印旧文档的对比结果文件",
+    "printNew": "打印新文档的对比结果文件",
+    "credit": "由ComPDFKit提供对比"
+  },
+
+  "contentEditor": {
+    "textProperties": {
+      "title": "文字属性",
+      "fontColor": "文字颜色",
+      "textStyle": "文字样式",
+      "spacing": "间距",
+      "characterSpacing": "字间距",
+      "lineSpacing": "行间距",
+      "paragraphSpacing": "段间距"
+    },
+    "imageProperties": {
+      "title": "图片属性",
+      "rotate": "旋转",
+      "rotateLeft": "左旋转",
+      "rotateRight": "右旋转",
+      "flip": "翻转",
+      "flipHorizontal": "水平翻转",
+      "flipVertical": "垂直翻转",
+      "tools": "工具",
+      "replace": "替换",
+      "export": "导出",
+      "crop": "裁剪",
+      "maxSize": "图片大小上限：2MB。"
+    }
+  },
+
+  "documentEditor": {
+    "saveAs": "另存为",
+    "insert": "插入",
+    "rotateRight": "右旋转",
+    "rotateLeft": "左旋转",
+    "copy": "复制",
+    "extract": "提取",
+    "replace": "替换",
+    "move": "移动",
+    "selectAll": "全选",
+    "unselectAll": "取消全选",
+    "dialog": {
+      "insertPages": "页面范围",
+      "blankPage": "空白页",
+      "customPage": "自定义空白页",
+      "fromPdf": "从其他PDF",
+      "selectFile": "选择文件",
+      "pageRange": "页面范围",
+      "allPages": "所有页面",
+      "oddPage": "奇数页",
+      "evenPage": "偶数页",
+      "customRange": "自定义范围",
+      "insertTo": "页面插入位置",
+      "firstPage": "首页",
+      "lastPage": "末页",
+      "page": "页面",
+      "tip": "例：3, 5-10",
+      "before": "前",
+      "after": "后"
+    },
+    "deleteConfirmation": "确认要删除所选页面吗？",
+    "separateFiles": "每页作为单个文件",
+    "deleteAfter": "提取后删除页面",
+    "moveTo": "移动到",
+    "pageInputTip": "输入0~文档最大页码数"
+  },
+
+  "security": {
+    "encryption": "文档加密",
+    "decryption": "文档解密"
+  },
+
+  "redaction": {
+    "fillBlack": "填充黑色",
+    "fillWhite": "填充白色",
+    "caution": "提示",
+    "warning": "本文档中已被标记的内容将被永久删除。请确认您的操作。",
+    "understand": "我已知晓，开始使用",
+    "applyWarning": "应用标记密文后，被标记的内容将被永久删除。",
+    "note": "提示",
+    "exitWarning": "您的标记内容尚未生效。确定要退出吗？",
+    "saveWarning": [
+      "提示：文档中被标记的内容将被永久删除且不可恢复。",
+      "确定删除所有标记内容并保存文档？"
+    ]
+  },
+
+  "layer": {
+    "show": "显示",
+    "hide": "隐藏",
+    "lock": "锁定",
+    "unlock": "解锁",
+    "lockedWarning": "当前图层已锁定。要更改其可见性，请先在图层属性中将其解锁。",
+    "properties": {
+      "title": "设置图层属性",
+      "layerProperty": "图层属性",
+      "name": "图层名称",
+      "namePlaceholder": "请输入图层名称",
+      "defaultSettings": "默认状态",
+      "defaultShow": "打开文件时默认显示",
+      "defaultHide": "打开文件时默认隐藏",
+      "lockLayer": "锁定图层",
+      "printProperty": "打印属性",
+      "always": "总是",
+      "never": "从不",
+      "printVisible": "可见时打印",
+      "exportProperty": "导出属性",
+      "exportVisible": "可见时导出"
+    }
+  },
+
+  "colorSeparation": {
+    "toggleColor": "切换颜色",
+    "mobileWarning": "该功能不适用于移动设备，请在 PC 端访问以获得最佳体验"
+  },
+
+  "measurement": {
+    "scale": "比例",
+    "dimensions": {
+      "distance": "距离",
+      "angle": "角度",
+      "radius": "半径",
+      "perimeter": "周长",
+      "area": "面积",
+      "arcLength": "弧长",
+      "width": "宽",
+      "height": "高"
+    },
+    "precision": "精度",
+    "tooltips": {
+      "xAxis": "X轴距离",
+      "yAxis": "Y轴距离",
+      "lineAngle": "输入线段与水平线之间的角度来调整其斜率。从起点旋转：逆时针为 [0°, 180°]，顺时针为 [-180°, 0°]。",
+      "multilineAngle": "不可编辑，仅在测量时显示两条线之间的转折点的角度。",
+      "circleRadius": "圆的半径，或椭圆的半长轴。输入后，所选形状将被调整为相应的正圆。",
+      "horizontally": "水平方向",
+      "vertically": "垂直方向"
+    },
+    "drawingDimensions": "图纸尺寸",
+    "actualSize": "实际尺寸",
+    "units": {
+      "pt": "点",
+      "in": "英寸",
+      "mm": "毫米",
+      "cm": "厘米",
+      "m": "米",
+      "km": "千米",
+      "ft": "英尺",
+      "yd": "码",
+      "mi": "英里"
+    },
+    "settings": "测量设置",
+    "scaleError": "比例尺需大于0。",
+    "showCaption": "文字展示",
+    "done": "确认",
+    "curveMeasurement": {
+      "title": "如何测量曲线？",
+      "steps": [
+        "第一步：选择曲线起点和终点；",
+        "第二步：拖动蓝色控制点调整曲线形状。"
+      ],
+      "confirmation": "确认"
+    }
+  }
+}

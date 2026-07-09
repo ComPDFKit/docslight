@@ -1,0 +1,3 @@
+window.__app_env = {
+  COMIDP_HOST: '__COMIDP_HOST__',
+}

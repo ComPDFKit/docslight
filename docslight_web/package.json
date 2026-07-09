@@ -1,0 +1,16 @@
+{
+  "name": "comidp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "web:dev": "pnpm --filter @comidp/web run dev",
+    "web:build": "pnpm --filter @comidp/web run build",
+    "admin:dev": "pnpm --filter @comidp/admin run dev",
+    "admin:build": "pnpm --filter @comidp/admin run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "packageManager": "pnpm@8.10.5+sha1.4370a069f21873a0ad83c785b8048ed8caf6e6e9"
+}

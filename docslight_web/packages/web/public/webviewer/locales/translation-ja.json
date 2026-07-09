@@ -1,0 +1,696 @@
+{
+  "common": {
+    "properties": "プロパティ",
+    "navigation": {
+      "nextPage": "次",
+      "previousPage": "前"
+    },
+    "actions": {
+      "loading": "読み込み中",
+      "upload": "アップロード",
+      "ok": "OK",
+      "exit": "退出",
+      "cancel": "キャンセル",
+      "continue": "続ける",
+      "delete": "消去",
+      "apply": "適用",
+      "save": "保存",
+      "clear": "クリア",
+      "edit": "編集",
+      "reply": "返信",
+      "confirm": "確認"
+    },
+    "uiElements": {
+      "color": "色",
+      "opacity": "不透明度",
+      "font": "フォント"
+    },
+    "fontStyles": {
+      "regular": "通常",
+      "oblique": "斜め",
+      "bold": "太字",
+      "boldOblique": "太字斜線"
+    }
+  },
+
+  "toolbar": {
+    "viewControls": {
+      "leftPanel": "左パネル",
+      "fullScreen": "全画面表示",
+      "viewSetting": "表示設定",
+      "pan": "パン",
+      "cropPage": "切り取り",
+      "zoomIn": "ズームイン",
+      "zoomOut": "ズームアウト",
+      "search": "検索"
+    },
+    "themeSwitcher": {
+      "light": "明るい",
+      "dark": "暗い",
+      "lightMode": "ライトモード",
+      "darkMode": "ダークモード"
+    },
+    "toolbarGroup": {
+      "viewer": "ビューア",
+      "annotations": "注釈",
+      "forms": "フォーム",
+      "signatures": "署名",
+      "security": "安全",
+      "redaction": "墨消し",
+      "compare": "ドキュメントの比較",
+      "editor": "コンテンツ編集",
+      "documentEditor": "ドキュメント編集",
+      "separation": "色分解",
+      "measurement": "測定"
+    },
+    "annotationTools": {
+      "note": "注記",
+      "highlight": "ハイライト",
+      "underline": "下線",
+      "strikeout": "取消線",
+      "squiggly": "波線",
+      "ink": "インク",
+      "circle": "丸",
+      "arc": "アーク",
+      "polygon": "多角形",
+      "polyline": "折れ線",
+      "square": "四角",
+      "arrow": "矢印",
+      "line": "ライン",
+      "freetext": "フリーテキスト",
+      "stamp": "スタンプ",
+      "image": "画像",
+      "link": "リンク",
+      "cloudy": "クラウド",
+      "callout": "指示コメント"
+    },
+    "formTools": {
+      "textField": "テキストフィールド",
+      "checkbox": "チェックボックス",
+      "radioButton": "ラジオボタン",
+      "listBox": "リストボックス",
+      "comboButton": "コンボボタン",
+      "button": "押しボタン",
+      "signataireField": "署名フィールド",
+      "FillSign": "記入と署名"
+    },
+    "fileOperations": {
+      "openFile": "ファイルを開く",
+      "download": "ダウンロード",
+      "flatten": "フラット化された PDF として保存",
+      "print": "印刷"
+    },
+    "editorTools": {
+      "addText": "テキストの追加",
+      "addImage": "画像の追加",
+      "undo": "元に戻す",
+      "redo": "やり直し"
+    },
+    "signatureTools": {
+      "createSignField": "署名フィールドの作成/設定",
+      "addDigitalSign": "デジタル署名の追加",
+      "addElectronicSign": "電子署名の追加",
+      "verifyDigitalSign": "デジタル署名の検証"
+    },
+    "measurementTools": {
+      "measureLine": "ライン",
+      "measureMultiline": "複数行",
+      "measurePolygon": "ポリゴン",
+      "measureRectangle": "矩形",
+      "measureCircle": "丸",
+      "measureCurve": "曲線",
+      "measureArc": "アーク"
+    },
+    "settings": {
+      "title": "設定",
+      "author": "著者",
+      "annotator": "注釈者",
+      "language": "言語",
+      "highlightLink": "ハイライトリンク",
+      "highlightForm": "ハイライトフォーム",
+      "creationInfo": "創作情報",
+      "version": "バージョン",
+      "signFill": "連続署名/フォームフィールド記入",
+      "signForm": "署名/フォームフィールド",
+      "sign": "署名フィールドのみ",
+      "form": "フォームフィールドのみ",
+      "disableConsecutively": "連続記入を閉じる",
+      "skip": "必須でないフィールドをスキップ"
+    },
+    "compareTip": "始めるにはここをクリックしてください"
+  },
+
+  "form": {
+    "note1": "文書には{{formFields}}個のフォームフィールド（うち{{unfilledFormFields}}個の必須項目が未記入）、{{signFields}}個の署名フィールド（うち{{unsignFields}}個の必須項目が未署名）が含まれています",
+    "note2": "文書には{{signFields}}個の署名フィールド（うち{{unsignFields}}個の必須項目が未署名）が含まれています",
+    "note3": "文書には{{formFields}}個のフォームフィールド（うち{{unfilledFormFields}}個の必須項目が未記入）が含まれています",
+    "startFill": "「開始」をクリックして最初のフィールドへ移動します。ここをクリックすると",
+    "consecutively": "「連続記入」をすばやく閉じることができます",
+    "formSignFilled": "すべての必須フォームフィールドと署名フィールドの記入が完了しました",
+    "signFilled": "すべての必須署名フィールドの記入が完了しました",
+    "formFilled": "すべての必須フォームフィールドの記入が完了しました",
+    "previous": "前へ",
+    "next": "次へ",
+    "start": "開始"
+  },
+
+  "panels": {
+    "left": {
+      "thumbnails": "サムネイル",
+      "outlines": {
+        "title": "概要",
+        "empty": "アウトラインなし"
+      },
+      "layers": {
+        "title": "レイヤー",
+        "empty": "レイヤーなし",
+        "menu": "メニュー",
+        "showAll": "すべて表示",
+        "hideAll": "すべて隠す",
+        "restoreSettings": "デフォルト設定の復元",
+        "exportLayers": "ファイルレイヤーのエクスポート",
+        "layerProperty": "レイヤープロパティ",
+        "exportLayer": "このレイヤーをエクスポート"
+      },
+      "annotations": {
+        "title": "注釈",
+        "empty": "注釈なし",
+        "import": "注釈のインポート",
+        "export": "注釈のエクスポート"
+      },
+      "reply": {
+        "marked": "マークあり",
+        "unmarked": "マークなし",
+        "accepted": "承認されました",
+        "rejected": "拒否されました",
+        "cancelled": "キャンセル",
+        "completed": "完了しました",
+        "none": "なし",
+        "replyPlaceholder": "返信または意見を追加"
+      },
+      "search": {
+        "title": "検索",
+        "placeholder": "PDFを検索 ",
+        "page": "ページ ",
+        "pageIndicator": "{{page}}ページ目 ",
+        "previous": "前に出現したフレーズを検索 ",
+        "next": "次に出現するフレーズを検索 ",
+        "noResults": "結果なし "
+      },
+      "signatures": {
+        "title": "署名 ",
+        "list": "デジタル署名リスト ",
+        "details": "署名の詳細 ",
+        "certification": "認証の詳細 ",
+        "empty": "署名なし "
+      }
+    },
+    "right": {
+      "general": {
+        "title": "一般",
+        "name": "名前",
+        "formField": "フォームフィールド",
+        "visibility": {
+          "visible": "見える",
+          "hidden": "隠す"
+        },
+        "properties": "プロパティ",
+        "required": "必須",
+        "nameConflict": "別の名前を選択してください",
+        "buttonText": "ボタンのテキスト",
+        "indicator": "フィールドのヒントを表示",
+        "fill": "記入",
+        "signHere": "ここに署名してください"
+      },
+      "appearance": {
+        "title": "外観",
+        "backgroundColor": "背景色"
+      },
+      "preferences": {
+        "title": "設定",
+        "alignment": {
+          "title": "位置合わせ",
+          "left": "左",
+          "center": "中心",
+          "right": "右"
+        },
+        "defaultValue": "デフォルト値",
+        "multiLine": "複数行",
+        "buttonStyle": "ボタンのスタイル",
+        "styles": {
+          "check": "チェック",
+          "circle": "丸",
+          "cross": "クロス",
+          "diamond": "ダイヤモンド",
+          "square": "四角",
+          "star": "星"
+        },
+        "defaultChecked": "ボタンはデフォルトでチェックされています",
+        "item": "アイテム",
+        "itemList": "アイテム一覧",
+        "selectAction": {
+          "title": "アクションの選択",
+          "none": "なし",
+          "goPage": "ページに移動",
+          "openLink": "Web リンクを開く"
+        },
+        "addResource": {
+          "url": "URLを追加",
+          "page": "ページを追加"
+        },
+        "radioTips": [
+          "グループに 1 つのボタン、少なくとも2つのボタンが必要です",
+          "相互に排他的なラジオボタンのセットを作成するには、フィールドに同じ名前を付けてください"
+        ],
+        "listBoxTip": "項目リスト内の項目を選択し、デフォルトのオプションにします"
+      }
+    },
+    "pageMode": {
+      "displayMode": {
+        "title": "表示モード",
+        "singlePage": "単一ページ",
+        "twoPages": "2 ページ",
+        "coverMode": "カバーモード"
+      },
+      "splitView": {
+        "title": "スクロール",
+        "vertical": "縦スクロール",
+        "horizontal": "横スクロール"
+      },
+      "themes": "テーマ"
+    },
+    "stamp": {
+      "standard": "標準",
+      "dynamic": "動的",
+      "custom": "カスタム",
+      "create": "ここで作成",
+      "createHere": "作成する"
+    },
+    "link": {
+      "title": "へのリンク",
+      "types": {
+        "url": "URL",
+        "pages": "ページに移動",
+        "email": "電子メール"
+      },
+      "action": "移動"
+    },
+    "measurement": {
+      "appearance": "外観",
+      "lineWidth": "線の幅",
+      "lineColor": "線の色",
+      "lineStyle": "線と枠線のスタイル",
+      "lineOpacity": "線の不透明度",
+      "lineTextOpacity": "線とテキストの不透明度",
+      "lineStart": "始める",
+      "lineEnd": "終わり",
+      "fillColor": "塗りつぶしの色",
+      "fillOpacity": "塗りつぶしの不透明度",
+      "fontColor": "フォントの色",
+      "fontStyle": "フォントスタイル",
+      "note": "注記"
+    },
+    "freeText": {
+      "title": "フリーテキスト",
+      "fontStyle": "フォントスタイル",
+      "fontColor": "フォントの色",
+      "borderWidth": "枠線の幅",
+      "borderColor": "枠線の色",
+      "opacity": "不透明度",
+      "fillColor": "塗りつぶしの色"
+    },
+    "customStamp": {
+      "title": "カスタムスタンプ",
+      "preview": "プレビュー",
+      "properties": "プロパティ",
+      "fontFamily": "フォント",
+      "fontColor": "フォントの色",
+      "fontStyle": "フォントスタイル",
+      "fontSize": "フォントサイズ",
+      "alignment": "位置合わせ",
+      "addText": "テキストの追加",
+      "addShape": "形状の追加",
+      "addDateTime": "日付と時刻を追加する",
+      "shape": "形",
+      "borderColor": "枠線の色",
+      "borderWidth": "枠線の幅",
+      "borderOpacity": "境界線の不透明度",
+      "opacity": "不透明度",
+      "fillColor": "塗りつぶしの色",
+      "fillOpacity": "塗りつぶしの不透明度",
+      "dateTime": "日時",
+      "createHere": "ここで作成"
+    }
+  },
+
+  "passwordDialog": {
+    "enterPwd": "パスワードを入力してドキュメントを表示してください",
+    "placeholder": "パスワードを入力してください",
+    "wrongPwd": "パスワードが間違っています",
+    "longPwd": "パスワードが長すぎます。最大 20 文字です。",
+    "samePwd": "ドキュメントパスワードと権限パスワードを同じにすることはできません",
+    "encryptTitle": "PDFを暗号化する",
+    "encrypt": "暗号化する",
+    "support": "サポート: 数字、文字、{'@'}、$、!、%、?、",
+    "removeSuccess": "パスワードが正常に削除されました",
+    "removeFailure": "パスワードの削除に失敗しました",
+    "setSuccess": "パスワードが正常に設定されました。ファイルをダウンロードして有効にします。",
+    "setFailure": "ドキュメントのパスワードを設定できませんでした",
+    "documentPwd": "文書のパスワード",
+    "permissionPwd": "許可パスワード",
+    "disablePrinting": "印刷を無効にする",
+    "disableCopying": "コピーを無効にする",
+    "disableEdit": "注釈、フォーム、測定、墨消し（追加、削除、変更）を無効にする",
+    "notes": [
+      "注記：",
+      "すべての変更はダウンロード後に有効になります",
+      "ダウンロード前でいつでもパスワードをリセットできます"
+    ],
+    "enterPermissionPwd": "許可パスワードを入力してください"
+  },
+
+  "signatures": {
+    "tip": "署名フィールドを作成してから、署名の種類を選択してく",
+    "danger": "署名するには空白の署名フィールドを選択してください。",
+    "trackpad": "トラックパッド",
+    "lineWidth": "線幅",
+    "keyboard": "キーボード",
+    "signHere": "ここに署名してください",
+    "image": "画像",
+    "selectFile": "ファイルを選択してください",
+    "none": "なし",
+    "uploadError": "1MB未満の画像をアップロードしてください",
+    "fullStorage": "署名テンプレートがいっぱいです。新しいものを作成するには、いくつかを削除してください。",
+    "title": "署名タイプの選択",
+    "electronic": {
+      "title": "電子署名による署名",
+      "description": "画像署名を描画、入力、またはアップロードしてファイルに署名します"
+    },
+    "digital": {
+      "title": "デジタル署名による署名",
+      "description": "ファイルに署名するための固有のデジタルIDを持つデジタル証明書を作成またはアップロードします"
+    },
+    "startSigning": "署名を開始する",
+    "details": {
+      "title": "デジタル署名の詳細",
+      "signer": "有効な署名、署名者",
+      "signingTime": "署名時間",
+      "validitySummary": "有効性の概要",
+      "validIdentity": "署名者の身元は有効です",
+      "invalidIdentity": "署名者の身元が無効です",
+      "unknownIdentity": "署名は信頼できる証明書のリストに含まれておらず、その証明書も信頼できる証明書ではないため、署名の有効性は不明です",
+      "expiredCertificate": "このファイルは有効期限が切れた証明書で署名されているため、このファイルを最近取得した場合は本物ではない可能性があります",
+      "validSignature": "署名は有効です",
+      "invalidSignature": "署名は無効です",
+      "notModified": "この署名が適用されてからドキュメントは変更されていません",
+      "altered": "現在のユーザーが署名してからドキュメントが変更または破損しています",
+      "viewCertificate": "証明書の詳細を表示する",
+      "unknownSignature": "署名の有効性は不明です",
+      "invalidSignatures": "少なくとも1つの署名が無効です",
+      "viewAll": "すべての署名を表示"
+    },
+    "certificateViewer": {
+      "title": "証明書ビューア",
+      "abstracts": "抄録",
+      "summary": "まとめ",
+      "issuedTo": "発行対象者:",
+      "issuer": "発行者:",
+      "validFrom": "有効期限:",
+      "validTo": "有効期限:",
+      "intendedUsage": "使用目的:",
+      "details": {
+        "title": "詳細",
+        "version": "バージョン",
+        "algorithm": "アルゴリズム",
+        "subject": "主題",
+        "serialNumber": "シリアルナンバー",
+        "certificatePolicy": "証明書ポリシー:",
+        "crlDistribution": "CRL 配布ポイント:",
+        "issuerInfoAccess": "発行者情報へのアクセス:",
+        "issuerKeyIdentifier": "発行者のキー識別子:",
+        "subjectKeyIdentifier": "サブジェクトのキー識別子:",
+        "constraints": "基本的な制約:",
+        "keyUsage": "キーの使用法:",
+        "publicKey": "公開鍵:",
+        "x509": "X.509 データ:",
+        "sha1Digests": "SHA1 ダイジェスト:",
+        "md5Digests": "MD5 ダイジェスト:"
+      },
+      "trust": {
+        "title": "信頼",
+        "sign": "文書またはデータに署名する",
+        "certify": "証明書類",
+        "addToTrust": "信頼できる証明書に追加",
+        "done": "終了"
+      }
+    },
+    "deleteConfirm": "削除してもよろしいですか?",
+    "digitalDialog": {
+      "title": "デジタルIDを追加する",
+      "description": "デジタルIDファイルを参照します。デジタルIDはパスワードで保護されています。パスワードが分からない場合、デジタルIDを取得することはできません。",
+      "certificateFile": "証明書ファイル",
+      "uploadFile": "証明書ファイルをアップロードする",
+      "password": "パスワード",
+      "enterPassword": "証明書のパスワード",
+      "invalidPassword": "無効なパスワード"
+    },
+    "appearance": {
+      "title": "デジタル署名の追加",
+      "signHere": "ここに署名してください",
+      "includeText": "テキストを含める",
+      "name": "名前",
+      "distinguishableName": "識別可能な名前",
+      "date": "日付",
+      "version": "ComPDFKit バージョン",
+      "logo": "ロゴ",
+      "location": "位置",
+      "reason": "理由",
+      "docOwner": "私は文書の所有者です",
+      "approving": "文書を承認しています",
+      "reviewed": "文書を確認しました",
+      "labels": "ラベル",
+      "textAlignment": "テキストの配置"
+    },
+    "electronicSignature": {
+      "title": "電子署名の追加",
+      "empty": "署名テンプレートの作成を開始してください。",
+      "mySignatures": "私の署名",
+      "create": "署名の作成",
+      "saveTemplate": "私の署名テンプレートに保存します。",
+      "dropFile": "ここに画像をドロップするか、"
+    }
+  },
+
+  "compare": {
+    "startCompare": "比較を開始する",
+    "return": "戻る",
+    "compare": "比較",
+    "oldFile": "古いファイル",
+    "newFile": "新しいファイル",
+    "dropFile": [
+      "ここに PDF ファイルをドロップします",
+      "または"
+    ],
+    "chooseOld": "古いファイルを選択してください",
+    "chooseNew": "新しいファイルを選択してください",
+    "status": "比較結果は近日公開予定です",
+    "contentDialog": {
+      "title": "内容の比較",
+      "items": "項目の比較",
+      "text": "文章",
+      "images": "画像",
+      "colorMark": "色とマークの違い",
+      "replaced": "置き換えられたコンテンツ",
+      "inserted": "挿入されたコンテンツ",
+      "deleted": "削除されたコンテンツ"
+    },
+    "overlayDialog": {
+      "title": "オーバーレイの比較",
+      "blendMode": "ブレンドモード",
+      "normal": "普通",
+      "multiply": "乗算",
+      "screen": "画面",
+      "overlay": "かぶせる",
+      "darken": "暗くする",
+      "lighten": "明るくする",
+      "colorDodge": "カラーダッジ",
+      "colorBurn": "カラーバーン",
+      "hardLight": "ハードライト",
+      "softLight": "ソフトライト",
+      "difference": "違い",
+      "exclusion": "除外",
+      "hue": "色相",
+      "saturation": "飽和",
+      "colour": "色",
+      "luminosity": "明るさ"
+    },
+    "downloadOptions": "出力オプションの選択",
+    "separateFiles": "個別に保存してダウンロード",
+    "mergedFile": "1つのファイルに結合",
+    "printSettings": "印刷設定",
+    "printOld": "古いファイルの比較結果を出力する",
+    "printNew": "新しいファイルの比較結果を出力する",
+    "credit": "ComPDFKitによる比較結果"
+  },
+
+  "contentEditor": {
+    "textProperties": {
+      "title": "テキストのプロパティ",
+      "fontColor": "フォントの色",
+      "textStyle": "テキストスタイル",
+      "spacing": "間隔",
+      "characterSpacing": "文字間隔",
+      "lineSpacing": "行間",
+      "paragraphSpacing": "段落の間隔"
+    },
+    "imageProperties": {
+      "title": "画像のプロパティ",
+      "rotate": "回転",
+      "rotateLeft": "左に回転",
+      "rotateRight": "右に回転",
+      "flip": "反転",
+      "flipHorizontal": "水平方向に反転",
+      "flipVertical": "垂直方向に反転",
+      "tools": "ツール",
+      "replace": "置換",
+      "export": "出力",
+      "crop": "切り取り",
+      "maxSize": "アップロード画像の最大サイズ: 2MB。"
+    }
+  },
+
+  "documentEditor": {
+    "saveAs": "名前を付けて保存...",
+    "insert": "挿入",
+    "rotateRight": "右に回転",
+    "rotateLeft": "左に回転",
+    "copy": "コピー",
+    "extract": "抽出",
+    "replace": "交換",
+    "move": "移動",
+    "selectAll": "すべて選択",
+    "unselectAll": "すべて選択解除",
+    "dialog": {
+      "insertPages": "ページの挿入",
+      "blankPage": "空白のページ",
+      "customPage": "カスタムの空白ページ",
+      "fromPdf": "PDFから",
+      "selectFile": "ファイルを選択してください",
+      "pageRange": "ページ範囲",
+      "allPages": "すべてのページ",
+      "oddPage": "奇数ページのみ",
+      "evenPage": "偶数ページのみ",
+      "customRange": "カスタム範囲",
+      "insertTo": "挿入先",
+      "firstPage": "最初のページ",
+      "lastPage": "最後のページ",
+      "page": "ページ",
+      "tip": "例えば3、5～10",
+      "before": "前に",
+      "after": "後"
+    },
+    "deleteConfirmation": "ページを削除しますか?",
+    "separateFiles": "個別のファイル内の各ページ",
+    "deleteAfter": "抽出後にページを削除する",
+    "moveTo": "ページの後に移動:",
+    "pageInputTip": "0から最大ページ番号を入力してください"
+  },
+
+  "security": {
+    "encryption": "暗号化",
+    "decryption": "復号化"
+  },
+
+  "redaction": {
+    "fillBlack": "黒で塗りつぶす",
+    "fillWhite": "白で塗りつぶす",
+    "caution": "注意",
+    "warning": "編集されたコンテンツはこのドキュメントから永久に削除されます。アクションを確認してください。",
+    "understand": "理解して始める",
+    "applyWarning": "編集を適用すると、編集されたコンテンツは完全に削除されます。",
+    "note": "注記",
+    "exitWarning": "編集は適用されていません。本当に退出しますか?",
+    "saveWarning": [
+      "この文書内のすべての編集されたコンテンツは完全に削除され、復元することはできません。",
+      "それらを編集してファイルを保存してもよろしいですか?"
+    ]
+  },
+
+  "layer": {
+    "show": "表示",
+    "hide": "隠す",
+    "lock": "ロック",
+    "unlock": "ロックを解除",
+    "lockedWarning": "現在のレイヤーはロックされています。表示/非表示を変更するには、まずレイヤーのプロパティでロックを解除してください。",
+    "properties": {
+      "title": "レイヤープロパティの設定",
+      "layerProperty": "レイヤープロパティ",
+      "name": "レイヤー名",
+      "namePlaceholder": "レイヤー名を入力してください",
+      "defaultSettings": "デフォルト設定",
+      "defaultShow": "ファイルを開くときのデフォルトの表示",
+      "defaultHide": "ファイルを開くときのデフォルトの非表示",
+      "lockLayer": "ロックレイヤー",
+      "printProperty": "印刷プロパティ",
+      "always": "いつも",
+      "never": "一度もない",
+      "printVisible": "表示されているときに印刷する",
+      "exportProperty": "エクスポートプロパティ",
+      "exportVisible": "表示されたらエクスポート"
+    }
+  },
+
+  "colorSeparation": {
+    "toggleColor": "色の切り替え",
+    "mobileWarning": "この機能はモバイルでは利用できません。最高のエクスペリエンスを得るには PC でアクセスしてください。"
+  },
+
+  "measurement": {
+    "scale": "規模",
+    "dimensions": {
+      "distance": "距離",
+      "angle": "角度",
+      "radius": "半径",
+      "perimeter": "周囲",
+      "area": "エリア",
+      "arcLength": "弧の長さ",
+      "width": "幅",
+      "height": "高さ"
+    },
+    "precision": "精度",
+    "tooltips": {
+      "xAxis": "X軸距離",
+      "yAxis": "Y軸距離",
+      "lineAngle": "線分と水平線の間の角度を入力して、傾きを調整します。始点から回転します。反時計回りは[0°, 180°]、時計回りは[-180°, 0°]です。",
+      "multilineAngle": "編集できません。測定時に 2 本の線の間の転換点の角度のみが表示されます。",
+      "circleRadius": "円の半径、または楕円の長半径。入力すると、選択した図形が対応する正円に調整されます。",
+      "horizontally": "水平方向",
+      "vertically": "垂直方向"
+    },
+    "drawingDimensions": "図面寸法：実寸",
+    "actualSize": "実寸大",
+    "units": {
+      "pt": "ポイント",
+      "in": "で",
+      "mm": "mm",
+      "cm": "cm",
+      "m": "メートル",
+      "km": "km",
+      "ft": "フィート",
+      "yd": "ヤード",
+      "mi": "私"
+    },
+    "settings": "測定設定",
+    "scaleError": "スケールは 0 より大きくなければなりません",
+    "showCaption": "キャプションを表示",
+    "done": "終わり",
+    "curveMeasurement": {
+      "title": "曲線を測定するにはどうすればいいですか?",
+      "steps": [
+        "ステップ 1: 曲線の開始点と終了点を選択する",
+        "ステップ 2: 青いコントロール ポイントをドラッグして、曲線の形状を調整します。"
+      ],
+      "confirmation": "閉鎖"
+    }
+  }
+}

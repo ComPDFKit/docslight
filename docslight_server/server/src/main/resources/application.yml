@@ -1,0 +1,141 @@
+server:
+  port: ${SERVER_PORT:7000}
+  compression:
+    enabled: true
+    mime-types: text/html,text/plain,text/xml,text/css,text/javascript,application/javascript
+
+spring:
+  thymeleaf:
+    cache: false
+  freemarker:
+    cache: true
+    checkTemplateLocation: false
+  resources:
+    static-locations: classpath:/compdfkit-demo-web/
+  servlet:
+    multipart:
+      max-request-size: 100GB
+      max-file-size: 100GB
+  application:
+    name: compdfkit
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+0
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL:/comidp}?autoReconnect=true&&useSSL=false
+    username: ${DB_USERNAME:}
+    password: ${DB_PASSWORD:}
+    hikari:
+      # 最小空闲连接，默认值10
+      minimum-idle: 10
+      # 最大连接数
+      maximum-pool-size: 20
+      # 空闲连接超时时间
+      idle-timeout: 500000
+      # 连接最大存活时间
+      max-lifetime: 540000
+      # 连接超时时间
+      connection-timeout: 60000
+  redis:
+    host: ${REDIS_HOST:}
+    port: ${REDIS_PORT:}
+    password: ${REDIS_PASSWORD:}
+    database: ${REDIS_DATABASE:0}
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 1
+        # 连接池中的最大空闲连接
+        max-idle: 6
+        # 连接池最大连接数（使用负值表示没有限制,不要配置过大，否则可能会影响redis的性能）
+        max-active: 10
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）；单位毫秒
+        max-wait: 1000
+      # 关闭超时时间；单位毫秒
+      shutdown-timeout: 200
+  rabbitmq:
+    host: ${MQ_HOST:}
+    port: ${MQ_PORT:}
+    username: ${MQ_USERNAME:}
+    password: ${MQ_PASSWORD:}
+    virtualHost: /
+    # 发送端确认
+    publisher-confirm-type: correlated
+    # 消息抵达队列确认
+    publisher-returns: true
+    # 消息抵达队列优先回调returnConfirm
+    template:
+      mandatory: true
+    listener:
+      simple:
+        prefetch: 5
+        # 消费者消息手动应答
+        acknowledge-mode: manual
+        retry:
+          # 最大重试次数 默认为3
+          max-attempts: 1
+          # 监听重试是否可用
+          enabled: false
+          # 传递消息的时间间隔 默认1s
+          initial-interval: 1000
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAML_PORT:465}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    protocol: ${MAIL_PROTOCOL:smtps}
+    default-encoding: UTF-8
+    toEmail: ${MAIL_TO_EMAIL:}
+
+comidp:
+  rustfs:
+    accessKeyId: ${RUSTFS_ACCESS_KEY:}
+    secretAccessKey: ${RUSTFS_SECRET_KEY:}
+    baseUrl: ${RUSTFS_ENDPOINT:}
+  resonac:
+    leaderId: ${RESONAC_LEADER_ID:}
+    templateList: ${RESONAC_TEMPLATE_LIST:}
+  config:
+    license: ${LICENSE:}
+    licenseKey: ${LICENSE_KEY:LICENSE_KEY}
+    licenseDeviceId: ${LICENSE_DEVICE_ID:}
+    licenseBoundId: ${LICENSE_BOUND_ID:}
+    executionMode: ${EXECUTION_MODE:}
+    tmpPath: ${TMP_PATH:/tmp/}
+    # en || zh_cn
+    language: ${LANGUAGE:en}
+    # 转换超时时间 分钟单位
+    convertTimeOut: ${CONVERT_TIMEOUT:15}
+    tmpFileIsClear: ${TMP_FILE_IS_CLEAR:false}
+    useGPU: ${USEGPU:false}
+#    gpuID: ${GPU_ID:}
+    modelCount: ${MODEL_COUNT:1}
+#    serviceId: ${SERVICE_ID:}
+#    documentAIHost: ${DOCUMENT_AI_HOST:http://127.0.0.1:7100}
+    qwenAPIKey: ${QWEN_API_KEY:}
+    qwenAPIModel: ${QWEN_API_MODEL:qwen2.5-vl-72b-instruct}
+    lowLevelEngine: ${LOWER_ENGINE::7788}
+    rag_engine: ${RAG_ENGINE:localhost:9222}/v1/user/info
+    docSlightHost: ${DOC_SLIGHT_HOST:http://localhost:8000}
+# 是否是官网用的，留意打包时候修改这里
+isWebsite: false
+
+cors:
+  allow-headers: "X-Requested-With,Content-Type,Cookie,Accept,authorization,Authorization,credential,keyword,x-auth-token,iv,jsonFlag,timeStamp,random,API_KEY,x-api-key"
+  allow-methods: "*"
+  allow-expose: "x-auth-token,Content-Disposition"
+  allow-credentials: "true"
+  allow-origins: "*"
+  allow-max-age: "3600"
+
+
+compdf:
+  file:
+    max-size: ${MAX_FILE_SIZE:104857600}
+  oss:
+    bucketName: ${COMPDF_OSS_FILE_BUCKETNAME:compdf}
+    endpoint: ${COMPDF_OSS_FILE_ENDPOINT:https://oss-us-east-1.aliyuncs.com}
+    accessKeyId: ${COMPDF_OSS_FILE_ACCESSKEYID:}
+    accessKeySecret: ${COMPDF_OSS_FILE_ACCESSKEYSECRET:}
+    file-prefix: ${COMPDF_OSS_FILE_PREFIX:comidp_data}

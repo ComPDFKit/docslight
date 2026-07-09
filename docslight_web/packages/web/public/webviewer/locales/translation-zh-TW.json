@@ -1,0 +1,696 @@
+{
+  "common": {
+    "properties": "屬性",
+    "navigation": {
+      "nextPage": "下一頁",
+      "previousPage": "上一頁"
+    },
+    "actions": {
+      "loading": "載入中",
+      "upload": "上傳",
+      "ok": "確定",
+      "exit": "退出",
+      "cancel": "取消",
+      "continue": "繼續",
+      "delete": "刪除",
+      "apply": "應用",
+      "save": "確認",
+      "clear": "清除",
+      "edit": "編輯",
+      "reply": "回覆",
+      "confirm": "儲存"
+    },
+    "uiElements": {
+      "color": "顏色",
+      "opacity": "不透明度",
+      "font": "字體"
+    },
+    "fontStyles": {
+      "regular": "常規",
+      "oblique": "斜體",
+      "bold": "粗體",
+      "boldOblique": "粗斜體"
+    }
+  },
+
+  "toolbar": {
+    "viewControls": {
+      "leftPanel": "左側面板",
+      "fullScreen": "全螢幕",
+      "viewSetting": "頁面顯示",
+      "pan": "滾動工具",
+      "cropPage": "截取",
+      "zoomIn": "放大",
+      "zoomOut": "縮小",
+      "search": "搜尋"
+    },
+    "themeSwitcher": {
+      "light": "日間",
+      "dark": "夜間",
+      "lightMode": "日間模式",
+      "darkMode": "夜間模式"
+    },
+    "toolbarGroup": {
+      "viewer": "查看",
+      "annotations": "註解",
+      "forms": "表單",
+      "signatures": "簽名",
+      "security": "安全",
+      "redaction": "標記密文",
+      "compare": "文件對比",
+      "editor": "內容編輯器",
+      "documentEditor": "頁面編輯",
+      "separation": "分色",
+      "measurement": "測量"
+    },
+    "annotationTools": {
+      "note": "便籤",
+      "highlight": "高亮",
+      "underline": "底線",
+      "strikeout": "刪除線",
+      "squiggly": "波浪線",
+      "ink": "手繪",
+      "circle": "圓",
+      "arc": "圓弧",
+      "polygon": "多邊形",
+      "polyline": "折線",
+      "square": "長方形",
+      "arrow": "箭頭",
+      "line": "線",
+      "freetext": "文字",
+      "stamp": "圖章",
+      "image": "圖片",
+      "link": "連結",
+      "cloudy": "雲朵",
+      "callout": "指示備註"
+    },
+    "formTools": {
+      "textField": "文字域",
+      "checkbox": "複選框",
+      "radioButton": "單選按鈕",
+      "listBox": "列錶框",
+      "comboButton": "下拉式選單",
+      "button": "按钮",
+      "signataireField": "簽名欄位",
+      "FillSign": "填寫和簽名"
+    },
+    "fileOperations": {
+      "openFile": "上傳文檔",
+      "download": "下載",
+      "flatten": "展平後下載",
+      "print": "列印"
+    },
+    "editorTools": {
+      "addText": "新增文字",
+      "addImage": "新增圖片",
+      "undo": "撤銷",
+      "redo": "重做"
+    },
+    "signatureTools": {
+      "createSignField": "新增/設定簽名域",
+      "addDigitalSign": "新增數位簽名",
+      "addElectronicSign": "新增電子簽名",
+      "verifyDigitalSign": "驗證數位簽名"
+    },
+    "measurementTools": {
+      "measureLine": "線",
+      "measureMultiline": "折線",
+      "measurePolygon": "多邊形",
+      "measureRectangle": "曲線",
+      "measureCircle": "圓形",
+      "measureCurve": "曲線",
+      "measureArc": "圓弧"
+    },
+    "settings": {
+      "title": "設定",
+      "author": "文件作者",
+      "annotator": "註釋作者",
+      "language": "語言設定",
+      "highlightLink": "高亮連結",
+      "highlightForm": "高亮表單",
+      "creationInfo": "創建訊息",
+      "version": "版本",
+      "signFill": "連續簽名/填寫表單欄位",
+      "signForm": "簽名/表單欄位",
+      "sign": "僅簽名欄位",
+      "form": "僅表單欄位",
+      "disableConsecutively": "關閉連續填寫",
+      "skip": "跳過非必填欄位"
+    },
+    "compareTip": "點擊此處開始"
+  },
+
+  "form": {
+    "note1": "文件含有 {{formFields}} 個表單欄位（其中 {{unfilledFormFields}} 個必填項未填寫），{{signFields}} 個簽名欄位（其中 {{unsignFields}} 個必填項未簽名）；",
+    "note2": "文件含有 {{signFields}} 個簽名欄位（其中 {{unsignFields}} 個必填項未簽名）",
+    "note3": "文件含有 {{formFields}} 個表單欄位（其中 {{unfilledFormFields}} 個必填項未填寫）",
+    "startFill": "點擊「開始」前往第一個欄位。點擊這裡可快速",
+    "consecutively": "關閉「連續填寫」。",
+    "formSignFilled": "所有必填表單欄位和簽名欄位均已完成填寫",
+    "signFilled": "所有必填簽名欄位均已完成簽名",
+    "formFilled": "所有必填表單欄位均已完成填寫",
+    "previous": "上一個",
+    "next": "下一個",
+    "start": "開始"
+  },
+
+  "panels": {
+    "left": {
+      "thumbnails": "縮圖",
+      "outlines": {
+        "title": "大綱",
+        "empty": "無大綱"
+      },
+      "layers": {
+        "title": "圖層",
+        "empty": "無圖層",
+        "menu": "選單",
+        "showAll": "全部顯示",
+        "hideAll": "全部隱藏",
+        "restoreSettings": "恢復預設狀態",
+        "exportLayers": "匯出文件圖層",
+        "layerProperty": "圖層屬性",
+        "exportLayer": "匯出此圖層"
+      },
+      "annotations": {
+        "title": "註釋列表",
+        "empty": "沒有註釋",
+        "import": "導入註釋",
+        "export": "導出註釋"
+      },
+      "reply": {
+        "marked": "已標記",
+        "unmarked": "未標記",
+        "accepted": "已接受",
+        "rejected": "已拒絕",
+        "cancelled": "已取消",
+        "completed": "已完成",
+        "none": "無",
+        "replyPlaceholder": "回覆"
+      },
+      "search": {
+        "title": "搜尋",
+        "placeholder": "搜尋PDF",
+        "page": "頁碼",
+        "pageIndicator": "第{{page}}頁",
+        "previous": "看上一個結果",
+        "next": "查看下一個結果",
+        "noResults": "無搜尋結果"
+      },
+      "signatures": {
+        "title": "簽名",
+        "list": "數位簽名列表",
+        "details": "看簽名詳情",
+        "certification": "查看證書詳情",
+        "empty": "沒有簽名"
+      }
+    },
+    "right": {
+      "general": {
+        "title": "一般",
+        "name": "名稱",
+        "formField": "表格欄位",
+        "visibility": {
+          "visible": "可見",
+          "hidden": "隱藏"
+        },
+        "properties": "屬性",
+        "required": "必填",
+        "nameConflict": "該名稱已存在",
+        "buttonText": "按鈕文字",
+        "indicator": "顯示欄位提示",
+        "fill": "填寫",
+        "signHere": "請在此簽名"
+      },
+      "appearance": {
+        "title": "外觀",
+        "backgroundColor": "背景色"
+      },
+      "preferences": {
+        "title": "選項",
+        "alignment": {
+          "title": "文字對齊",
+          "left": "左對齊",
+          "center": "居中",
+          "right": "右對齊"
+        },
+        "defaultValue": "預設值",
+        "multiLine": "多行",
+        "buttonStyle": "按鈕樣式",
+        "styles": {
+          "check": "勾選",
+          "circle": "圓形",
+          "cross": "分岔",
+          "diamond": "菱形",
+          "square": "方形",
+          "star": "星形"
+        },
+        "defaultChecked": "預設為已選取",
+        "item": "專案",
+        "itemList": "項目清單",
+        "selectAction": {
+          "title": "選擇動作",
+          "none": "無",
+          "goPage": "跳到頁面",
+          "openLink": "打開網頁連結"
+        },
+        "addResource": {
+          "url": "添加連結",
+          "page": "加入頁面"
+        },
+        "radioTips": [
+          "警告：組中只有一個按鈕。至少需要2個按鈕。",
+          "提示：若要建立一組互斥的單選按鈕（即一次只能選擇一個），請確保各網域相同。"
+        ],
+        "listBoxTip": "從項目清單中選擇一個選項，作為預設選項。"
+      }
+    },
+    "pageMode": {
+      "displayMode": {
+        "title": "閱讀模式",
+        "singlePage": "單頁",
+        "twoPages": "雙頁",
+        "coverMode": "封面模式"
+      },
+      "splitView": {
+        "title": "分割畫面視圖",
+        "vertical": "垂直滾動",
+        "horizontal": "水平捲動"
+      },
+      "themes": "主題"
+    },
+    "stamp": {
+      "standard": "標準圖章",
+      "dynamic": "動態圖章",
+      "custom": "自訂圖章",
+      "create": "請建立圖章",
+      "createHere": "創建圖章"
+    },
+    "link": {
+      "title": "連結到",
+      "types": {
+        "url": "超連結",
+        "pages": "跳到頁面",
+        "email": "電子郵件信箱"
+      },
+      "action": "前往"
+    },
+    "measurement": {
+      "appearance": "外觀設定",
+      "lineWidth": "線寬",
+      "lineColor": "線條顏色",
+      "lineStyle": "線條 & 邊框類型",
+      "lineOpacity": "線條不透明度",
+      "lineTextOpacity": "線段 & 文字不透明度",
+      "lineStart": "線頭",
+      "lineEnd": "線尾",
+      "fillColor": "填充顏色",
+      "fillOpacity": "填充不透明度",
+      "fontColor": "字體顏色",
+      "fontStyle": "字體樣式",
+      "note": "批註"
+    },
+    "freeText": {
+      "title": "文字",
+      "fontStyle": "字體樣式",
+      "fontColor": "字體顏色",
+      "borderWidth": "邊框寬度",
+      "borderColor": "邊框顏色",
+      "opacity": "不透明度",
+      "fillColor": "填滿顏色"
+    },
+    "customStamp": {
+      "title": "自訂圖章",
+      "preview": "預覽",
+      "properties": "屬性",
+      "fontFamily": "字體",
+      "fontColor": "字體顏色",
+      "fontStyle": "字體樣式",
+      "fontSize": "號碼",
+      "alignment": "文字對齊",
+      "addText": "新增文字",
+      "addShape": "添加形狀",
+      "addDateTime": "新增日期和時間",
+      "shape": "形狀",
+      "borderColor": "邊框顏色",
+      "borderWidth": "邊框寬度",
+      "borderOpacity": "邊框不透明度",
+      "opacity": "不透明度",
+      "fillColor": "填滿顏色",
+      "fillOpacity": "填滿不透明度",
+      "dateTime": "日期和時間",
+      "createHere": "在此創建"
+    }
+  },
+
+  "passwordDialog": {
+    "enterPwd": "輸入密碼查看文檔",
+    "placeholder": "請輸入密碼",
+    "wrongPwd": "密碼錯誤",
+    "longPwd": "密碼過長，最多輸入20個字符",
+    "samePwd": "文件密碼和權限密碼不能相同",
+    "encryptTitle": "加密",
+    "encrypt": "加密",
+    "support": "支持字：數字、字母、{'@'}、$、!、%、?、&",
+    "removeSuccess": "密碼已移除！",
+    "removeFailure": "密碼移除失敗！",
+    "setSuccess": "密碼設定成功！下載文件後生效。",
+    "setFailure": "密碼設定失敗！",
+    "documentPwd": "文件密碼",
+    "permissionPwd": "權限密碼",
+    "disablePrinting": "禁止列印",
+    "disableCopying": "禁止複製",
+    "disableEdit": "停用註釋、表單、測量、標記密文（新增、刪除和修改）",
+    "notes": [
+      "注意：",
+      "- 所有變更將在下載後生效。",
+      "- 在下載文件之前，您可以隨時重設密碼。"
+    ],
+    "enterPermissionPwd": "請輸入文件密碼"
+  },
+
+  "signatures": {
+    "tip": "請先建立一個簽章域，然後再選擇簽章類型",
+    "danger": "請選取一個空簽章域進行簽章。",
+    "trackpad": "觸控板",
+    "lineWidth": "寬度",
+    "keyboard": "鍵盤",
+    "signHere": "請在此輸入簽名",
+    "image": "圖片",
+    "selectFile": "選擇文件",
+    "none": "無",
+    "uploadError": "請上傳1M以內的圖片",
+    "fullStorage": "您的簽名範本已滿，請刪除後再新增。",
+    "title": "請選擇簽名類型",
+    "electronic": {
+      "title": "電子簽名",
+      "description": "透過繪製、圖片、或輸入文字進行文件簽署。"
+    },
+    "digital": {
+      "title": "數位簽章（數位憑證簽署）",
+      "description": "透過建立或上傳帶有唯一數位ID的數位憑證來簽署文件。"
+    },
+    "startSigning": "開始簽名",
+    "details": {
+      "title": "數位簽名詳細信息",
+      "signer": "簽名有效，簽署者為",
+      "signingTime": "簽約時間",
+      "validitySummary": "有效性小結",
+      "validIdentity": "簽名者的身分有效。",
+      "invalidIdentity": "簽名者的身分無效。",
+      "unknownIdentity": "簽章有效性未知，因為它未包含在您的受信任憑證清單中，而且它的父憑證都不是受信任憑證。",
+      "expiredCertificate": "該文件是用已過期的憑證簽署的。如果您最近取得了此文件，則該文件可能不真實。",
+      "validSignature": "簽名有效。",
+      "invalidSignature": "簽名無效。",
+      "notModified": "自套用此簽名以來，文件未被修改。",
+      "altered": "自從目前使用者簽署文件以來，該文件已被更改或損壞。",
+      "viewCertificate": "查看證書細節",
+      "unknownSignature": "簽名有效性未知。",
+      "invalidSignatures": "至少一個簽名無效，文件可能被竄改。",
+      "viewAll": "查看所有簽名"
+    },
+    "certificateViewer": {
+      "title": "證書查看程式",
+      "abstracts": "摘要",
+      "summary": "小結",
+      "issuedTo": "頒發給",
+      "issuer": "頒發者",
+      "validFrom": "有效起始日期",
+      "validTo": "有效截止日期",
+      "intendedUsage": "預期用途",
+      "details": {
+        "title": "詳細資訊",
+        "version": "版本",
+        "algorithm": "簽名演算法",
+        "subject": "主題",
+        "serialNumber": "序號",
+        "certificatePolicy": "證書策略",
+        "crlDistribution": "CRL分發點",
+        "issuerInfoAccess": "頒發機構資訊訪問",
+        "issuerKeyIdentifier": "頒發機構密鑰標識符",
+        "subjectKeyIdentifier": "主體密鑰標識符",
+        "constraints": "基本約束",
+        "keyUsage": "密鑰用法",
+        "publicKey": "公鑰",
+        "x509": "509",
+        "sha1Digests": "SHA1",
+        "md5Digests": "MD5"
+      },
+      "trust": {
+        "title": "信任",
+        "sign": "簽署文檔或數據",
+        "certify": "驗證文檔",
+        "addToTrust": "新增至可信任證書",
+        "done": "關閉"
+      }
+    },
+    "deleteConfirm": "確定刪除該內容？",
+    "digitalDialog": {
+      "title": "新增數位身分證",
+      "description": "瀏覽數位身分證文件。數位身分證受密碼保護。如果你不知道密碼，你就無法取得數位身分證。",
+      "certificateFile": "證書文件",
+      "uploadFile": "上傳證書文件",
+      "password": "證書密碼",
+      "enterPassword": "請輸入證書密碼",
+      "invalidPassword": "密碼錯誤，請重試"
+    },
+    "appearance": {
+      "title": "新增數位簽名",
+      "signHere": "請在此輸入簽名！",
+      "includeText": "包含文字",
+      "name": "名稱",
+      "distinguishableName": "辨別名",
+      "date": "日期",
+      "version": "ComPDFKit 版本",
+      "logo": "標誌",
+      "location": "位置",
+      "reason": "原因",
+      "docOwner": "我是該文件的作者",
+      "approving": "我正在批准該文檔",
+      "reviewed": "我已審閱該文檔",
+      "labels": "標籤",
+      "textAlignment": "對齊方式"
+    },
+    "electronicSignature": {
+      "title": "新增電子簽名",
+      "empty": "開始建立您的簽名範本！",
+      "mySignatures": "我的簽名",
+      "create": "建立簽名",
+      "saveTemplate": "儲存至我的簽名模板",
+      "dropFile": "將圖片拖至此處，或"
+    }
+  },
+
+  "compare": {
+    "startCompare": "開始對比",
+    "return": "返回",
+    "compare": "開始對比",
+    "oldFile": "舊文件",
+    "newFile": "新文件",
+    "dropFile": [
+      "將文件拖到此處，",
+      "或"
+    ],
+    "chooseOld": "新增舊文件",
+    "chooseNew": "新增文件",
+    "status": "對比即將完成！",
+    "contentDialog": {
+      "title": "並排對比",
+      "items": "對比內容選擇",
+      "text": "文字",
+      "images": "圖片",
+      "colorMark": "標記顏色",
+      "replaced": "被替換的內容",
+      "inserted": "被插入的內容",
+      "deleted": "已刪除的內容"
+    },
+    "overlayDialog": {
+      "title": "疊加對比",
+      "blendMode": "混合模式",
+      "normal": "普通",
+      "multiply": "正片疊底",
+      "screen": "濾色",
+      "overlay": "疊加",
+      "darken": "變暗",
+      "lighten": "變亮",
+      "colorDodge": "色彩減淡",
+      "colorBurn": "顏色加深",
+      "hardLight": "強光",
+      "softLight": "柔光",
+      "difference": "差值",
+      "exclusion": "排除",
+      "hue": "色相",
+      "saturation": "飽和度",
+      "colour": "顏色",
+      "luminosity": "明度"
+    },
+    "downloadOptions": "結果文件樣式",
+    "separateFiles": "對比結果分開保存，結果文件為2份",
+    "mergedFile": "合併對比結果，結果文件為1份文件",
+    "printSettings": "列印文件選擇",
+    "printOld": "列印舊文件的比較結果文件",
+    "printNew": "列印新文件的比較結果文件",
+    "credit": "由ComPDFKit提供對比"
+  },
+
+  "contentEditor": {
+    "textProperties": {
+      "title": "文字屬性",
+      "fontColor": "文字顏色",
+      "textStyle": "文字樣式",
+      "spacing": "間距",
+      "characterSpacing": "字間距",
+      "lineSpacing": "行間距",
+      "paragraphSpacing": "段間距"
+    },
+    "imageProperties": {
+      "title": "圖片屬性",
+      "rotate": "旋轉",
+      "rotateLeft": "左旋轉",
+      "rotateRight": "右旋轉",
+      "flip": "翻轉",
+      "flipHorizontal": "水平翻轉",
+      "flipVertical": "垂直翻轉",
+      "tools": "工具",
+      "replace": "替換",
+      "export": "匯出",
+      "crop": "裁切",
+      "maxSize": "圖片大小上限：2MB。"
+    }
+  },
+
+  "documentEditor": {
+    "saveAs": "另存為",
+    "insert": "插入",
+    "rotateRight": "右旋轉",
+    "rotateLeft": "左旋轉",
+    "copy": "複製",
+    "extract": "提取",
+    "replace": "替換",
+    "move": "移動",
+    "selectAll": "全選",
+    "unselectAll": "取消全選",
+    "dialog": {
+      "insertPages": "頁面範圍",
+      "blankPage": "空白頁",
+      "customPage": "自訂空白頁",
+      "fromPdf": "從其他PDF",
+      "selectFile": "選擇文件",
+      "pageRange": "頁面範圍",
+      "allPages": "所有頁面",
+      "oddPage": "奇數頁",
+      "evenPage": "偶數頁",
+      "customRange": "自訂範圍",
+      "insertTo": "頁面插入位置",
+      "firstPage": "首頁",
+      "lastPage": "末頁",
+      "page": "頁面",
+      "tip": "例：3, 5-10",
+      "before": "前",
+      "after": "後"
+    },
+    "deleteConfirmation": "確認要刪除所選頁面嗎？",
+    "separateFiles": "每頁作為單一文件",
+    "deleteAfter": "擷取後刪除頁面",
+    "moveTo": "移動到",
+    "pageInputTip": "輸入0~文檔最大頁碼數"
+  },
+
+  "security": {
+    "encryption": "文件加密",
+    "decryption": "文件解密"
+  },
+
+  "redaction": {
+    "fillBlack": "填充黑色",
+    "fillWhite": "填充白色",
+    "caution": "提示",
+    "warning": "本文檔中已被標記的內容將會永久刪除。請確認您的操作。",
+    "understand": "我已知曉，開始使用",
+    "applyWarning": "應用標記密文後，被標記的內容將會永久刪除。",
+    "note": "提示",
+    "exitWarning": "您的標記內容尚未生效。確定要退出嗎？",
+    "saveWarning": [
+      "提示：文件中被標記的內容將永久刪除且不可恢復。",
+      "確定刪除所有標記內容並儲存文件？"
+    ]
+  },
+
+  "layer": {
+    "show": "顯示",
+    "hide": "隱藏",
+    "lock": "鎖定",
+    "unlock": "解鎖",
+    "lockedWarning": "目前圖層已鎖定。若要變更其可見性，請先在圖層屬性中將其解鎖。",
+    "properties": {
+      "title": "設定圖層屬性",
+      "layerProperty": "圖層屬性",
+      "name": "圖層名稱",
+      "namePlaceholder": "請輸入圖層名稱",
+      "defaultSettings": "預設狀態",
+      "defaultShow": "開啟檔案時預設顯示",
+      "defaultHide": "開啟檔案時預設隱藏",
+      "lockLayer": "鎖定圖層",
+      "printProperty": "列印屬性",
+      "always": "總是",
+      "never": "從不",
+      "printVisible": "可見時列印",
+      "exportProperty": "導出屬性",
+      "exportVisible": "可見時匯出"
+    }
+  },
+
+  "colorSeparation": {
+    "toggleColor": "切換顏色",
+    "mobileWarning": "此功能不適用於行動設備，請在 PC 端存取以獲得最佳體驗"
+  },
+
+  "measurement": {
+    "scale": "比例",
+    "dimensions": {
+      "distance": "距離",
+      "angle": "角度",
+      "radius": "半徑",
+      "perimeter": "週長",
+      "area": "面積",
+      "arcLength": "弧長",
+      "width": "寬",
+      "height": "高"
+    },
+    "precision": "精確度",
+    "tooltips": {
+      "xAxis": "X軸距離",
+      "yAxis": "Y軸距離",
+      "lineAngle": "輸入線段與水平線之間的角度來調整其斜率。從起點旋轉：逆時針為 [0°, 180°]，順時針為 [-180°, 0°]。",
+      "multilineAngle": "不可編輯，僅在測量時顯示兩條線之間的轉折點的角度。",
+      "circleRadius": "圓的半徑，或橢圓的半長軸。輸入後，所選形狀將會調整為對應的正圓。",
+      "horizontally": "水平方向",
+      "vertically": "垂直方向"
+    },
+    "drawingDimensions": "圖紙尺寸",
+    "actualSize": "實際尺寸",
+    "units": {
+      "pt": "點",
+      "in": "英吋",
+      "mm": "毫米",
+      "cm": "公分",
+      "m": "米",
+      "km": "千米",
+      "ft": "英尺",
+      "yd": "碼",
+      "mi": "英哩"
+    },
+    "settings": "測量設定",
+    "scaleError": "比例尺需大於0。",
+    "showCaption": "文字展示",
+    "done": "確認",
+    "curveMeasurement": {
+      "title": "如何測量曲線？",
+      "steps": [
+        "第一步：選擇曲線起點和終點；",
+        "第二步：拖曳藍色控制點調整曲線形狀。"
+      ],
+      "confirmation": "確認"
+    }
+  }
+}

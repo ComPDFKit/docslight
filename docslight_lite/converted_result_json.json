@@ -1,0 +1,742 @@
+{
+  "result": {
+    "pages": [
+      {
+        "angle": 0,
+        "page_id": 1,
+        "image_id": "",
+        "height": 1950,
+        "width": 1498,
+        "durations": 0,
+        "structured": [
+          {
+            "pos": [
+              1142,
+              71,
+              1423,
+              71,
+              1423,
+              167,
+              1142,
+              167
+            ],
+            "id": 0,
+            "content": [
+              0
+            ],
+            "text": "CLO U DF LA R E ",
+            "type": "header",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              63,
+              77,
+              218,
+              77,
+              218,
+              115,
+              63,
+              115
+            ],
+            "id": 1,
+            "content": [
+              1
+            ],
+            "text": "Invoice ",
+            "type": "paragraph_title",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              60,
+              168,
+              467,
+              168,
+              467,
+              258,
+              60,
+              258
+            ],
+            "id": 2,
+            "content": [
+              2
+            ],
+            "text": "Invoice number I IN-10301365Date of issue September 24, 2024Date due September 25, 2024",
+            "type": "text",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              60,
+              307,
+              397,
+              307,
+              397,
+              464,
+              60,
+              464
+            ],
+            "id": 3,
+            "content": [
+              3
+            ],
+            "text": "Cloudflare, Inc.\n101 Townsend Street San Francisco, California 94107United States \nbilling@cloudflare.com ",
+            "type": "text",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              608,
+              306,
+              984,
+              306,
+              984,
+              598,
+              608,
+              598
+            ],
+            "id": 4,
+            "content": [
+              4
+            ],
+            "text": "Bill to \n\nPDF Technologies, Inc.\n\n410000\n\n湘Changsha City \n49F-8., Changsha Shimao World \nFinancial Center, No.393, Jianxiang \nRd., Furong Dist.,\nChina \n\ntangqilu@kdanmobile.com \n",
+            "type": "text",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              60,
+              664,
+              668,
+              664,
+              668,
+              697,
+              60,
+              697
+            ],
+            "id": 5,
+            "content": [
+              5
+            ],
+            "text": "$75.00 USD due September 25, 2024",
+            "type": "paragraph_title",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              61,
+              726,
+              176,
+              726,
+              176,
+              751,
+              61,
+              751
+            ],
+            "id": 6,
+            "content": [
+              6
+            ],
+            "text": "Pay online ",
+            "type": "text",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              58,
+              818,
+              1437,
+              818,
+              1437,
+              1357,
+              58,
+              1357
+            ],
+            "id": 7,
+            "content": [
+              7
+            ],
+            "text": "<html><body><table><tbody><tr><td colspan=\"2\">Description</td><td>Qty</td><td>Unit price</td><td>Amount</td></tr><tr><td colspan=\"2\">Spectrum GB Transferred Aug 24– Sep 23, 2024</td><td>0</td><td>$1.00</td><td>$0.00</td></tr><tr><td colspan=\"2\">Cloudflare Pro Plan Sep 24 – Oct 23, 2024</td><td>3</td><td>$25.00</td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Subtotal</td><td></td><td></td></tr><tr><td></td><td colspan=\"2\">Total excluding tax</td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">CN VAT - CHINA (0% on $O.00) Total</td><td></td><td>$0.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Amount due</td><td></td><td>$75.00 USD</td></tr></tbody></table></body></html>",
+            "type": "table",
+            "outline_level": -1,
+            "rows": 9,
+            "cols": 5,
+            "sub_type": "bordered"
+          },
+          {
+            "pos": [
+              58,
+              1423,
+              1367,
+              1423,
+              1367,
+              1481,
+              58,
+              1481
+            ],
+            "id": 8,
+            "content": [
+              8
+            ],
+            "text": "If this request is concerning an Enterprise invoice reach out to ar@cloudflare.com. For all other billing concerns, submit your request here: https://dash.cloudflare.com/?to=/:account/support ",
+            "type": "text",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              59,
+              1534,
+              697,
+              1534,
+              697,
+              1767,
+              59,
+              1767
+            ],
+            "id": 9,
+            "content": [
+              9
+            ],
+            "text": "Pay $75.00 with a bank transfer \nBank transfers can take up to two business days. To pay via \nbank transfer, transfer funds using the following bank \ninformation.\n\nBank name WELLS FARGO BANK, N.A.\nRouting number r121000248\n\nAccount number 40630107739969383\n",
+            "type": "text",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              62,
+              1847,
+              522,
+              1847,
+              522,
+              1866,
+              62,
+              1866
+            ],
+            "id": 10,
+            "content": [
+              10
+            ],
+            "text": "IN-10301365· $75.00 USD due September 25, 2024",
+            "type": "footer",
+            "outline_level": -1
+          },
+          {
+            "pos": [
+              1334,
+              1847,
+              1433,
+              1847,
+              1433,
+              1869,
+              1334,
+              1869
+            ],
+            "id": 11,
+            "content": [
+              11
+            ],
+            "text": "Page 1of 2",
+            "type": "number",
+            "outline_level": -1
+          }
+        ],
+        "status": "Success",
+        "content": [
+          {
+            "id": 0,
+            "status": 0,
+            "pos": [
+              1142,
+              71,
+              1423,
+              71,
+              1423,
+              167,
+              1142,
+              167
+            ],
+            "type": "header",
+            "text": "CLO U DF LA R E ",
+            "score": 0.9408369660377502,
+            "angle": 0
+          },
+          {
+            "id": 1,
+            "status": 1,
+            "pos": [
+              63,
+              77,
+              218,
+              77,
+              218,
+              115,
+              63,
+              115
+            ],
+            "type": "paragraph_title",
+            "text": "Invoice ",
+            "score": 0.5897756814956665,
+            "angle": 0
+          },
+          {
+            "id": 2,
+            "status": 1,
+            "pos": [
+              60,
+              168,
+              467,
+              168,
+              467,
+              258,
+              60,
+              258
+            ],
+            "type": "text",
+            "text": "Invoice number I IN-10301365Date of issue September 24, 2024Date due September 25, 2024",
+            "score": 0.9611132740974426,
+            "angle": 0
+          },
+          {
+            "id": 3,
+            "status": 1,
+            "pos": [
+              60,
+              307,
+              397,
+              307,
+              397,
+              464,
+              60,
+              464
+            ],
+            "type": "text",
+            "text": "Cloudflare, Inc.\n101 Townsend Street San Francisco, California 94107United States \nbilling@cloudflare.com ",
+            "score": 0.9523252844810486,
+            "angle": 0
+          },
+          {
+            "id": 4,
+            "status": 1,
+            "pos": [
+              608,
+              306,
+              984,
+              306,
+              984,
+              598,
+              608,
+              598
+            ],
+            "type": "text",
+            "text": "Bill to \n\nPDF Technologies, Inc.\n\n410000\n\n湘Changsha City \n49F-8., Changsha Shimao World \nFinancial Center, No.393, Jianxiang \nRd., Furong Dist.,\nChina \n\ntangqilu@kdanmobile.com \n",
+            "score": 0.9540113806724548,
+            "angle": 0
+          },
+          {
+            "id": 5,
+            "status": 1,
+            "pos": [
+              60,
+              664,
+              668,
+              664,
+              668,
+              697,
+              60,
+              697
+            ],
+            "type": "paragraph_title",
+            "text": "$75.00 USD due September 25, 2024",
+            "score": 0.7852723002433777,
+            "angle": 0
+          },
+          {
+            "id": 6,
+            "status": 1,
+            "pos": [
+              61,
+              726,
+              176,
+              726,
+              176,
+              751,
+              61,
+              751
+            ],
+            "type": "text",
+            "text": "Pay online ",
+            "score": 0.5541167855262756,
+            "angle": 0
+          },
+          {
+            "id": 7,
+            "status": 1,
+            "pos": [
+              58,
+              818,
+              1437,
+              818,
+              1437,
+              1357,
+              58,
+              1357
+            ],
+            "type": "table",
+            "text": "<html><body><table><tbody><tr><td colspan=\"2\">Description</td><td>Qty</td><td>Unit price</td><td>Amount</td></tr><tr><td colspan=\"2\">Spectrum GB Transferred Aug 24– Sep 23, 2024</td><td>0</td><td>$1.00</td><td>$0.00</td></tr><tr><td colspan=\"2\">Cloudflare Pro Plan Sep 24 – Oct 23, 2024</td><td>3</td><td>$25.00</td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Subtotal</td><td></td><td></td></tr><tr><td></td><td colspan=\"2\">Total excluding tax</td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">CN VAT - CHINA (0% on $O.00) Total</td><td></td><td>$0.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Amount due</td><td></td><td>$75.00 USD</td></tr></tbody></table></body></html>"
+          },
+          {
+            "id": 8,
+            "status": 1,
+            "pos": [
+              58,
+              1423,
+              1367,
+              1423,
+              1367,
+              1481,
+              58,
+              1481
+            ],
+            "type": "text",
+            "text": "If this request is concerning an Enterprise invoice reach out to ar@cloudflare.com. For all other billing concerns, submit your request here: https://dash.cloudflare.com/?to=/:account/support ",
+            "score": 0.9598884582519531,
+            "angle": 0
+          },
+          {
+            "id": 9,
+            "status": 1,
+            "pos": [
+              59,
+              1534,
+              697,
+              1534,
+              697,
+              1767,
+              59,
+              1767
+            ],
+            "type": "text",
+            "text": "Pay $75.00 with a bank transfer \nBank transfers can take up to two business days. To pay via \nbank transfer, transfer funds using the following bank \ninformation.\n\nBank name WELLS FARGO BANK, N.A.\nRouting number r121000248\n\nAccount number 40630107739969383\n",
+            "score": 0.6363745331764221,
+            "angle": 0
+          },
+          {
+            "id": 10,
+            "status": 0,
+            "pos": [
+              62,
+              1847,
+              522,
+              1847,
+              522,
+              1866,
+              62,
+              1866
+            ],
+            "type": "footer",
+            "text": "IN-10301365· $75.00 USD due September 25, 2024",
+            "score": 0.9383487701416016,
+            "angle": 0
+          },
+          {
+            "id": 11,
+            "status": 0,
+            "pos": [
+              1334,
+              1847,
+              1433,
+              1847,
+              1433,
+              1869,
+              1334,
+              1869
+            ],
+            "type": "number",
+            "text": "Page 1of 2",
+            "score": 0.9140881299972534,
+            "angle": 0
+          }
+        ]
+      }
+    ],
+    "detail": [
+      {
+        "paragraph_id": 1,
+        "page_id": 1,
+        "status": 0,
+        "type": "paragraph",
+        "position": [
+          1142,
+          71,
+          1423,
+          71,
+          1423,
+          167,
+          1142,
+          167
+        ],
+        "outline_level": -1,
+        "sub_type": "header",
+        "content": 0,
+        "text": "CLO U DF LA R E ",
+        "tags": []
+      },
+      {
+        "paragraph_id": 2,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          63,
+          77,
+          218,
+          77,
+          218,
+          115,
+          63,
+          115
+        ],
+        "outline_level": -1,
+        "sub_type": "paragraph_title",
+        "content": 0,
+        "text": "Invoice ",
+        "tags": []
+      },
+      {
+        "paragraph_id": 3,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          60,
+          168,
+          467,
+          168,
+          467,
+          258,
+          60,
+          258
+        ],
+        "outline_level": -1,
+        "sub_type": "text",
+        "content": 0,
+        "text": "Invoice number I IN-10301365Date of issue September 24, 2024Date due September 25, 2024",
+        "tags": []
+      },
+      {
+        "paragraph_id": 4,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          60,
+          307,
+          397,
+          307,
+          397,
+          464,
+          60,
+          464
+        ],
+        "outline_level": -1,
+        "sub_type": "text",
+        "content": 0,
+        "text": "Cloudflare, Inc.\n101 Townsend Street San Francisco, California 94107United States \nbilling@cloudflare.com ",
+        "tags": []
+      },
+      {
+        "paragraph_id": 5,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          608,
+          306,
+          984,
+          306,
+          984,
+          598,
+          608,
+          598
+        ],
+        "outline_level": -1,
+        "sub_type": "text",
+        "content": 0,
+        "text": "Bill to \n\nPDF Technologies, Inc.\n\n410000\n\n湘Changsha City \n49F-8., Changsha Shimao World \nFinancial Center, No.393, Jianxiang \nRd., Furong Dist.,\nChina \n\ntangqilu@kdanmobile.com \n",
+        "tags": []
+      },
+      {
+        "paragraph_id": 6,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          60,
+          664,
+          668,
+          664,
+          668,
+          697,
+          60,
+          697
+        ],
+        "outline_level": -1,
+        "sub_type": "paragraph_title",
+        "content": 0,
+        "text": "$75.00 USD due September 25, 2024",
+        "tags": []
+      },
+      {
+        "paragraph_id": 7,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          61,
+          726,
+          176,
+          726,
+          176,
+          751,
+          61,
+          751
+        ],
+        "outline_level": -1,
+        "sub_type": "text",
+        "content": 0,
+        "text": "Pay online ",
+        "tags": []
+      },
+      {
+        "paragraph_id": 8,
+        "page_id": 1,
+        "status": 1,
+        "type": "table",
+        "position": [
+          58,
+          818,
+          1437,
+          818,
+          1437,
+          1357,
+          58,
+          1357
+        ],
+        "outline_level": -1,
+        "sub_type": "bordered",
+        "content": 0,
+        "text": "<html><body><table><tbody><tr><td colspan=\"2\">Description</td><td>Qty</td><td>Unit price</td><td>Amount</td></tr><tr><td colspan=\"2\">Spectrum GB Transferred Aug 24– Sep 23, 2024</td><td>0</td><td>$1.00</td><td>$0.00</td></tr><tr><td colspan=\"2\">Cloudflare Pro Plan Sep 24 – Oct 23, 2024</td><td>3</td><td>$25.00</td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Subtotal</td><td></td><td></td></tr><tr><td></td><td colspan=\"2\">Total excluding tax</td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">CN VAT - CHINA (0% on $O.00) Total</td><td></td><td>$0.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Amount due</td><td></td><td>$75.00 USD</td></tr></tbody></table></body></html>",
+        "caption_id": 7
+      },
+      {
+        "paragraph_id": 9,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          58,
+          1423,
+          1367,
+          1423,
+          1367,
+          1481,
+          58,
+          1481
+        ],
+        "outline_level": -1,
+        "sub_type": "text",
+        "content": 0,
+        "text": "If this request is concerning an Enterprise invoice reach out to ar@cloudflare.com. For all other billing concerns, submit your request here: https://dash.cloudflare.com/?to=/:account/support ",
+        "tags": []
+      },
+      {
+        "paragraph_id": 10,
+        "page_id": 1,
+        "status": 1,
+        "type": "paragraph",
+        "position": [
+          59,
+          1534,
+          697,
+          1534,
+          697,
+          1767,
+          59,
+          1767
+        ],
+        "outline_level": -1,
+        "sub_type": "text",
+        "content": 0,
+        "text": "Pay $75.00 with a bank transfer \nBank transfers can take up to two business days. To pay via \nbank transfer, transfer funds using the following bank \ninformation.\n\nBank name WELLS FARGO BANK, N.A.\nRouting number r121000248\n\nAccount number 40630107739969383\n",
+        "tags": []
+      },
+      {
+        "paragraph_id": 11,
+        "page_id": 1,
+        "status": 0,
+        "type": "paragraph",
+        "position": [
+          62,
+          1847,
+          522,
+          1847,
+          522,
+          1866,
+          62,
+          1866
+        ],
+        "outline_level": -1,
+        "sub_type": "footer",
+        "content": 0,
+        "text": "IN-10301365· $75.00 USD due September 25, 2024",
+        "tags": []
+      },
+      {
+        "paragraph_id": 12,
+        "page_id": 1,
+        "status": 0,
+        "type": "paragraph",
+        "position": [
+          1334,
+          1847,
+          1433,
+          1847,
+          1433,
+          1869,
+          1334,
+          1869
+        ],
+        "outline_level": -1,
+        "sub_type": "number",
+        "content": 0,
+        "text": "Page 1of 2",
+        "tags": []
+      }
+    ],
+    "total_count": 1,
+    "valid_page_number": 1,
+    "total_page_number": 1,
+    "catalog": {},
+    "excel_base64": "",
+    "success_count": 1,
+    "markdown": "## Invoice \n\nInvoice number I IN-10301365Date of issue September 24, 2024Date due September 25, 2024Cloudflare, Inc.\n\n101 Townsend Street San Francisco, California 94107United States \n\nbilling@cloudflare.com \n\nBill to \n\nPDF Technologies, Inc.\n\n410000\n\n湘Changsha City \n\n49F-8., Changsha Shimao World \n\nFinancial Center, No.393, Jianxiang \n\nRd., Furong Dist.,\n\nChina \n\ntangqilu@kdanmobile.com \n\n\n\n### $75.00 USD due September 25, 2024\n\nPay online \n\n\n<div style=\"text-align: center;\"><html><body><table border=\"1\"><tbody><tr><td colspan=\"2\">Description</td><td>Qty</td><td>Unit price</td><td>Amount</td></tr><tr><td colspan=\"2\">Spectrum GB Transferred Aug 24– Sep 23, 2024</td><td>0</td><td>$1.00</td><td>$0.00</td></tr><tr><td colspan=\"2\">Cloudflare Pro Plan Sep 24 – Oct 23, 2024</td><td>3</td><td>$25.00</td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Subtotal</td><td></td><td></td></tr><tr><td></td><td colspan=\"2\">Total excluding tax</td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">CN VAT - CHINA (0% on $O.00) Total</td><td></td><td>$0.00</td></tr><tr><td></td><td colspan=\"2\"></td><td></td><td>$75.00</td></tr><tr><td></td><td colspan=\"2\">Amount due</td><td></td><td>$75.00 USD</td></tr></tbody></table></body></html></div>\n\n\nIf this request is concerning an Enterprise invoice reach out to ar@cloudflare.com. For all other billing concerns, submit your request here: https://dash.cloudflare.com/?to=/:account/support \n\nPay $75.00 with a bank transfer \n\nBank transfers can take up to two business days. To pay via \n\nbank transfer, transfer funds using the following bank \n\ninformation.\n\nBank name WELLS FARGO BANK, N.A.\n\nRouting number r121000248\n\nAccount number 40630107739969383\n\n"
+  },
+  "x_request_id": "",
+  "file_type": "IMAGE",
+  "metrics": [
+    {
+      "angle": 0,
+      "status": "Success",
+      "dpi": 144,
+      "page_id": 1,
+      "image_id": "",
+      "duration": 0,
+      "page_image_height": 1950,
+      "page_image_width": 1498
+    }
+  ],
+  "message": "Success",
+  "code": 200,
+  "image_process": []
+}
