@@ -1,3 +1,8 @@
+
+# <mark>⚠ Repository Has Moved</mark>
+
+<mark>**This repository is no longer maintained. Please visit the new repository for the latest code and future updates: [https://github.com/ComPDF/docslight](https://github.com/ComPDF/docslight)**</mark>
+
 [English](README.md) | [繁體中文](README_TW.md) | [简体中文](README_CN.md)
 
 # DocSlight - An Open-source Document Parser & Document Data Extraction Engine
@@ -137,6 +142,31 @@ All features above come with [ComPDF](https://www.compdf.com/?utm_source=github
 | Self-hosted Deployment                                            | Local Only             | ❌                      | ❌                           | ✅                                             |
 | Dedicated GPU                                                     | ❌                      | ❌                      | Optional                    | ✅                                             |
 
+## Input/Output Format Matrix
+
+| Input type | Extensions | Cloud parse | Local parse | Cloud extract | Local extract | Parse outputs | Extract outputs | Notes |
+| ---------- | ---------- |:-----------:|:-----------:|:-------------:|:-------------:| ------------- | --------------- | ----- |
+| PDF | `.pdf` | ✅ | ✅ | ✅ | ✅ Requires local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local PDF parsing uses raster/OCR processing. |
+| Images | `.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp` | ✅ | ✅ | ✅ | ✅ Requires local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local image parsing treats each image as one page. |
+| Word | `.docx` | ✅ | ✅ | ✅ | ✅ Requires local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local legacy `.doc` is not supported. |
+| PowerPoint | `.pptx` | ✅ | ✅ | ✅ | ✅ Requires local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local legacy `.ppt` is not supported. |
+| Excel | `.xlsx` | ✅ | ✅ | ✅ | ✅ Requires local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local legacy `.xls` is not supported. |
+| Legacy Office | `.doc`, `.ppt`, `.xls` | Cloud API dependent | ❌ | Cloud API dependent | ❌ | Cloud result formats | JSON | Convert to `.docx`, `.pptx`, or `.xlsx` before local processing. |
+
+`docslight convert-parse-json` accepts a local parse JSON object and writes the standard parse JSON schema. It does not process original document files.
+
+---
+
+## Installation And First Run
+
+DocSlight supports Python 3.10 through 3.13.
+
+```bash
+pip install "docslight"
+```
+
+Cloud mode requires network access and a valid ComPDF Cloud API key. Local mode runs on CPU by default; OCR and LLM latency depends on document size, hardware, and the selected model.
+
 ---
 
 ## Use Cases
@@ -183,38 +213,113 @@ print(result.blocks[0].bbox)          # Bounding-box traceability
 
 ```bash
 # Parse a PDF to Markdown
-docslight parse document.pdf -o md
+docslight parse document.pdf --mode cloud -o document.md
 
-# Parse an image to JSON with bounding boxes
-docslight parse scan.png -o json --bbox
+# Parse to JSON or standard JSON
+docslight parse scan.png --mode cloud --format json -o scan.json
+docslight parse scan.png --mode cloud --format standard-json -o standard.json
+
+# Parse and write a ZIP archive
+docslight parse invoice.pdf --mode local --format zip -o invoice.zip
 
 # Field extraction (cloud mode)
-docslight extract invoice.pdf --schema '{"fields": ["invoice_no", "date", "total"]}'
+docslight extract invoice.pdf --mode cloud --fields invoice_no,date,total
+docslight extract invoice.pdf --schema schema.json
+docslight extract invoice.pdf --document-types document-types.json
 
-# Watch a directory for new files
-docslight watch ./incoming/ --cloud
+# Local LLM extraction
+docslight extract invoice.pdf --mode local --fields invoice_no,total --local-llm-provider ollama --local-llm-model llama3.1
+
+# Convert local parse JSON to standard parse JSON
+docslight convert-parse-json parse.json -o standard.json
+
+# Start the local API server
+docslight web --host 127.0.0.1 --port 8000 --debug
 ```
 
-#### Parse | extract CLI options
+#### CLI commands
 
 ```bash
-docslight parse [options] <input>
-docslight extract [options] <input>
+docslight parse INPUT [OPTIONS]
+docslight extract INPUT [OPTIONS]
+docslight convert-parse-json INPUT [OPTIONS]
 ```
 
-| Option                                       | Description                                                                                                     |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `input`                                      | Required input file path.                                                                                       |
-| `--mode {cloud,local}`                       | Required processing mode. Use `cloud` for ComPDF Cloud, or `local` for offline local processing.                |
-| `--api-key API_KEY`                          | Cloud API key. Required in cloud mode unless `DOCSLIGHT_API_KEY` is already set.                                |
-| `--base-url BASE_URL`                        | Optional custom cloud API base URL.                                                                             |
-| `--output, -o OUTPUT`                        | Output file path. For text formats, defaults to standard output; for ZIP output, it is required or recommended. |
-| `--format {markdown,json,standard-json,zip}` | Parse output format. Defaults to Markdown unless the output path ends with `.zip`.                              |
-| `--local-parser LOCAL_PARSER`                | Optional local parser selector for local mode.                                                                  |
-| `--local-llm-provider LOCAL_LLM_PROVIDER`    | Local LLM provider setting. Not required for parse-only workflows.                                              |
-| `--local-llm-model LOCAL_LLM_MODEL`          | Local LLM model name. Not required for parse-only workflows.                                                    |
-| `--local-llm-base-url LOCAL_LLM_BASE_URL`    | Local LLM endpoint base URL for providers that require it.                                                      |
-| `--local-llm-api-key LOCAL_LLM_API_KEY`      | Local LLM API key for providers that require it.                                                                |
+#### Common parse/extract options
+
+| Option | Values / default | Description |
+| ------ | ---------------- | ----------- |
+| `INPUT` | File path | Document path to process. |
+| `--mode` | `cloud`, `local`; default from config/env or `cloud` | Select ComPDF Cloud or local offline processing. |
+| `--api-key` | String | Cloud API key. Overrides `COMPDF_API_KEY`. |
+| `--base-url` | URL; default `https://api-server.compdf.com` | Cloud API base URL. Overrides `DOCSLIGHT_BASE_URL`. |
+| `--local-parser` | String | Local parser selector. Currently reserved for local parser configuration. |
+| `--local-llm-provider` | `ollama`, `openai`, `openai-compatible`; default `ollama` when any local LLM option is used | Local extraction LLM provider. |
+| `--local-llm-model` | String | Local extraction LLM model. Required for local LLM extraction. |
+| `--local-llm-base-url` | URL | Local LLM endpoint. Ollama defaults to `http://localhost:11434`; OpenAI-compatible providers require this value. |
+| `--local-llm-api-key` | String | Local LLM API key. Ollama defaults to `ollama`. |
+
+#### parse options
+
+| Option | Values / default | Description |
+| ------ | ---------------- | ----------- |
+| `--output`, `-o` | File path | Write output to a file instead of stdout. |
+| `--format` | `markdown`, `json`, `standard-json`, `zip`; default `markdown` | Output format. If omitted and `--output` ends with `.zip`, DocSlight infers `zip`. |
+
+`markdown` writes parsed Markdown. `json` writes the SDK parse result. `standard-json` writes the standard parse JSON schema. `zip` writes the raw parse archive and should normally be used with `--output`.
+
+#### extract options
+
+| Option | Values / default | Description |
+| ------ | ---------------- | ----------- |
+| `--output`, `-o` | File path | Write extracted JSON to a file instead of stdout. |
+| `--fields` | Comma-separated names, for example `invoice_no,total` | Fields to extract. |
+| `--schema` | JSON file path | Extraction schema JSON file. The CLI reads this file and passes the JSON object to `extract`; a common schema is `{"fields": ["invoice_no", "date", "total"]}`. JSON Schema-style objects with `properties` are also accepted. |
+| `--document-types` | JSON file path | Document type routing file. The JSON root must be a list, for example `["invoice", "receipt"]`. |
+
+Example `schema.json`:
+
+```json
+{
+  "fields": ["invoice_no", "date", "total"]
+}
+```
+
+#### convert-parse-json options
+
+| Option | Values / default | Description |
+| ------ | ---------------- | ----------- |
+| `INPUT` | JSON file path | Local parse JSON payload to convert. The JSON root must be an object. |
+| `--output`, `-o` | File path | Write converted standard parse JSON to a file instead of stdout. |
+
+#### Environment variables and config file
+
+| Variable | Description |
+| -------- | ----------- |
+| `COMPDF_API_KEY` | API key for cloud mode. |
+| `DOCSLIGHT_MODE` | Processing mode: `cloud` or `local`; default `cloud`. |
+| `DOCSLIGHT_BASE_URL` | Cloud API base URL; default `https://api-server.compdf.com`. |
+| `DOCSLIGHT_TIMEOUT` | Cloud request timeout in seconds; default `30`. |
+| `DOCSLIGHT_LOCAL_PARSER` | Local parser selector. |
+
+DocSlight also reads `~/.docslight/config.toml`. Values are applied in this order: built-in defaults, config file, environment variables, then explicit SDK or CLI arguments.
+
+```toml
+mode = "cloud"
+api_key = "your-api-key"
+base_url = "https://api-server.compdf.com"
+timeout = 30
+local_parser = "paddleocr"  # reserved for local parser configuration
+
+[local_llm]
+provider = "ollama"
+model = "llama3.1"
+base_url = "http://localhost:11434"
+api_key = "ollama"
+timeout = 120
+```
+
+The CLI exposes the main local LLM settings as flags. Advanced local LLM provider settings such as `extra_body` are available through the SDK or `~/.docslight/config.toml`.
 
 ### Docker
 
