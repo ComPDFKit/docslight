@@ -88,7 +88,7 @@ ls invoice.zip
 
 ```bash
 # 啟動 Web 介面
-git clone https://github.com/ComPDFKit/docslight.git
+git clone https://github.com/ComPDF/docslight.git
 
 cd docslight
 
@@ -139,6 +139,33 @@ docker compose -f docker/docker-compose.yml up
 
 ---
 
+## 輸入/輸出格式矩陣
+
+| 輸入類型 | 副檔名 | 雲端解析 | 地端解析 | 雲端擷取 | 地端擷取 | 解析輸出 | 擷取輸出 | 說明 |
+| -------- | ------ |:--------:|:--------:|:--------:|:--------:| -------- | -------- | ---- |
+| PDF | `.pdf` | ✅ | ✅ | ✅ | ✅ 需要地端 LLM | Markdown、JSON、標準 JSON、ZIP | JSON | 地端 PDF 解析會使用柵格化/OCR 流程。 |
+| 圖片 | `.png`、`.jpg`、`.jpeg`、`.tif`、`.tiff`、`.bmp`、`.webp` | ✅ | ✅ | ✅ | ✅ 需要地端 LLM | Markdown、JSON、標準 JSON、ZIP | JSON | 地端圖片解析會將每張圖片視為一頁。 |
+| Word | `.docx` | ✅ | ✅ | ✅ | ✅ 需要地端 LLM | Markdown、JSON、標準 JSON、ZIP | JSON | 地端不支援舊版 `.doc`。 |
+| PowerPoint | `.pptx` | ✅ | ✅ | ✅ | ✅ 需要地端 LLM | Markdown、JSON、標準 JSON、ZIP | JSON | 地端不支援舊版 `.ppt`。 |
+| Excel | `.xlsx` | ✅ | ✅ | ✅ | ✅ 需要地端 LLM | Markdown、JSON、標準 JSON、ZIP | JSON | 地端不支援舊版 `.xls`。 |
+| 舊版 Office | `.doc`、`.ppt`、`.xls` | 取決於雲端 API 支援 | ❌ | 取決於雲端 API 支援 | ❌ | 雲端結果格式 | JSON | 地端處理前請先轉換為 `.docx`、`.pptx` 或 `.xlsx`。 |
+
+`docslight convert-parse-json` 接收地端解析 JSON 物件，並輸出標準解析 JSON schema；它不直接處理原始文件檔案。
+
+---
+
+## 安裝與首次執行
+
+DocSlight 支援 Python 3.10 到 3.13。
+
+```bash
+pip install "docslight"
+```
+
+雲端模式需要網路存取和有效的 ComPDF Cloud API Key。地端模式預設使用 CPU；OCR 和 LLM 耗時取決於文件大小、硬體效能和所選模型。
+
+---
+
 ## 使用場景
 
 - **RAG 管線** — 解析文件 -> 向量化嵌入 -> LLM 查詢
@@ -183,43 +210,118 @@ print(result.blocks[0].bbox)          # 邊界框溯源
 
 ```bash
 # 解析 PDF 為 Markdown
-docslight parse document.pdf -o md
+docslight parse document.pdf --mode cloud -o document.md
 
-# 解析圖片為 JSON（含邊界框）
-docslight parse scan.png -o json --bbox
+# 解析為 JSON 或標準 JSON
+docslight parse scan.png --mode cloud --format json -o scan.json
+docslight parse scan.png --mode cloud --format standard-json -o standard.json
+
+# 解析並輸出 ZIP 封存
+docslight parse invoice.pdf --mode local --format zip -o invoice.zip
 
 # 欄位擷取（雲端模式）
-docslight extract invoice.pdf --schema '{"fields": ["invoice_no", "date", "total"]}'
+docslight extract invoice.pdf --mode cloud --fields invoice_no,date,total
+docslight extract invoice.pdf --schema schema.json
+docslight extract invoice.pdf --document-types document-types.json
 
-# 監聽目錄中的新檔案
-docslight watch ./incoming/ --cloud
+# 地端 LLM 擷取
+docslight extract invoice.pdf --mode local --fields invoice_no,total --local-llm-provider ollama --local-llm-model llama3.1
+
+# 轉換地端解析 JSON 為標準解析 JSON
+docslight convert-parse-json parse.json -o standard.json
+
+# 啟動地端 API 服務
+docslight web --host 127.0.0.1 --port 8000 --debug
 ```
 
-#### Parse | extract 命令列參數
+#### CLI 命令
 
 ```bash
-docslight parse [options] <input>
-docslight extract [options] <input>
+docslight parse INPUT [OPTIONS]
+docslight extract INPUT [OPTIONS]
+docslight convert-parse-json INPUT [OPTIONS]
 ```
 
-| 選項                                           | 描述                                                       |
-| -------------------------------------------- | -------------------------------------------------------- |
-| `input`                                      | 必填的輸入檔案路徑。                                               |
-| `--mode {cloud,local}`                       | 必填的處理模式。使用 `cloud` 對應 ComPDF Cloud，或使用 `local` 進行離線地端處理。 |
-| `--api-key API_KEY`                          | 雲端 API 金鑰。雲端模式下必填，除非已設定 `DOCSLIGHT_API_KEY`。             |
-| `--base-url BASE_URL`                        | 可選的自訂雲端 API 基礎 URL。                                      |
-| `--output, -o OUTPUT`                        | 輸出檔案路徑。對於文字格式，預設輸出到標準輸出；對於 ZIP 輸出則為必填或建議指定。              |
-| `--format {markdown,json,standard-json,zip}` | 解析輸出格式。若未指定，預設為 Markdown，除非輸出路徑以 `.zip` 結尾。              |
-| `--local-parser LOCAL_PARSER`                | 地端模式下可選的本地解析器選擇器。                                        |
-| `--local-llm-provider LOCAL_LLM_PROVIDER`    | 地端 LLM 提供商設定。僅解析流程不需要此參數。                                |
-| `--local-llm-model LOCAL_LLM_MODEL`          | 地端 LLM 模型名稱。僅解析流程不需要此參數。                                 |
-| `--local-llm-base-url LOCAL_LLM_BASE_URL`    | 地端 LLM 端點基礎 URL，適用於需要此參數的提供商。                            |
-| `--local-llm-api-key LOCAL_LLM_API_KEY`      | 地端 LLM API 金鑰，適用於需要此參數的提供商。                              |
+#### parse / extract 通用參數
+
+| 參數 | 可選值 / 預設值 | 說明 |
+| ---- | --------------- | ---- |
+| `INPUT` | 檔案路徑 | 要處理的文件路徑。 |
+| `--mode` | `cloud`、`local`；預設來自設定/環境變數或 `cloud` | 選擇 ComPDF Cloud 或地端離線處理。 |
+| `--api-key` | 字串 | 雲端 API 金鑰，覆寫 `COMPDF_API_KEY`。 |
+| `--base-url` | URL；預設 `https://api-server.compdf.com` | 雲端 API 基礎 URL，覆寫 `DOCSLIGHT_BASE_URL`。 |
+| `--local-parser` | 字串 | 地端解析器選擇器，目前保留作為地端解析器設定。 |
+| `--local-llm-provider` | `ollama`、`openai`、`openai-compatible`；使用任一地端 LLM 參數時預設 `ollama` | 地端結構化擷取使用的 LLM 提供商。 |
+| `--local-llm-model` | 字串 | 地端結構化擷取使用的模型；地端 LLM 擷取時必填。 |
+| `--local-llm-base-url` | URL | 地端 LLM 端點。Ollama 預設 `http://localhost:11434`；OpenAI-compatible 提供商必須指定。 |
+| `--local-llm-api-key` | 字串 | 地端 LLM API 金鑰。Ollama 預設 `ollama`。 |
+
+#### parse 參數
+
+| 參數 | 可選值 / 預設值 | 說明 |
+| ---- | --------------- | ---- |
+| `--output`、`-o` | 檔案路徑 | 將輸出寫入檔案；未指定時輸出到標準輸出。 |
+| `--format` | `markdown`、`json`、`standard-json`、`zip`；預設 `markdown` | 解析輸出格式。若省略且 `--output` 以 `.zip` 結尾，會自動推斷為 `zip`。 |
+
+`markdown` 輸出解析後的 Markdown；`json` 輸出 SDK 解析結果；`standard-json` 輸出標準解析 JSON schema；`zip` 輸出原始解析封存，通常應搭配 `--output` 使用。
+
+#### extract 參數
+
+| 參數 | 可選值 / 預設值 | 說明 |
+| ---- | --------------- | ---- |
+| `--output`、`-o` | 檔案路徑 | 將擷取結果 JSON 寫入檔案；未指定時輸出到標準輸出。 |
+| `--fields` | 逗號分隔欄位名，例如 `invoice_no,total` | 指定需要擷取的欄位。 |
+| `--schema` | JSON 檔案路徑 | 擷取 schema 的 JSON 檔案。CLI 會讀取此檔案，並把 JSON 物件傳給 `extract`；常見內容是 `{"fields": ["invoice_no", "date", "total"]}`。也相容帶 `properties` 的 JSON Schema 風格物件。 |
+| `--document-types` | JSON 檔案路徑 | 文件類型路由檔案；JSON 根節點必須是列表，例如 `["invoice", "receipt"]`。 |
+
+`schema.json` 範例：
+
+```json
+{
+  "fields": ["invoice_no", "date", "total"]
+}
+```
+
+#### convert-parse-json 參數
+
+| 參數 | 可選值 / 預設值 | 說明 |
+| ---- | --------------- | ---- |
+| `INPUT` | JSON 檔案路徑 | 要轉換的地端解析 JSON；JSON 根節點必須是物件。 |
+| `--output`、`-o` | 檔案路徑 | 將轉換後的標準解析 JSON 寫入檔案；未指定時輸出到標準輸出。 |
+
+#### 環境變數與設定檔
+
+| 變數 | 說明 |
+| ---- | ---- |
+| `COMPDF_API_KEY` | 雲端模式 API 金鑰。 |
+| `DOCSLIGHT_MODE` | 處理模式：`cloud` 或 `local`，預設 `cloud`。 |
+| `DOCSLIGHT_BASE_URL` | 雲端 API 基礎 URL，預設 `https://api-server.compdf.com`。 |
+| `DOCSLIGHT_TIMEOUT` | 雲端請求逾時時間，單位秒，預設 `30`。 |
+| `DOCSLIGHT_LOCAL_PARSER` | 地端解析器選擇器。 |
+
+DocSlight 也會讀取 `~/.docslight/config.toml`。設定優先順序為：內建預設值、設定檔、環境變數、明確傳入的 SDK 或 CLI 參數。
+
+```toml
+mode = "cloud"
+api_key = "your-api-key"
+base_url = "https://api-server.compdf.com"
+timeout = 30
+local_parser = "paddleocr"  # 地端解析器設定保留
+
+[local_llm]
+provider = "ollama"
+model = "llama3.1"
+base_url = "http://localhost:11434"
+api_key = "ollama"
+timeout = 120
+```
+
+CLI 暴露了主要的地端 LLM 設定。`extra_body` 等進階地端 LLM 提供商設定可透過 SDK 或 `~/.docslight/config.toml` 設定。
 
 ### Docker
 
 ```bash
-git clone https://github.com/ComPDFKit/docslight.git
+git clone https://github.com/ComPDF/docslight.git
 
 cd docslight
 

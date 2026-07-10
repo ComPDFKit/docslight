@@ -72,6 +72,16 @@ python -m docslight.web_app --host 0.0.0.0 --port 8000 --debug
 
 > Local CPU parsing is experimental. Validate accuracy and latency on your own documents before production use.
 
+### First Run And Dependencies
+
+DocSlight supports Python 3.10 through 3.13.
+
+```bash
+pip install "docslight"
+```
+
+Cloud mode requires network access and a valid ComPDF Cloud API key. Local mode runs on CPU by default; OCR and LLM latency depends on document size, hardware, and the selected model.
+
 ## SDK Usage
 
 ### Cloud — Parse
@@ -170,6 +180,8 @@ for r in results:
 # Parse
 docslight parse invoice.pdf --mode cloud -o invoice.zip
 docslight parse invoice.pdf --mode cloud --format zip -o invoice.zip
+docslight parse invoice.pdf --mode cloud --format json -o invoice.json
+docslight parse invoice.pdf --mode cloud --format standard-json -o standard.json
 docslight parse invoice.pdf --mode local -o invoice.zip
 
 # Extract
@@ -180,9 +192,70 @@ docslight extract "D:\pdf\invoice\1.pdf" --mode local --fields invoice_number --
 # Extract with schema
 docslight extract invoice.pdf --schema schema.json
 
+# Extract with document type routing
+docslight extract invoice.pdf --document-types document-types.json
+
+# Convert local parse JSON to the standard parse JSON schema
+docslight convert-parse-json parse.json -o standard.json
+
 # API server
-docslight web --host 127.0.0.1 --port 8000
+docslight web --host 127.0.0.1 --port 8000 --debug
 ```
+
+### CLI Reference
+
+```bash
+docslight parse INPUT [OPTIONS]
+docslight extract INPUT [OPTIONS]
+docslight convert-parse-json INPUT [OPTIONS]
+```
+
+#### Common parse/extract options
+
+| Option | Values / default | Description |
+|--------|------------------|-------------|
+| `INPUT` | File path | Document path to process. |
+| `--mode` | `cloud`, `local`; default from config/env or `cloud` | Select ComPDF Cloud or local offline processing. |
+| `--api-key` | String | Cloud API key. Overrides `COMPDF_API_KEY`. |
+| `--base-url` | URL; default `https://api-server.compdf.com` | Cloud API base URL. Overrides `DOCSLIGHT_BASE_URL`. |
+| `--local-parser` | String | Local parser selector. Currently reserved for local parser configuration. |
+| `--local-llm-provider` | `ollama`, `openai`, `openai-compatible`; default `ollama` when any local LLM option is used | Local extraction LLM provider. |
+| `--local-llm-model` | String | Local extraction LLM model. Required for local LLM extraction. |
+| `--local-llm-base-url` | URL | Local LLM endpoint. Ollama defaults to `http://localhost:11434`; OpenAI-compatible providers require this value. |
+| `--local-llm-api-key` | String | Local LLM API key. Ollama defaults to `ollama`. |
+
+#### Parse options
+
+| Option | Values / default | Description |
+|--------|------------------|-------------|
+| `--output`, `-o` | File path | Write output to a file instead of stdout. |
+| `--format` | `markdown`, `json`, `standard-json`, `zip`; default `markdown` | Output format. If omitted and `--output` ends with `.zip`, DocSlight infers `zip`. |
+
+`markdown` writes parsed Markdown. `json` writes the SDK parse result. `standard-json` writes the standard parse JSON schema. `zip` writes the raw parse archive and should normally be used with `--output`.
+
+#### Extract options
+
+| Option | Values / default | Description |
+|--------|------------------|-------------|
+| `--output`, `-o` | File path | Write extracted JSON to a file instead of stdout. |
+| `--fields` | Comma-separated names, for example `invoice_number,total_amount` | Fields to extract. |
+| `--schema` | JSON file path | Extraction schema JSON file. The CLI reads this file and passes the JSON object to `extract`; a common schema is `{"fields": ["invoice_no", "date", "total"]}`. JSON Schema-style objects with `properties` are also accepted. |
+| `--document-types` | JSON file path | Document type routing file. The JSON root must be a list, for example `["invoice", "receipt"]`. |
+
+Example `schema.json`:
+
+```json
+{
+  "fields": ["invoice_no", "date", "total"]
+}
+```
+
+#### Convert parse JSON options
+
+| Option | Values / default | Description |
+|--------|------------------|-------------|
+| `INPUT` | JSON file path | Local parse JSON payload to convert. The JSON root must be an object. |
+| `--output`, `-o` | File path | Write converted standard parse JSON to a file instead of stdout. |
 
 ## API Server
 
@@ -203,17 +276,43 @@ python -m docslight.web_app
 
 | Variable | Description |
 |----------|-------------|
-| `DOCSLIGHT_API_KEY` | API key for cloud mode |
+| `COMPDF_API_KEY` | API key for cloud mode |
 | `DOCSLIGHT_MODE` | Processing mode: `cloud` or `local` (default: `cloud`) |
+| `DOCSLIGHT_BASE_URL` | Cloud API base URL (default: `https://api-server.compdf.com`) |
+| `DOCSLIGHT_TIMEOUT` | Cloud request timeout in seconds (default: `30`) |
+| `DOCSLIGHT_LOCAL_PARSER` | Local parser selector |
 
-## Supported Inputs
+DocSlight also reads `~/.docslight/config.toml`. Values are applied in this order: built-in defaults, config file, environment variables, then explicit SDK or CLI arguments.
 
-| Mode | Formats |
-|------|---------|
-| Cloud | PDF, images (PNG/JPG/TIFF/BMP/WebP), DOCX, PPTX, XLSX, and more via ComPDF Cloud API |
-| Local | PDF, images (PNG/JPG/TIFF/BMP/WebP), DOCX, PPTX, XLSX |
+```toml
+mode = "cloud"
+api_key = "your-api-key"
+base_url = "https://api-server.compdf.com"
+timeout = 30
+local_parser = "paddleocr"  # reserved for local parser configuration
 
-> Legacy Office formats (`.doc`, `.ppt`, `.xls`) must be converted to DOCX/PPTX/XLSX for local processing.
+[local_llm]
+provider = "ollama"
+model = "llama3.1"
+base_url = "http://localhost:11434"
+api_key = "ollama"
+timeout = 120
+```
+
+The CLI exposes the main local LLM settings as flags. Advanced local LLM provider settings such as `extra_body` are available through the SDK or `~/.docslight/config.toml`.
+
+## Input/Output Format Matrix
+
+| Input type | Extensions | Cloud parse | Local parse | Cloud extract | Local extract | Parse outputs | Extract outputs | Notes |
+|------------|------------|-------------|-------------|---------------|---------------|---------------|-----------------|-------|
+| PDF | `.pdf` | Yes | Yes | Yes | Yes, with local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local PDF parsing uses raster/OCR processing. |
+| Images | `.png`, `.jpg`, `.jpeg`, `.tif`, `.tiff`, `.bmp`, `.webp` | Yes | Yes | Yes | Yes, with local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local image parsing treats each image as one page. |
+| Word | `.docx` | Yes | Yes | Yes | Yes, with local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local legacy `.doc` is not supported. |
+| PowerPoint | `.pptx` | Yes | Yes | Yes | Yes, with local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local legacy `.ppt` is not supported. |
+| Excel | `.xlsx` | Yes | Yes | Yes | Yes, with local LLM | Markdown, JSON, standard JSON, ZIP | JSON | Local legacy `.xls` is not supported. |
+| Legacy Office | `.doc`, `.ppt`, `.xls` | Supported by ComPDF Cloud API when available | No | Supported by ComPDF Cloud API when available | No | Cloud result formats | JSON | Convert to `.docx`, `.pptx`, or `.xlsx` before local processing. |
+
+`docslight convert-parse-json` accepts a local parse JSON object and writes the standard parse JSON schema. It does not process original document files.
 
 ## Development
 
