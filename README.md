@@ -2,10 +2,10 @@
 
 # DocSlight - An Open-source Document Parser & Document Data Extraction Engine
 
-With [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit), precisely parse and extract data from any document, including PDFs, scans, images, and Office files. It is an open-source AI project from ComPDF (KDAN ecosystem).
+With [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en), precisely parse and extract data from any document, including PDFs, scans, images, and Office files. It is an open-source AI project from ComPDF (KDAN ecosystem).
 
 > - If you find DocSlight useful, please consider giving us a ⭐ **Star** on GitHub. It helps us grow and improve.
-> - Got questions or ideas? Join the conversation in our [Discussions](https://github.com/ComPDFKit/docslight/discussions).
+> - Got questions or ideas? Join the conversation in our [Discussions](https://github.com/ComPDF/docslight/discussions).
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/license-GNU--LGPL--v3-green" alt="License"></a>
@@ -21,7 +21,7 @@ With [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docsli
   <a href="#usage"><b>Usage</b></a> •
   <a href="#benchmark"><b>Benchmark</b></a> •
   <a href="https://compdf.com" target="_blank"><b>Cloud API →</b></a> •
-  <a href="https://www.compdf.com/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_open_en&utm_medium=referral&utm_campaign=ai_docslight_open_en&ref_platform_id=github_compdfkit_en" target="_blank"><b>Documentation</b></a>
+  <a href="https://www.compdf.com/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en" target="_blank"><b>Documentation</b></a>
 </p>
 
 ## Why DocSlight?
@@ -50,7 +50,6 @@ Whether you're building a personal RAG project or a large-scale enterprise docum
 
 <img title="" src="Images/demo.gif" alt="DocSlight Demo" width="720">
 
----
 
 ## Quick Start
 
@@ -67,7 +66,7 @@ export COMPDF_API_KEY="your_public_key"    # Get one at https://compdf.com
 docslight parse invoice.pdf --mode cloud --output invoice.md
 ```
 
-**Get the API Key:** [Log in to the ComPDF Console](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit). On the API Key page, create or copy your publicKey.
+**Get the API Key:** [Log in to the ComPDF Console](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en). On the API Key page, create or copy your publicKey.
 
 ![get-license-en](Images/get-license-en.png)
 
@@ -96,13 +95,12 @@ docker compose -f docker/docker-compose.yml up
 # Open http://localhost:3022 and drag & drop files
 ```
 
-All features above come with [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit) — check them out [here](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_open&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdfkit).
+All features above come with [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en) — check them out [here](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en).
 
----
 
 ## Product Editions
 
-> Need workflow automation, RBAC, audit logs, private deployment, or dedicated support? **Explore Enterprise:** [https://www.compdf.com/ai/docslight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_open_en&utm_medium=referral&utm_campaign=ai_docslight_open_en&ref_platform_id=github_compdfkit_en)
+> Need workflow automation, RBAC, audit logs, private deployment, or dedicated support? **Explore Enterprise:** [https://www.compdf.com/ai/docslight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en)
 
 | Feature                                                           | DocSlight Lite (Local) | DocSlight-Lite (Cloud) | DocSlight Enterprise (SaaS) | DocSlight Enterprise (Self-hosted Deployment) |
 | ----------------------------------------------------------------- |:----------------------:|:----------------------:|:---------------------------:|:---------------------------------------------:|
@@ -137,7 +135,6 @@ All features above come with [ComPDF](https://www.compdf.com/?utm_source=github
 | Self-hosted Deployment                                            | Local Only             | ❌                      | ❌                           | ✅                                             |
 | Dedicated GPU                                                     | ❌                      | ❌                      | Optional                    | ✅                                             |
 
----
 
 ## Use Cases
 
@@ -156,7 +153,6 @@ Runnable example code is available in [`examples/`](docslight_lite/examples/):
 - [`local_extract_openai_compatible.py`](docslight_lite/examples/local_extract_openai_compatible.py)
 - [`path_examples.py`](docslight_lite/examples/path_examples.py)
 
----
 
 ## Usage
 
@@ -205,10 +201,10 @@ docslight extract [options] <input>
 | Option                                       | Description                                                                                                     |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `input`                                      | Required input file path.                                                                                       |
-| `--mode {cloud,local}`                       | Required processing mode. Use `cloud` for ComPDF Cloud, or `local` for offline local processing.                |
+| `--mode {cloud,local}`                       | Required processing mode. Use `cloud` for ComPDF Cloud or `local` for offline local processing.                |
 | `--api-key API_KEY`                          | Cloud API key. Required in cloud mode unless `DOCSLIGHT_API_KEY` is already set.                                |
 | `--base-url BASE_URL`                        | Optional custom cloud API base URL.                                                                             |
-| `--output, -o OUTPUT`                        | Output file path. For text formats, defaults to standard output; for ZIP output, it is required or recommended. |
+| `--output, -o OUTPUT`                        | Output file path. For text formats, it defaults to standard output; for ZIP output, it is required or recommended. |
 | `--format {markdown,json,standard-json,zip}` | Parse output format. Defaults to Markdown unless the output path ends with `.zip`.                              |
 | `--local-parser LOCAL_PARSER`                | Optional local parser selector for local mode.                                                                  |
 | `--local-llm-provider LOCAL_LLM_PROVIDER`    | Local LLM provider setting. Not required for parse-only workflows.                                              |
@@ -227,7 +223,6 @@ docker compose -f docker/docker-compose.yml up
 # Open http://127.0.0.1:3022
 ```
 
----
 
 ## Comparison
 
@@ -279,7 +274,7 @@ docker compose -f docker/docker-compose.yml up
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                         Core Processing Router                                  │
-│              Auto-switch between Local and Cloud Engine via --mode / config     │
+│              Auto-switch between Local and Cloud Engine via --mode/config     │
 └─────────────────────────────────────────────────────────────────────────────────┘
                                       │
                     ┌─────────────────┴─────────────────┐
@@ -341,12 +336,12 @@ docker compose -f docker/docker-compose.yml up
 │                                                                                 │
 │   ┌──────────────────────────────────────────────────────────────────────────┐ │
 │   │  Target Scenarios: RAG Pipelines / AI Agents / Enterprise Document      │ │
-│   │  Automation / Intelligent Document Processing（IDP）                    │ │
+│   │  Automation / Intelligent Document Processing (IDP）                    │ │
 │   └──────────────────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
----
+
 
 ## Built for AI Agents & RAG
 
@@ -389,7 +384,7 @@ LLM / AI Agent
 Answers & Automation
 ```
 
----
+
 
 ## Benchmark
 
@@ -411,7 +406,7 @@ Answers & Automation
 
 > **Methodology:** Based on real human-annotated data and measured with character-level accuracy. The test set covers 500+ enterprise documents, including invoices, contracts, tables, and reports. The dataset is available at [benchmarks/dataset](https://github.com/opendatalab/OmniDocBench).
 
----
+
 
 ## Package Variants
 
@@ -423,27 +418,24 @@ Answers & Automation
 pip install "docslight"
 ```
 
----
 
 ## Support
 
-Have suggestions? [Start a discussion](https://github.com/ComPDFKit/docslight/discussions). If you find DocSlight useful, please consider giving us a ⭐ **Star** on GitHub. It helps us grow and improve.
+Have suggestions? [Start a discussion](https://github.com/ComPDF/docslight/discussions). If you find DocSlight useful, please consider giving us a ⭐ **Star** on GitHub. It helps us grow and improve.
 
----
 
 ## License
 
 DocSlight is released as open source under the [LGPL](LICENSE).
 
-Commercial / Enterprise licenses with support for GPU self-hosted deployment are available at [compdf.com](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_open_en&utm_medium=referral&utm_campaign=ai_docslight_open_en&ref_platform_id=github_compdfkit_en).
+Commercial / Enterprise licenses with support for GPU self-hosted deployment are available at [compdf.com](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en).
 
----
 
 <p align="center">
   <b>Built by the ComPDF team.</b><br>
-  <a href="https://compdf.com?utm_source=ai_docslight_open_en&utm_medium=referral&utm_campaign=github_ai_docslight_open_en&ref_platform_id=github_compdfkit_en">Website</a> ·
-  <a href="https://www.compdf.com/guides/api-reference/v2/ai/overview?utm_source=ai_docslight_open_en&utm_medium=referral&utm_campaign=github_ai_docslight_open_en&ref_platform_id=github_compdfkit_en">Docs</a> ·
-  <a href="https://www.compdf.com/contact-sales?utm_source=ai_docslight_open_en&utm_medium=referral&utm_campaign=github_ai_docslight_open_en&ref_platform_id=github_compdfkit_en">Enterprise Inquiries</a>
+  <a href="https://compdf.com?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en">Website</a> ·
+  <a href="https://www.compdf.com/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en">Docs</a> ·
+  <a href="https://www.compdf.com/contact-sales?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en">Enterprise Inquiries</a>
 </p>
 
 
