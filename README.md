@@ -2,7 +2,7 @@
 
 # DocSlight - An Open-source Document Parser & Document Data Extraction Engine
 
-With [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_en), precisely parse and extract data from any document, including PDFs, scans, images, and Office files. It is an open-source AI project from ComPDF (KDAN ecosystem).
+Part of the KDAN ecosystem, [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=github_ai_docslight_newopen&ref_platform_id=github_compdf) offers document parsing, OCR, and data extraction that turn PDFs, scans, images, and Office files into structured outputs for RAG pipelines, AI agents, and enterprise document automation.
 
 > - If you find DocSlight useful, please consider giving us a ⭐ **Star** on GitHub. It helps us grow and improve.
 > - Got questions or ideas? Join the conversation in our [Discussions](https://github.com/ComPDF/docslight/discussions).
