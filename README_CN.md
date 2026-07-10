@@ -97,7 +97,7 @@ docker compose -f docker/docker-compose.yml up
 ```
 以上功能均可在 [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn) 上体验使用，→[体验地址](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)
 
----
+
 
 ## 产品版本对比
 
@@ -148,9 +148,9 @@ docker compose -f docker/docker-compose.yml up
 | Excel | `.xlsx` | ✅ | ✅ | ✅ | ✅ 需要本地 LLM | Markdown、JSON、标准 JSON、ZIP | JSON | 本地不支持旧版 `.xls`。 |
 | 旧版 Office | `.doc`、`.ppt`、`.xls` | 取决于云端 API 支持 | ❌ | 取决于云端 API 支持 | ❌ | 云端结果格式 | JSON | 本地处理前请先转换为 `.docx`、`.pptx` 或 `.xlsx`。 |
 
-`docslight convert-parse-json` 接收本地解析 JSON 对象，并输出标准解析 JSON schema；它不直接处理原始文档文件。
+`docslight convert-parse-json` 接收本地解析的 JSON 对象，并输出标准解析的 JSON schema；它不直接处理原始文档文件。
 
----
+
 
 ## 安装与首次运行
 
@@ -160,9 +160,9 @@ DocSlight 支持 Python 3.10 到 3.13。
 pip install "docslight"
 ```
 
-云端模式需要网络访问和有效的 ComPDF Cloud API Key。本地模式默认使用 CPU；OCR 和 LLM 耗时取决于文档大小、硬件性能和所选模型。
+云端模式需要网络访问和有效的 ComPDF Cloud API Key。本地模式默认使用 CPU；OCR 和 LLM 的耗时取决于文档大小、硬件性能和所选模型。
 
----
+
 
 ## 使用场景
 
@@ -258,7 +258,7 @@ docslight convert-parse-json INPUT [OPTIONS]
 | 参数 | 可选值 / 默认值 | 说明 |
 | ---- | --------------- | ---- |
 | `--output`、`-o` | 文件路径 | 将输出写入文件；不指定时输出到标准输出。 |
-| `--format` | `markdown`、`json`、`standard-json`、`zip`；默认 `markdown` | 解析输出格式。若省略且 `--output` 以 `.zip` 结尾，会自动推断为 `zip`。 |
+| `--format` | `markdown`、`json`、`standard-json`、`zip`；默认 `markdown` | 解析输出格式。若省略 `--output` 且以 `.zip` 结尾，会自动推断为 `zip`。 |
 
 `markdown` 输出解析后的 Markdown；`json` 输出 SDK 解析结果；`standard-json` 输出标准解析 JSON schema；`zip` 输出原始解析归档，通常应配合 `--output` 使用。
 
