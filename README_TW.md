@@ -50,7 +50,6 @@
 
 <img title="" src="Images/demo.gif" alt="DocSlight Demo" width="720">
 
----
 
 ## 快速開始
 
@@ -98,7 +97,6 @@ docker compose -f docker/docker-compose.yml up
 
 以上功能均可於 [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_tw) 上體驗使用，→ [體驗地址](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_tw)
 
----
 
 ## 產品版本對比
 
@@ -137,7 +135,6 @@ docker compose -f docker/docker-compose.yml up
 | 私有化部署                             | 僅限地端               | ❌                  | ❌                          | ✅                           |
 | 專用 GPU                            | ❌                  | ❌                  | 可選                         | ✅                           |
 
----
 
 ## 輸入/輸出格式矩陣
 
@@ -152,7 +149,6 @@ docker compose -f docker/docker-compose.yml up
 
 `docslight convert-parse-json` 接收地端解析 JSON 物件，並輸出標準解析 JSON schema；它不直接處理原始文件檔案。
 
----
 
 ## 安裝與首次執行
 
@@ -164,7 +160,6 @@ pip install "docslight"
 
 雲端模式需要網路存取和有效的 ComPDF Cloud API Key。地端模式預設使用 CPU；OCR 和 LLM 耗時取決於文件大小、硬體效能和所選模型。
 
----
 
 ## 使用場景
 
@@ -183,7 +178,6 @@ pip install "docslight"
 - [`local_extract_openai_compatible.py`](docslight_lite/examples/local_extract_openai_compatible.py)
 - [`path_examples.py`](docslight_lite/examples/path_examples.py)
 
----
 
 ## 使用方式
 
@@ -242,7 +236,7 @@ docslight extract INPUT [OPTIONS]
 docslight convert-parse-json INPUT [OPTIONS]
 ```
 
-#### parse / extract 通用參數
+#### parse/extract 通用參數
 
 | 參數 | 可選值 / 預設值 | 說明 |
 | ---- | --------------- | ---- |
@@ -254,7 +248,7 @@ docslight convert-parse-json INPUT [OPTIONS]
 | `--local-llm-provider` | `ollama`、`openai`、`openai-compatible`；使用任一地端 LLM 參數時預設 `ollama` | 地端結構化擷取使用的 LLM 提供商。 |
 | `--local-llm-model` | 字串 | 地端結構化擷取使用的模型；地端 LLM 擷取時必填。 |
 | `--local-llm-base-url` | URL | 地端 LLM 端點。Ollama 預設 `http://localhost:11434`；OpenAI-compatible 提供商必須指定。 |
-| `--local-llm-api-key` | 字串 | 地端 LLM API 金鑰。Ollama 預設 `ollama`。 |
+| `--local-llm-api-key` | 字串 | 地端 LLM API 金鑰。Ollama 預設為 `ollama`。 |
 
 #### parse 參數
 
@@ -296,7 +290,7 @@ docslight convert-parse-json INPUT [OPTIONS]
 | `COMPDF_API_KEY` | 雲端模式 API 金鑰。 |
 | `DOCSLIGHT_MODE` | 處理模式：`cloud` 或 `local`，預設 `cloud`。 |
 | `DOCSLIGHT_BASE_URL` | 雲端 API 基礎 URL，預設 `https://api-server.compdf.com`。 |
-| `DOCSLIGHT_TIMEOUT` | 雲端請求逾時時間，單位秒，預設 `30`。 |
+| `DOCSLIGHT_TIMEOUT` | 雲端請求逾時時間，單位：秒，預設 `30`。 |
 | `DOCSLIGHT_LOCAL_PARSER` | 地端解析器選擇器。 |
 
 DocSlight 也會讀取 `~/.docslight/config.toml`。設定優先順序為：內建預設值、設定檔、環境變數、明確傳入的 SDK 或 CLI 參數。
@@ -348,7 +342,6 @@ docker compose -f docker/docker-compose.yml up
 | 多語言 OCR     | ✅         | ⚠️     | ⚠️              | ❌              |
 | 商業支援        | ✅         | ❌      | ❌               | ❌              |
 
----
 
 ## 架構
 
@@ -436,7 +429,6 @@ docker compose -f docker/docker-compose.yml up
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
----
 
 ## 專為 AI Agent 與 RAG 打造
 
@@ -479,7 +471,6 @@ LLM / AI Agent
 答案與自動化
 ```
 
----
 
 ## 基準測試
 
@@ -501,7 +492,7 @@ LLM / AI Agent
 
 > **方法說明：** 基於人工標註的真實資料，以字元級準確率衡量。測試集涵蓋 500+ 份企業文件，包括發票、合約、表格與報告。資料集可於 [benchmarks/dataset](https://github.com/opendatalab/OmniDocBench) 取得。
 
----
+
 
 ## 安裝套件說明
 
@@ -513,13 +504,13 @@ LLM / AI Agent
 pip install "docslight"
 ```
 
----
+
 
 ## 支援
 
 有建議？[發起討論](https://github.com/ComPDF/docslight/discussions)。如果你覺得 DocSlight 有幫助，歡迎在 GitHub 上給我們一個 ⭐ **Star**，這能幫助我們成長與改進。
 
----
+
 
 ## 授權條款
 
@@ -527,7 +518,7 @@ DocSlight 採用 [LGPL](LICENSE) 開源授權發布。
 
 商業 / 企業授權（支援 GPU 私有化部署）可在 [compdf.com](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_tw) 取得。
 
----
+
 
 <p align="center">
   <b>由 ComPDF 團隊打造。</b><br>
