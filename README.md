@@ -10,7 +10,7 @@ With [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docsli
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/license-GNU--LGPL--v3-green" alt="License"></a>
   <a href="#"><img src="https://img.shields.io/badge/python-3.10--3.13-blue" alt="Python"></a>
-  <a href="#"><img src="https://img.shields.io/github/stars/compdfkit/docslight" alt="GitHub Stars" style="max-width: 100%;"></a>
+  <a href="#"><img src="https://img.shields.io/github/stars/compdf/docslight" alt="GitHub Stars" style="max-width: 100%;"></a>
   <a href="#"><img src="https://img.shields.io/pypi/v/docslight" alt="PyPI"></a>
   <a href="#"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs Welcome"></a>
 </p>
