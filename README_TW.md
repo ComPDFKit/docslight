@@ -2,7 +2,7 @@
 
 # DocSlight - 開源文件解析與文件資料提取引擎
 
-使用 [DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_tw)，精準解析並擷取任意文件中的資料，包括 PDF、掃描檔、圖片和 Office 文件。這是來自 ComPDF（KDAN 生態系統）的開源 AI 專案。
+作為 KDAN 生態系的一部分，[DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen_tw&utm_medium=referral&utm_campaign=github_ai_docslight_newopen_tw&ref_platform_id=github_compdf) 提供文件解析、OCR 與資料擷取能力，可將 PDF、掃描檔、圖片和 Office 文件轉化為適用於 RAG、AI Agent 與企業文件自動化的結構化輸出。
 
 > - 如果你覺得 DocSlight 有幫助，歡迎在 GitHub 上給我們一個 ⭐ **Star**，這能幫助我們成長與改進。
 > - 有問題或想法？歡迎加入我們的 [Discussions](https://github.com/ComPDF/docslight/discussions) 參與討論。
