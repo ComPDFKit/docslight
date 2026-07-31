@@ -151,7 +151,7 @@ All features above come with [ComPDF](https://www.compdf.com/?utm_source=github
 
 `docslight convert-parse-json` accepts a local parse JSON object and writes the standard parse JSON schema. It does not process original document files.
 
----
+
 
 ## Installation And First Run
 
@@ -163,7 +163,7 @@ pip install "docslight"
 
 Cloud mode requires network access and a valid ComPDF Cloud API key. Local mode runs on CPU by default; OCR and LLM latency depends on document size, hardware, and the selected model.
 
----
+
 
 ## Use Cases
 
@@ -345,7 +345,7 @@ docker compose -f docker/docker-compose.yml up
 | Multi-language OCR    | ✅         | ⚠️     | ⚠️              | ❌              |
 | Commercial Support    | ✅         | ❌      | ❌               | ❌              |
 
----
+
 
 ## Architecture
 
