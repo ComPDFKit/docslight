@@ -1,16 +1,18 @@
+![ComPDF Solutions](Images/ComPDF-Comprehensive%20PDF%20Solutions.png)
+
 [English](README.md) | [繁體中文](README_TW.md) | [简体中文](README_CN.md)
 
 # DocSlight - 开源文档解析与文档数据提取引擎
 
-作为 KDAN 生态的一部分，[DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_newopen_cn&utm_medium=referral&utm_campaign=github_ai_docslight_newopen_cn&ref_platform_id=github_compdf) 提供文档解析、OCR 与数据提取能力，可将 PDF、扫描件、图片和 Office 文件转化为适用于 RAG、AI Agent 与企业文档自动化的结构化数据。
+作为 KDAN 生态的一部分，[DocSlight](https://www.compdf.com/ai/docslight?utm_source=github_ai_docslight_oldopen_cn&utm_medium=referral&utm_campaign=github_ai_docslight_oldopen_cn&ref_platform_id=github_compdf) 提供文档解析、OCR 与数据提取能力，可将 PDF、扫描件、图片和 Office 文件转化为适用于 RAG、AI Agent 与企业文档自动化的结构化数据。
 
 > - 如果你觉得 DocSlight 有帮助，欢迎在 GitHub 上给我们一个 ⭐ **Star**——这能帮助我们成长和改进！
-> - 有问题或想法？欢迎加入我们的 [Discussions](https://github.com/ComPDF/docslight/discussions) 参与讨论。
+> - 有问题或想法？欢迎加入我们的 [Discussions](https://github.com/ComPDFKit/docslight/discussions) 参与讨论。
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/license-GNU--LGPL--v3-green" alt="License"></a>
   <a href="#"><img src="https://img.shields.io/badge/python-3.10--3.13-blue" alt="Python"></a>
-  <a href="#"><img src="https://img.shields.io/github/stars/compdf/docslight" alt="GitHub Stars" style="max-width: 100%;"></a>
+  <a href="#"><img src="https://img.shields.io/github/stars/ComPDFKit/docslight" alt="GitHub Stars" style="max-width: 100%;"></a>
   <a href="#"><img src="https://img.shields.io/pypi/v/docslight" alt="PyPI"></a>
   <a href="#"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs Welcome"></a>
 </p>
@@ -21,7 +23,7 @@
   <a href="#使用方式"><b>使用方式</b></a> •
   <a href="#效果测试与竞品对比"><b>效果测试与竞品对比</b></a> •
   <a href="https://compdf.com" target="_blank"><b>Cloud API →</b></a> •
-  <a href="https://www.compdf.com/zh-cn/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn" target="_blank"><b>文档</b></a>
+  <a href="https://www.compdf.com/zh-cn/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn" target="_blank"><b>文档</b></a>
 </p>
 
 ## 为什么选择 DocSlight？
@@ -66,7 +68,7 @@ export COMPDF_API_KEY="your_public_key"    # 前往 https://compdf.com 获取
 docslight parse invoice.pdf --mode cloud --output invoice.md
 ```
 
-**获取API Key：** [登录 ComPDF 控制台](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)。 在 API 密钥页面创建或复制您的 publicKey。
+**获取API Key：** [登录 ComPDF 控制台](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)。 在 API 密钥页面创建或复制您的 publicKey。
 
 ![get-license-cn](Images/get-license-cn.png)
 
@@ -95,13 +97,13 @@ cd docslight
 docker compose -f docker/docker-compose.yml up
 # 打开 http://localhost:3022 → 拖拽文件即可
 ```
-以上功能均可在 [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn) 上体验使用，→[体验地址](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)
+以上功能均可在 [ComPDF](https://www.compdf.com/?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn) 上体验使用，→[体验地址](https://www.compdf.com/demo/idp/document-parsing?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)
 
 
 
 ## 产品版本对比
 
-> 需要工作流自动化、RBAC、审计日志、私有部署或专属支持？ **了解企业版：** [https://www.compdf.com/ai/docslight](https://www.compdf.com/ai/docslight??utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)
+> 需要工作流自动化、RBAC、审计日志、私有部署或专属支持？ **了解企业版：** [https://www.compdf.com/ai/docslight](https://www.compdf.com/ai/docslight??utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn)
 
 | 功能特性                              | DocSlight Lite（本地） | DocSlight-Lite（云端） | DocSlight Enterprise（SaaS） | DocSlight Enterprise（私有化部署） |
 | --------------------------------- |:------------------:|:------------------:|:--------------------------:|:---------------------------:|
@@ -507,19 +509,19 @@ pip install "docslight"
 
 ## 支持
 
-有建议？立即[发起讨论](https://github.com/ComPDF/docslight/discussions)。如果你觉得 DocSlight 有帮助，欢迎在 GitHub 上给我们一个 ⭐ **Star**——这能帮助我们成长和改进！
+有建议？立即[发起讨论](https://github.com/ComPDFKit/docslight/discussions)。如果你觉得 DocSlight 有帮助，欢迎在 GitHub 上给我们一个 ⭐ **Star**——这能帮助我们成长和改进！
 
 
 ## 📄 许可证
 
 DocSlight 采用 [LGPL](LICENSE) 开源协议发布。
 
-商业 / 企业许可证（支持 GPU 私有化部署）可在 [compdf.com](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn) 获取。
+商业 / 企业许可证（支持 GPU 私有化部署）可在 [compdf.com](https://www.compdf.com/compdf-portal/signin?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn) 获取。
 
 
 <p align="center">
   <b>由 ComPDF 团队打造。</b><br>
-  <a href="https://compdf.com?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn">官网</a> ·
-  <a href="https://www.compdf.com/zh-cn/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn">文档</a> ·
-  <a href="https://www.compdf.com/contact-sales?utm_source=github_ai_docslight_newopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn">企业咨询</a>
+  <a href="https://compdf.com?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn">官网</a> ·
+  <a href="https://www.compdf.com/zh-cn/guides/api-reference/v2/ai/overview?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn">文档</a> ·
+  <a href="https://www.compdf.com/contact-sales?utm_source=github_ai_docslight_oldopen&utm_medium=referral&utm_campaign=ai_docslight_open&ref_platform_id=github_compdf_cn">企业咨询</a>
 </p>
