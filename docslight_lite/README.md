@@ -23,8 +23,10 @@ print(result.to_markdown())
 ## Quick Start
 
 ```bash
-pip install docslight
+python3 -m pip install docslight
 ```
+
+Use a supported Python 3 interpreter. `python3 -m pip` avoids a `pip` wrapper tied to another or removed Python. If using `pip3`, check `pip3 --version` first. See the [virtual-environment and Windows installation examples](https://github.com/ComPDFKit/docslight#installation-and-first-run).
 
 Parse any document:
 
@@ -77,7 +79,7 @@ python -m docslight.web_app --host 0.0.0.0 --port 8000 --debug
 DocSlight supports Python 3.10 through 3.13.
 
 ```bash
-pip install "docslight"
+python3 -m pip install "docslight"
 ```
 
 Cloud mode requires network access and a valid ComPDF Cloud API key. Local mode runs on CPU by default; OCR and LLM latency depends on document size, hardware, and the selected model.
@@ -317,7 +319,7 @@ The CLI exposes the main local LLM settings as flags. Advanced local LLM provide
 ## Development
 
 ```bash
-pip install -e ".[dev]"
+python3 -m pip install -e ".[dev]"
 ruff check .
 mypy docslight
 pytest
