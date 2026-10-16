@@ -341,6 +341,33 @@ timeout = 120
 
 CLI 暴露了主要的本地 LLM 设置。`extra_body` 等高级本地 LLM 提供商设置可通过 SDK 或 `~/.docslight/config.toml` 配置。
 
+#### 云端处理时间与超时
+
+处理时间可能随文件大小、页数、扫描或复杂内容、网络状况和服务负载变化。有效文件也可能超过默认等待时间；这里不承诺固定的每页处理速度。
+
+标准 DocSlight/CLI 配置默认对每次 HTTP 请求设置 30 秒超时。上传/处理请求和后续结果下载各自使用该值。Requests 将单个数值用于连接/读取等待，它不是整份文档的总处理截止时间。调大该值只延长客户端等待，不会提升处理速度，也不会改变服务端或网关限制。
+
+例如，在启动 CLI 前设置正数超时（120 仅为示例，不保证文件在该时间内完成）：
+
+```bash
+export DOCSLIGHT_TIMEOUT=120
+docslight parse invoice.pdf --mode cloud --api-key "$COMPDF_API_KEY" --output invoice.md
+```
+
+PowerShell 使用 `$env:DOCSLIGHT_TIMEOUT = "120"`，并通过 `--api-key $env:COMPDF_API_KEY` 传入密钥。示例显式传入快速开始中的密钥变量，不依赖环境变量别名。
+
+Python SDK 可显式向 `DocSlight` 传入 `timeout`：
+
+```python
+import os
+from docslight import DocSlight
+
+client = DocSlight(mode="cloud", api_key=os.environ["COMPDF_API_KEY"], timeout=120)
+result = client.parse("invoice.pdf")
+```
+
+也可使用已有的 `~/.docslight/config.toml` 配置。优先级为默认值、配置文件、环境变量、显式 SDK 参数。客户端超时不代表服务端已停止处理，重复提交前应先确认请求结果。调大超时不能解决路径错误、认证失败或服务端错误；反馈问题时记录脱敏错误、文件大小/页数及耗时。
+
 ### Docker
 
 ```bash

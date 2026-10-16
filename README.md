@@ -340,6 +340,33 @@ timeout = 120
 
 The CLI exposes the main local LLM settings as flags. Advanced local LLM provider settings such as `extra_body` are available through the SDK or `~/.docslight/config.toml`.
 
+#### Cloud processing time and timeouts
+
+Processing time can vary with file size, page count, scanned or complex content, network conditions, and service load. A valid file may take longer than the default wait; no fixed seconds-per-page rate is implied.
+
+The standard DocSlight/CLI configuration defaults to 30 seconds per HTTP request. The upload/processing request and any result download each receive this value. Requests applies the scalar to connection/read waiting; it is not an overall document-processing deadline. Increasing it changes how long the client waits, not processing speed or server/gateway limits.
+
+For example, set a positive timeout before starting the CLI (120 is an example, not a completion guarantee):
+
+```bash
+export DOCSLIGHT_TIMEOUT=120
+docslight parse invoice.pdf --mode cloud --api-key "$COMPDF_API_KEY" --output invoice.md
+```
+
+In PowerShell use `$env:DOCSLIGHT_TIMEOUT = "120"` and pass the key with `--api-key $env:COMPDF_API_KEY`. The examples pass the existing quick-start key explicitly, rather than relying on an environment-variable alias.
+
+For the SDK, pass `timeout` explicitly to `DocSlight`:
+
+```python
+import os
+from docslight import DocSlight
+
+client = DocSlight(mode="cloud", api_key=os.environ["COMPDF_API_KEY"], timeout=120)
+result = client.parse("invoice.pdf")
+```
+
+The existing `~/.docslight/config.toml` setting is also available. Precedence is defaults, config file, environment, then explicit SDK arguments. A timeout alone does not prove that the server stopped processing; check the request outcome before repeating a submission. Changing the timeout does not fix an invalid path, authentication failure, or a server error. Record a redacted error, document size/page count, and elapsed time when asking for support.
+
 ### Docker
 
 ```bash

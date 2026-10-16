@@ -338,6 +338,33 @@ timeout = 120
 
 CLI 提供主要的地端 LLM 設定。`extra_body` 等進階地端 LLM 供應商設定，可透過 SDK 或 ~/.docslight/config.toml 設定。
 
+#### 雲端處理時間與逾時
+
+處理時間可能隨檔案大小、頁數、掃描或複雜內容、網路狀況與服務負載變化。有效檔案也可能超過預設等待時間；此處不承諾固定的每頁處理速度。
+
+標準 DocSlight/CLI 設定預設對每次 HTTP 請求設定30秒逾時。上傳/處理請求與後續結果下載各自使用該值。Requests 將單一數值用於連線/讀取等待，它不是整份文件的總處理截止時間。提高此值只延長用戶端等待，不會提升處理速度，也不會改變伺服器或閘道限制。
+
+例如，在啟動 CLI 前設定正數逾時（120僅為範例，不保證檔案於該時間內完成）：
+
+```bash
+export DOCSLIGHT_TIMEOUT=120
+docslight parse invoice.pdf --mode cloud --api-key "$COMPDF_API_KEY" --output invoice.md
+```
+
+PowerShell 使用 `$env:DOCSLIGHT_TIMEOUT = "120"`，並透過 `--api-key $env:COMPDF_API_KEY` 傳入金鑰。範例明確傳入快速開始的金鑰變數，不依賴環境變數別名。
+
+Python SDK 可明確向 `DocSlight` 傳入 `timeout`：
+
+```python
+import os
+from docslight import DocSlight
+
+client = DocSlight(mode="cloud", api_key=os.environ["COMPDF_API_KEY"], timeout=120)
+result = client.parse("invoice.pdf")
+```
+
+也可使用既有的 `~/.docslight/config.toml` 設定。優先順序為預設值、設定檔、環境變數、明確的 SDK 參數。用戶端逾時不代表伺服器已停止處理，重複提交前應先確認請求結果。提高逾時不能解決路徑錯誤、驗證失敗或伺服器錯誤；回報時記錄已遮蔽敏感資訊的錯誤、檔案大小/頁數與耗時。
+
 ### Docker
 
 ```bash
