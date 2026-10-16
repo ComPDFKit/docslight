@@ -59,7 +59,7 @@
 
 ```bash
 # 1. 安裝
-pip install docslight
+python3 -m pip install docslight
 
 # 2. 設定 API Key
 export COMPDF_API_KEY="your_public_key"    # 前往 https://compdf.com 取得
@@ -76,7 +76,7 @@ docslight parse invoice.pdf --mode cloud --output invoice.md
 
 ```bash
 # 1. 安裝
-pip install docslight
+python3 -m pip install docslight
 
 # 2. 解析文件
 docslight parse invoice.pdf --mode local --output invoice.md
@@ -157,8 +157,32 @@ docker compose -f docker/docker-compose.yml up
 DocSlight 支援 Python 3.10 到 3.13。
 
 ```bash
-pip install "docslight"
+python3 -m pip install "docslight"
 ```
+
+#### 選擇 Python 與對應的安裝工具
+
+在 macOS/Linux 上，`pip` 可能屬於另一個 Python，或指向已移除的 Python 2。先檢查 `python3 --version`，再用 `python3 -m pip`，讓安裝工具與所選受支援的直譯器保持一致。若使用 `pip3 install docslight`，先透過 `pip3 --version` 確認它使用相同的 Python。
+
+建議使用虛擬環境：
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip --version
+python -m pip install docslight
+docslight --help
+```
+
+Windows PowerShell 範例使用已安裝且受支援的 Python 3.12，不需更改指令碼執行原則：
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install docslight
+.\.venv\Scripts\docslight.exe --help
+```
+
+遇到 `bad interpreter` 時，不再呼叫失效的 pip 包裝指令。若顯示 `No module named pip`，請依所選 Python 發行版說明安裝 pip/venv 支援；提供 ensurepip 的發行版可用 `python3 -m ensurepip --upgrade`。遇到 externally managed environment 時，使用虛擬環境，不繞過系統保護。
 
 雲端模式需要網路連線及有效的 ComPDF Cloud API Key。地端模式預設使用 CPU；OCR 與 LLM 的處理時間會依文件大小、硬體效能及所選模型而異。
 
@@ -502,7 +526,7 @@ LLM / AI Agent
 | `docslight`    | 核心 CLI + Python SDK |
 
 ```bash
-pip install "docslight"
+python3 -m pip install "docslight"
 ```
 
 

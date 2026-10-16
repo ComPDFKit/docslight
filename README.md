@@ -59,7 +59,7 @@ Whether you're building a personal RAG project or a large-scale enterprise docum
 
 ```bash
 # 1. Install
-pip install docslight
+python3 -m pip install docslight
 
 # 2. Set your API key
 export COMPDF_API_KEY="your_public_key"    # Get one at https://compdf.com
@@ -76,7 +76,7 @@ docslight parse invoice.pdf --mode cloud --output invoice.md
 
 ```bash
 # 1. Install
-pip install docslight
+python3 -m pip install docslight
 
 # 2. Parse a document
 docslight parse invoice.pdf --mode local --output invoice.md
@@ -158,8 +158,32 @@ All features above come with [ComPDF](https://www.compdf.com/?utm_source=github
 DocSlight supports Python 3.10 through 3.13.
 
 ```bash
-pip install "docslight"
+python3 -m pip install "docslight"
 ```
+
+#### Select Python and its installer
+
+On macOS/Linux, `pip` can belong to another Python or a removed Python 2 installation. Check `python3 --version` and use `python3 -m pip` to bind the installer to the selected supported interpreter. If you prefer `pip3 install docslight`, first confirm with `pip3 --version` that it uses the same Python.
+
+Prefer a virtual environment:
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip --version
+python -m pip install docslight
+docslight --help
+```
+
+Windows PowerShell example using an installed supported Python 3.12; no execution-policy change is required:
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install docslight
+.\.venv\Scripts\docslight.exe --help
+```
+
+For `bad interpreter`, stop using the stale pip wrapper. For `No module named pip`, install pip/venv support using your Python distribution instructions; distributions with ensurepip can use `python3 -m ensurepip --upgrade`. Use a virtual environment rather than bypassing an externally managed environment.
 
 Cloud mode requires network access and a valid ComPDF Cloud API key. Local mode runs on CPU by default; OCR and LLM latency depends on document size, hardware, and the selected model.
 
@@ -519,7 +543,7 @@ Answers & Automation
 | `docslight`   | Core CLI + Python SDK |
 
 ```bash
-pip install "docslight"
+python3 -m pip install "docslight"
 ```
 
 
